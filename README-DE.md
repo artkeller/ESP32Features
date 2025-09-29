@@ -360,17 +360,17 @@ Diese Kombinationen erweitern die Einzelstärken zu robusten Systemen, besonders
 
 ## Referenzen & Weiterführendes
 
-- [ESP32 Series Datasheet](#) (Version 4.3, abgerufen September 2025)
-- [ESP32-S2 Series Datasheet](#) (Version 1.4, abgerufen September 2025)
-- [ESP32-S3 Series Datasheet](#) (Version 1.3, abgerufen September 2025)
-- [ESP32-C3 Series Datasheet](#)(Version 1.2, abgerufen September 2025)
-- [ESP32-C2 Technical Reference Manual](#) (Version 1.0, abgerufen September 2025, Hinweis: Kein vollständiges Datasheet verfügbar, basierend auf Moduldaten wie ESP8684)
-- [ESP32-C5 Series Datasheet](#) (Version 1.0, abgerufen September 2025)
-- [ESP32-C6 Series Datasheet](#) (Version 1.1, abgerufen September 2025)
-- [ESP32-H2 Series Datasheet](#) (Version 1.1, abgerufen September 2025)
-- [ESP32-P4 Series Datasheet](#) (Version 0.7, abgerufen September 2025)
-- [Espressif Product Selector](#) (abgerufen September 2025)-
-- [ESP32 Module Reference (WROOM/WROVER)](#) (Version 2.0, abgerufen September 2025)
+- [ESP32 Series Datasheet](#https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf) (Version 4.3, abgerufen September 2025)
+- [ESP32-S2 Series Datasheet](#https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf) (Version 1.4, abgerufen September 2025)
+- [ESP32-S3 Series Datasheet](#https://www.espressif.com/sites/default/files/documentation/esp32-s3_datasheet_en.pdf) (Version 1.3, abgerufen September 2025)
+- [ESP32-C3 Series Datasheet](#https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf)(Version 1.2, abgerufen September 2025)
+- [ESP32-C2 Technical Reference Manual](#https://www.espressif.com/sites/default/files/documentation/esp32-c2_technical_reference_manual_en.pdf) (Version 1.0, abgerufen September 2025, Hinweis: Kein vollständiges Datasheet verfügbar, basierend auf Moduldaten wie ESP8684)
+- [ESP32-C5 Series Datasheet](#https://www.espressif.com/sites/default/files/documentation/esp32-c5_datasheet_en.pdf) (Version 1.0, abgerufen September 2025)
+- [ESP32-C6 Series Datasheet](#https://www.espressif.com/sites/default/files/documentation/esp32-c6_datasheet_en.pdf) (Version 1.1, abgerufen September 2025)
+- [ESP32-H2 Series Datasheet](#https://www.espressif.com/sites/default/files/documentation/esp32-h2_datasheet_en.pdf) (Version 1.1, abgerufen September 2025)
+- [ESP32-P4 Series Datasheet](#https://www.espressif.com/sites/default/files/documentation/esp32-p4_datasheet_en.pdf) (Version 0.7, abgerufen September 2025)
+- [Espressif Product Selector](#https://www.espressif.com/en/products/socs) (abgerufen September 2025)-
+- [ESP32 Module Reference (WROOM/WROVER)](#https://www.espressif.com/sites/default/files/documentation/esp32-wroom-32e_wroom-32ue_datasheet_en.pdf) (Version 2.0, abgerufen September 2025)
 - ESP-IDF: Für Entwicklung mit allen Modellen.
 
 Beitrag: Pull Requests willkommen! Star & Fork für Updates.
