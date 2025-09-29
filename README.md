@@ -48,7 +48,7 @@
 
 ## Deep sleep
 
-### Dtails
+### Details
 
 Alle ESP32-Modelle (ESP32, S2, S3, C3, C2, C5, C6, P4) unterstützen Deep-Sleep-Modus, und in den meisten Fällen sind speziellen Speicher (RTC SRAM oder vergleichbar) nutzbar, um Daten währened des Deep-Sleeps zu sichern. Allerdings gibt es Unterschiede in der Architektur (RTC SRAM, LP SRAM, oder andere Mechanismen), die beeinflussen, wie und welcher Speicher für diesen Zweck genutzt wird. 
 
