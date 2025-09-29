@@ -17,7 +17,7 @@
 - [Anwendungsbewertung](#anwendungsbewertung)
 
 
-## Uebersicht der wichtigsten Eigenschaften
+## Übersicht der wichtigsten Eigenschaften
 
 | Modell     | Architektur (Kerne, Clock min/max, LP/ULP) | Embedded SRAM | Embedded Flash/PSRAM-Optionen (Kombos) | Max PSRAM (embedded/external, Future) | Max Flash (embedded/external, Future) | Radio (Varianten)                          | Interfaces (Auswahl: Anzahl, Typ) |
 |------------|--------------------------------------------|---------------|----------------------------------------|---------------------------------------|---------------------------------------|--------------------------------------------|-----------------------------------|
