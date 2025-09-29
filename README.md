@@ -37,7 +37,7 @@ Alle ESP32-Modelle (ESP32, S2, S3, C3, C2, C5, C6, P4) unterstützen Deep-Sleep-
 
 ### Übersicht: Deep-Sleep und Speicher zum Sichern von Daten
 
-Deep-Sleep-Modus: Alle Modelle können in Deep-Sleep gehen, wodurch der Hauptprozessor (HP-Core) und die meisten Peripherien abgeschaltet werden, um Strom zu sparen. Bestimmte Speicherbereiche bleiben aktiv, um Daten zu sichern oder einfache Aufgaben auszuführen.
+**Deep-Sleep-Modus:** Alle Modelle können in Deep-Sleep gehen, wodurch der Hauptprozessor (HP-Core) und die meisten Peripherien abgeschaltet werden, um Strom zu sparen. Bestimmte Speicherbereiche bleiben aktiv, um Daten zu sichern oder einfache Aufgaben auszuführen.
 
 **RTC SRAM**: In Modellen ohne dedizierten LP-Core (ESP32, S2, S3, teilweise C3) ist der RTC SRAM der Hauptspeicher, der im Deep-Sleep aktiv bleibt, um Daten zu sichern oder ULP-Co-Prozessor-Code auszuführen.
 
