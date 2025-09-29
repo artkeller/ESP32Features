@@ -160,7 +160,7 @@ Alle ESP32-Modelle (ESP32, S2, S3, C3, C2, C5, C6, P4) unterstützen Deep-Sleep-
 
 Basierend auf den offiziellen Espressif-Datasheets (Stand September 2025) und den gesammelten Details aus den Quellen wird jedes ESP32-Modell hinsichtlich seiner Vor- und Nachteile analysiert. Der Fokus liegt auf der **Schwerpunkt-Nutzbarkeit**, d.h. wie die Ausstattung (Architektur, Memory, Radios, Interfaces, Power) das Modell für bestimmte Anwendungsbereiche optimiert. Die Bewertung berücksichtigt Faktoren wie Leistung, Energieeffizienz, Kosten, Kompatibilität (z.B. RISC-V vs. Xtensa), Wireless-Optionen und Peripherie. Modelle mit RISC-V sind zukunftsorientiert (besser für Open-Source), während Xtensa etabliert ist. Neuere Modelle (C-Serie, H2, P4) betonen Low-Power und Multi-Protocol (z.B. Matter), ältere (Classic, S2, S3) sind allgemeiner, aber verbrauchsintensiver.
 
-#### ESP32 (Classic)
+#### ESP32
 - **Schwerpunkt**: Allrounder für drahtlose Netzwerke und Legacy-Anwendungen; stark in Wi-Fi + BT Classic/LE-Kombinationen mit Ethernet/CAN.
 - **Vorteile**: Dual-Core Xtensa für parallele Tasks (z.B. Wi-Fi + BT), etablierte Ökosystem (viel Code verfügbar), Ethernet MAC und TWAI (CAN) für industrielle Netzwerke, günstig und robust, ULP-Co-Proc für einfache Low-Power-Tasks.
 - **Nachteile**: Höherer Stromverbrauch (Deep-Sleep ~10 μA, Active >100 mA), Xtensa-Architektur weniger zukunftsweisend (weniger Open-Source-Tools), kein Wi-Fi 6/BT 5, begrenzte Memory-Optionen (max 4 MB embedded Flash), veraltet (NRND für einige Varianten), kein dedizierter LP-Core.
