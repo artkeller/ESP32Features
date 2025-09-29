@@ -1,6 +1,31 @@
 # ESP32Features
 Übersichtstabelle mit den aktuellen ESP32-Modellen basierend auf den offiziellen Espressif-Datasheets (Stand September 2025)
 
+- [Übersichtstabelle](#übersichtstabelle)
+  - [ESP32](#esp32)
+  - [ESP32-S2](#esp32-s2)
+  - [ESP32-S3](#esp32-s3)
+  - [ESP32-C3](#esp32-c3)
+  - [ESP32-C2](#esp32-c2)
+  - [ESP32-C5](#esp32-c5)
+  - [ESP32-C6](#esp32-c6)
+  - [ESP32-H2](#esp32-h2)
+  - [ESP32-P4](#esp32-p4)
+- [Deep-Sleep](#deep-sleep)
+  - [Details](#details)
+- [Referenzen](#referenzen)
+- [Vor-/Nachteile](#vor-nachteile)
+  - [ESP32](#esp32-1)
+  - [ESP32-S2](#esp32-s2-1)
+  - [ESP32-S3](#esp32-s3-1)
+  - [ESP32-C3](#esp32-c3-1)
+  - [ESP32-C2](#esp32-c2-1)
+  - [ESP32-C5](#esp32-c5-1)
+  - [ESP32-C6](#esp32-c6-1)
+  - [ESP32-H2](#esp32-h2-1)
+  - [ESP32-P4](#esp32-p4-1)
+- [Anwendungsbewertung](#anwendungsbewertung)
+
 
 ## Übersicht der wichtigsten Eigenschaften
 
