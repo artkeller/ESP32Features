@@ -122,9 +122,7 @@ Alle ESP32-Modelle (ESP32, S2, S3, C3, C2, C5, C6, P4) unterstützen Deep-Sleep-
 - **Nutzung:** LP SRAM für Daten und Code des LP-Cores, ideal für anspruchsvolle Low-Power-Anwendungen (z. B. Bildverarbeitung, Sensor-Logik).
 - **Limit:** 32 KB ist großzügiger als bei C5/C6, keine wesentlichen Einschränkungen.
 
-
-
-## Zusammenfassung
+### Zusammenfassung
 
 - Alle ESP32-Modelle unterstützen Deep-Sleep.
 - RTC-Speicher (oder Äquivalent) zum Sichern von Daten bei allen Modellen
@@ -134,7 +132,7 @@ Alle ESP32-Modelle (ESP32, S2, S3, C3, C2, C5, C6, P4) unterstützen Deep-Sleep-
 - Unterschiede: Modelle mit ULP (ESP32, S2, S3) oder LP-Core (C5, C6, P4) bieten mehr Flexibilität, da sie im Deep-Sleep aktiv Code ausführen können. C3 und C2 sind eingeschränkt (nur Speicherung, keine Verarbeitung).
 - **C5, C6, P4** können zusätzlich den LP-Core nutzen, um **im Deep-Sleep** aktiv zu sein.
 
-### Gründliche Bewertung jedes Modells
+## Gründliche Bewertung jedes Modells
 
 Basierend auf den offiziellen Espressif-Datasheets (Stand September 2025) und den gesammelten Details aus den Quellen wird jedes ESP32-Modell hinsichtlich seiner Vor- und Nachteile analysiert. Der Fokus liegt auf der **Schwerpunkt-Nutzbarkeit**, d.h. wie die Ausstattung (Architektur, Memory, Radios, Interfaces, Power) das Modell für bestimmte Anwendungsbereiche optimiert. Die Bewertung berücksichtigt Faktoren wie Leistung, Energieeffizienz, Kosten, Kompatibilität (z.B. RISC-V vs. Xtensa), Wireless-Optionen und Peripherie. Modelle mit RISC-V sind zukunftsorientiert (besser für Open-Source), während Xtensa etabliert ist. Neuere Modelle (C-Serie, H2, P4) betonen Low-Power und Multi-Protocol (z.B. Matter), ältere (Classic, S2, S3) sind allgemeiner, aber verbrauchsintensiver.
 
