@@ -23,7 +23,8 @@
   - [ESP32-C6](#esp32-c6-1)
   - [ESP32-H2](#esp32-h2-1)
   - [ESP32-P4](#esp32-p4-1)
-- [Anwendungsbewertung](#anwendungsbewertung)
+- [Liste typischer Anwendungen](#liste-typischer-anwendungen)
+
 
 ## Übersicht der wichtigsten Eigenschaften
 
