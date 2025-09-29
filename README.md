@@ -25,9 +25,11 @@
 - ESP32-C2 Technical Reference Manual (Version 1.0, abgerufen September 2025, Hinweis: Kein vollständiges Datasheet verfügbar, basierend auf Moduldaten wie ESP8684)
 - ESP32-C5 Series Datasheet (Version 1.0, abgerufen September 2025)
 - ESP32-C6 Series Datasheet (Version 1.1, abgerufen September 2025)
+- ESP32-H2 Series Datasheet (Version 1.1, abgerufen September 2025)
 - ESP32-P4 Series Datasheet (Version 0.7, abgerufen September 2025)
 - Espressif Product Selector (abgerufen September 2025)-
 - ESP32 Module Reference (WROOM/WROVER) (Version 2.0, abgerufen September 2025)
+
 
 ## Deep sleep
 
@@ -41,7 +43,7 @@ Deep-Sleep-Modus: Alle Modelle können in Deep-Sleep gehen, wodurch der Hauptpro
 
 **LP SRAM**: In Modellen mit dediziertem LP-Core (C5, C6, P4) übernimmt der LP SRAM oft diese Rolle, da der LP-Core im Deep-Sleep aktiv bleiben kann und eigene Daten/Code speichert.
 
-**Spezialfälle:** C2 hat keinen dedizierten RTC SRAM oder LP SRAM, aber es gibt einen kleinen RTC-Bereich (nicht explizit spezifiziert), der ähnliche Funktionen bietet. C3 hat eingeschränkte Optionen.
+**Spezialfälle:** C2 hat keinen dedizierten RTC SRAM oder LP SRAM, aber es gibt einen kleinen RTC-Bereich (nicht explizit spezifiziert), der ähnliche Funktionen bietet. C3 hat eingeschränkte Optionen. H2 ist für ultra-niedrigen Verbrauch (7 μA Deep-Sleep) optimiert, mit LP SRAM für passive Speicherung.
 
 
 ### Modell-spezifische Details
@@ -100,6 +102,14 @@ Deep-Sleep-Modus: Alle Modelle können in Deep-Sleep gehen, wodurch der Hauptpro
 - **Speicher:** 16 KB LP SRAM für den LP-Core, bleibt im Deep-Sleep aktiv. Kein separater RTC SRAM.
 - **Nutzung:** Wie C5, LP SRAM für Daten/Code des LP-Cores, geeignet für komplexe Deep-Sleep-Aufgaben.
 - **Limit:** 16 KB LP SRAM, aber flexibler durch LP-Core.
+
+
+#### ESP32-H2: 
+
+- **Deep-Sleep:** Ja, unterstützt (optimiert für ultra-niedrigen Verbrauch, 7 μA).
+- **Speicher:** 4 KB LP SRAM, bleibt im Deep-Sleep aktiv. Kein separater RTC SRAM oder dedizierter LP-Core.
+- **Nutzung:** LP SRAM für passive Datenspeicherung (z. B. Zustandsvariablen, Sensor-Daten) im Deep-Sleep; LP-Peripherie (z. B. Timer, Sensoren) unterstützt einfache Aufgaben.
+- **Limit:** 4 KB LP SRAM ist klein; kein LP-Core, daher keine komplexe Verarbeitung im Deep-Sleep.
 
 
 #### ESP32-P4:
