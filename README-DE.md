@@ -8,7 +8,7 @@ Willkommen zu ESP32Features, einem  Leitfaden und Repository für die aktuelle E
 - **Aktuell & Quellenbasiert:** Basierend auf Espressif's Product Selector und Datasheets (z. B. ESP32-C5 in Massenproduktion seit 2025, ESP32-C6 mit PSA Level 2 Security-Zertifizierung).
 - **Für Entwickler:** Integriert mit ESP-IDF, Arduino und Tools für schnelle Prototyping – ideal für Smart Devices, AI-Edge und IIoT.
 
-Die Tabelle unten fasst die Kernfeatures zusammen. Für detaillierte Analysen siehe die Unterabschnitte: Deep-Sleep, Vor- und Nachteile, Anwendungen und Kombinationen.
+Die Tabelle unten fasst die Kernfeatures zusammen. Für detaillierte Analysen siehe die Unterabschnitte: [Deep-Sleep](#deep-sleep), [Vor- und Nachteile](#gründliche-bewertung-jedes-modells), [Anwendungen](#liste-typischer-anwendungen) und [Kombinationen](#sinnvolle-kombinationen-von-esp32-modellen).
 
 ## Übersichtstabelle der ESP32-Modelle
 
@@ -272,7 +272,7 @@ Die Tabelle bewertet die Eignung jedes Modells für die Anwendungen mit ++ (sehr
 | 34. Agricultural Sensor | + (Wi-Fi/BT + ADC) | + (Wi-Fi + ADC) | + (Wi-Fi/BT + ADC) | ++ (Wi-Fi/BT + Low-Power) | ++ (Wi-Fi/BT + Low-Power) | ++ (Multi-Protocol + ADC) | ++ (Wi-Fi 6 + ADC) | ++ (802.15.4/BT + ADC) | + (ADC, externe Radios) |
 | 35. Vending Machine Controller | ++ (Ethernet + Display) | ++ (USB + LCD/Touch) | ++ (SD + LCD/Touch) | + (SPI) | 0 (Minimal) | + (SDIO) | + (SDIO) | 0 (Kein SD) | ++ (SD/MMC + Ethernet) |
 
-### Sinnvolle Kombinationen von ESP32-Modellen
+## Sinnvolle Kombinationen von ESP32-Modellen
 
 Basierend auf den vorherigen Analysen (Architektur, Radios, Interfaces, Vor-/Nachteile und Anwendungen) wurden potenzielle Kombinationen identifiziert, die die Stärken der Modelle ergänzen. Zum Beispiel kompensiert ein Modell ohne Radios (z. B. P4) durch ein Wireless-Modell (z. B. C6), oder ein Low-Power-Modell (z. B. H2) erweitert ein High-Perf-Modell (z. B. S3). Die Konzentration liegt auf sinnvollen Paare/Trios (nicht alle möglichen, da z. B. Classic + S2 redundant wären), priorisiere Komplementarität (z. B. Processing + Connectivity). Für jede Kombination: Beschreibung, warum sinnvoll, und Anwendungen (einfache bis anspruchsvolle, inkl. Industrie 4.0 mit Fokus auf Edge-Computing, Predictive Maintenance, Secure Gateways und Multi-Protocol-Netzwerken).
 
