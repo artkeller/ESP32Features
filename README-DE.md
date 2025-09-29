@@ -124,13 +124,13 @@ Die Tabelle unten fasst die Kernfeatures zusammen. Für detaillierte Analysen si
 
 ### Zusammenfassung
 
-- Alle ESP32-Modelle unterstützen Deep-Sleep.
-- RTC-Speicher (oder Äquivalent) zum Sichern von Daten bei allen Modellen
+- **Alle** ESP32-Modelle unterstützen Deep-Sleep.
+- **RTC-Speicher** (oder Äquivalent) zum Sichern von Daten bei allen Modellen
 - **ESP32, S2, S3:** RTC SRAM (16 KB bei S2/S3, kleinerer Bereich beim klassischen ESP32) für Datenspeicherung, unterstützt durch ULP-Co-Procs.
 - **C3, C2:** Kleiner RTC-Bereich (nicht explizit spezifiziert, <8 KB), nur für statische Datenspeicherung, kein ULP/LP-Core.
-- **C5, C6, P4:** LP SRAM (16 KB bei C5/C6, 32 KB bei P4) für Datenspeicherung und LP-Core-Aufgaben, flexibler als RTC SRAM.
-- Unterschiede: Modelle mit ULP (ESP32, S2, S3) oder LP-Core (C5, C6, P4) bieten mehr Flexibilität, da sie im Deep-Sleep aktiv Code ausführen können. C3 und C2 sind eingeschränkt (nur Speicherung, keine Verarbeitung).
-- **C5, C6, P4** können zusätzlich den LP-Core nutzen, um **im Deep-Sleep** aktiv zu sein.
+- **C5, C6, H2, P4:** LP SRAM (16 KB bei C5/C6, 32 KB bei P4) für Datenspeicherung und LP-Core-Aufgaben, flexibler als RTC SRAM.
+- **Unterschiede:** Modelle mit ULP (ESP32, S2, S3) oder LP-Core (C5, C6, H2, P4) bieten mehr Flexibilität, da sie im Deep-Sleep aktiv Code ausführen können. C3 und C2 sind eingeschränkt (nur Speicherung, keine Verarbeitung).
+- **C5, C6, H2, P4** können zusätzlich den LP-Core nutzen, um **im Deep-Sleep** aktiv zu sein.
 
 ## Gründliche Bewertung jedes Modells
 
