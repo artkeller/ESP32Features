@@ -34,21 +34,6 @@ Die Tabelle unten fasst die Kernfeatures zusammen. Für detaillierte Analysen si
 - **Interfaces:** Wichtige Peripherie mit Anzahlen; fokussiert auf GPIOs, Wireless-Relevanz und Spezialfeatures (z. B. MIPI bei P4).
 - **Quellen:** Direkt aus Espressif-Datasheets; keine neuen Modelle jenseits der Liste (Stand 2025, z. B. C5 in Massenproduktion).
 
-## Referenzen
-
-- ESP32 Series Datasheet (Version 4.3, abgerufen September 2025)
-- ESP32-S2 Series Datasheet (Version 1.4, abgerufen September 2025)
-- ESP32-S3 Series Datasheet (Version 1.3, abgerufen September 2025)
-- ESP32-C3 Series Datasheet (Version 1.2, abgerufen September 2025)
-- ESP32-C2 Technical Reference Manual (Version 1.0, abgerufen September 2025, Hinweis: Kein vollständiges Datasheet verfügbar, basierend auf Moduldaten wie ESP8684)
-- ESP32-C5 Series Datasheet (Version 1.0, abgerufen September 2025)
-- ESP32-C6 Series Datasheet (Version 1.1, abgerufen September 2025)
-- ESP32-H2 Series Datasheet (Version 1.1, abgerufen September 2025)
-- ESP32-P4 Series Datasheet (Version 0.7, abgerufen September 2025)
-- Espressif Product Selector (abgerufen September 2025)-
-- ESP32 Module Reference (WROOM/WROVER) (Version 2.0, abgerufen September 2025)
-
-
 ## Deep sleep
 
 ### Details
@@ -376,3 +361,22 @@ Basierend auf den vorherigen Analysen (Architektur, Radios, Interfaces, Vor-/Nac
   - Anspruchsvoll (Industrie 4.0): Smart Factory Ecosystem (H2 für batteriebetriebene Worker-Tags, C5 für Wi-Fi 6-Netzwerk, P4 für Edge-AI und Ethernet-Integration; ermöglicht autonome Optimierung von Produktionslinien mit Human-Machine-Collaboration).
 
 Diese Kombinationen erweitern die Einzelstärken zu robusten Systemen, besonders in Industrie 4.0, wo Sicherheit, Skalierbarkeit und Echtzeit-Processing entscheidend sind. Für Implementierung: Verbinde via SPI/UART/I2C; ESP-IDF unterstützt Multi-Device-Setups.
+
+## Referenzen & Weiterführendes
+
+- ESP32 Series Datasheet (Version 4.3, abgerufen September 2025)
+- ESP32-S2 Series Datasheet (Version 1.4, abgerufen September 2025)
+- ESP32-S3 Series Datasheet (Version 1.3, abgerufen September 2025)
+- ESP32-C3 Series Datasheet (Version 1.2, abgerufen September 2025)
+- ESP32-C2 Technical Reference Manual (Version 1.0, abgerufen September 2025, Hinweis: Kein vollständiges Datasheet verfügbar, basierend auf Moduldaten wie ESP8684)
+- ESP32-C5 Series Datasheet (Version 1.0, abgerufen September 2025)
+- ESP32-C6 Series Datasheet (Version 1.1, abgerufen September 2025)
+- ESP32-H2 Series Datasheet (Version 1.1, abgerufen September 2025)
+- ESP32-P4 Series Datasheet (Version 0.7, abgerufen September 2025)
+- Espressif Product Selector (abgerufen September 2025)-
+- ESP32 Module Reference (WROOM/WROVER) (Version 2.0, abgerufen September 2025)
+- ESP-IDF: Für Entwicklung mit allen Modellen.
+
+- Beitrag: Pull Requests willkommen! Star & Fork für Updates.
+- Lizenz: MIT.
+  
