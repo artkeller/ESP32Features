@@ -41,7 +41,7 @@ Deep-Sleep-Modus: Alle Modelle können in Deep-Sleep gehen, wodurch der Hauptpro
 
 **RTC SRAM**: In Modellen ohne dedizierten LP-Core (ESP32, S2, S3, teilweise C3) ist der RTC SRAM der Hauptspeicher, der im Deep-Sleep aktiv bleibt, um Daten zu sichern oder ULP-Co-Prozessor-Code auszuführen.
 
-**LP SRAM**: In Modellen mit dediziertem LP-Core (C5, C6, P4) übernimmt der LP SRAM oft diese Rolle, da der LP-Core im Deep-Sleep aktiv bleiben kann und eigene Daten/Code speichert.
+**LP SRAM**: In Modellen mit dediziertem LP-Core (C5, C6, P4) übernimmt der LP SRAM oft diese Rolle, da der LP-Core im Deep-Sleep aktiv bleiben kann und eigene Daten/Code speichert. Beim H2 gibt es 4 KB LP SRAM, aber ohne LP-Core, nur für Datenspeicherung und LP-Peripherie.
 
 **Spezialfälle:** C2 hat keinen dedizierten RTC SRAM oder LP SRAM, aber es gibt einen kleinen RTC-Bereich (nicht explizit spezifiziert), der ähnliche Funktionen bietet. C3 hat eingeschränkte Optionen. H2 ist für ultra-niedrigen Verbrauch (7 μA Deep-Sleep) optimiert, mit LP SRAM für passive Speicherung.
 
