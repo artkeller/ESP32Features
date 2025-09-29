@@ -54,8 +54,8 @@ All ESP32 models (ESP32, S2, S3, C3, C2, C5, C6, P4) support deep sleep mode, an
 #### ESP32:
 
 - **Deep sleep:** Yes, supported.
-- **Memory: ** 520 KB SRAM, part of which (not separately specified as “RTC SRAM,” but approx. 8 KB in the RTC domain) remains active in deep sleep. The ULP co-processor (FSM-based) can access it to save data or perform simple tasks.
-- **Usage:* * Saving variables in the RTC memory area (via RTC memory API), e.g., status data, counters, or sensor values. The ULP can process this data.
+- **Memory:** 520 KB SRAM, part of which (not separately specified as “RTC SRAM,” but approx. 8 KB in the RTC domain) remains active in deep sleep. The ULP co-processor (FSM-based) can access it to save data or perform simple tasks.
+- **Usage:** Saving variables in the RTC memory area (via RTC memory API), e.g., status data, counters, or sensor values. The ULP can process this data.
 - **Limit:** Limited memory compared to newer models; ULP is not as flexible as an LP core.
 
 
@@ -124,13 +124,13 @@ All ESP32 models (ESP32, S2, S3, C3, C2, C5, C6, P4) support deep sleep mode, an
 
 ### Summary
 
-- All ESP32 models support deep sleep.
-- RTC memory (or equivalent) for data backup on all models
+- **All** ESP32 models support deep sleep.
+- **RTC memory** (or equivalent) for data backup on all models
 - **ESP32, S2, S3:** RTC SRAM (16 KB on S2/S3, smaller range on classic ESP32) for data storage, supported by ULP co-pros.
 - **C3, C2:** Small RTC area (not explicitly specified, <8 KB), only for static data storage, no ULP/LP core.
-- **C5, C6, P4:** LP SRAM (16 KB for C5/C6, 32 KB for P4) for data storage and LP core tasks, more flexible than RTC SRAM.
-- Differences: Models with ULP (ESP32, S2, S3) or LP core (C5, C6, P4) offer more flexibility as they can actively execute code in deep sleep. C3 and C2 are limited (storage only, no processing).
-- **C5, C6, P4** can also use the LP core to be active **in deep sleep**.
+- **C5, C6, H2, P4:** LP SRAM (16 KB for C5/C6, 32 KB for P4) for data storage and LP core tasks, more flexible than RTC SRAM.
+- **Differences:** Models with ULP (ESP32, S2, S3) or LP core (C5, C6, H2, P4) offer more flexibility as they can actively execute code in deep sleep. C3 and C2 are limited (storage only, no processing).
+- **C5, C6, H2, P4** can also use the LP core to be active **in deep sleep**.
 
 ## Thorough evaluation of each model
 
