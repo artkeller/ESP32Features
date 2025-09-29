@@ -25,7 +25,5 @@
 - ESP32-C5 Series Datasheet (Version 1.0, abgerufen September 2025)
 - ESP32-C6 Series Datasheet (Version 1.1, abgerufen September 2025)
 - ESP32-P4 Series Datasheet (Version 0.7, abgerufen September 2025)
-- Espressif Product Selector (abgerufen September 2025)
-
-
-ESP32 Module Reference (WROOM/WROVER) (Version 2.0, abgerufen September 2025)
+- Espressif Product Selector (abgerufen September 2025)-
+- ESP32 Module Reference (WROOM/WROVER) (Version 2.0, abgerufen September 2025)
