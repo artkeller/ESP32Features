@@ -10,8 +10,6 @@ Willkommen zu ESP32Features, einem  Leitfaden und Repository für die aktuelle E
 
 Die Tabelle unten fasst die Kernfeatures zusammen. Für detaillierte Analysen siehe die Unterabschnitte: Deep-Sleep, Vor- und Nachteile, Anwendungen und Kombinationen.
 
-
-
 ## Übersichtstabelle der ESP32-Modelle
 
 | Modell     | Architektur (Kerne, Clock min/max, LP/ULP) | Embedded SRAM | Embedded Flash/PSRAM-Optionen (Kombos) | Max PSRAM (embedded/external, Future) | Max Flash (embedded/external, Future) | Radio (Varianten)                          | Interfaces (Auswahl: Anzahl, Typ) |
@@ -26,7 +24,7 @@ Die Tabelle unten fasst die Kernfeatures zusammen. Für detaillierte Analysen si
 | ESP32-H2 | Mono RISC-V, 32 MHz (min typ. low-power) / 96 MHz, keine dedizierte LP/ULP; LP-Komponenten für Deep-Sleep | 320 KB HP + 4 KB LP | Flash: 0/2/4 MB; PSRAM: 0 MB; Kombos: z. B. H2FH2S (2 MB Flash + 0 PSRAM), H2FH4S (4 MB Flash + 0 PSRAM) – PSRAM external only | 0 MB embedded / 16 MB external (Future: 32 MB) | 4 MB embedded / 16 MB external (Future: 32 MB) | BT LE 5.3 (1/2 Mbps, Coded PHY, Long Range, Advertising Extensions), 802.15.4 (250 Kbps OQPSK, Thread/Zigbee 3.0/Matter) | 19 GPIOs; 2 SPI (Flash + gen.); 2 UART; 2 I2C; 1 I2S; RMT (2 tx/2 rx ch.); LED PWM (6 ch.); USB Serial/JTAG; TWAI (CAN); GDMA (3 tx/3 rx); PCNT; MCPWM; ADC (5 ch., 12-bit); Temp sensor; Timers (2 gen. 54-bit, 52-bit sys., 3 WDT) | 
 | ESP32-P4  | Dual HP + Mono LP RISC-V, HP 40-360 MHz / LP 40 MHz, dedizierte LP ja; kein separater ULP | 768 KB HP L2MEM + 32 KB LP + 8 KB SPM | Flash: 0 MB; PSRAM: 0/16/32 MB; Kombos: z. B. P4NRW16 (0 Flash + 16 MB PSRAM), P4NRW32 (0 + 32 MB PSRAM) | 32 MB embedded / 64 MB external (Future: 128 MB) | 0 MB embedded / 64 MB external (Future: 128 MB) | Keine integrierten Radios (MCU-fokussiert, external möglich) | 55 GPIOs (16 LP); 4 SPI (+1 LP); 3 I2S (+1 LP); 3 I2C (+1 Analog +1 I3C); 6 UART (5 HP +1 LP); USB HS/FS OTG + Serial/JTAG; Ethernet (10/100 RMII); 3 TWAI; SD/MMC; LED PWM (8 ch.); MCPWM (2); RMT (8 ch.); PARLIO; Touch (14); 2 ADC; VAD; Image: JPEG Codec, ISP, H.264 Encoder, MIPI CSI/DSI (2-lane), LCD/Camera | 
 
-## Hinweise zur Tabelle:
+### Hinweise zur Tabelle:
 
 - **Architektur:** Berücksichtigt Kerne (HP/LP), Clock-Ranges und Low-Power-Features (ULP/LP).
 - **Speicher:** Embedded-Optionen mit Varianten-Kombos; Max-Werte inkl. Future-Support (z. B. bis 128 MB bei P4).
