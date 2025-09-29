@@ -103,9 +103,37 @@ Alle ESP32-Modelle (ESP32, S2, S3, C3, C2, C5, C6, P4) unterstützen Deep-Sleep-
 - **Nutzung:** Wie C5, LP SRAM für Daten/Code des LP-Cores, geeignet für komplexe Deep-Sleep-Aufgaben.
 - **Limit:** 16 KB LP SRAM, aber flexibler durch LP-Core.
 
+
+#### ESP32-H2: 
+
+- **Deep-Sleep:** Ja, unterstützt (optimiert für ultra-niedrigen Verbrauch, 7 μA).
+- **Speicher:** 4 KB LP SRAM, bleibt im Deep-Sleep aktiv. Kein separater RTC SRAM oder dedizierter LP-Core.
+- **Nutzung:** LP SRAM für passive Datenspeicherung (z. B. Zustandsvariablen, Sensor-Daten) im Deep-Sleep; LP-Peripherie (z. B. Timer, Sensoren) unterstützt einfache Aufgaben.
+- **Limit:** 4 KB LP SRAM ist klein; kein LP-Core, daher keine komplexe Verarbeitung im Deep-Sleep.
+
+
+#### ESP32-P4:
+
+- **Deep-Sleep:** Ja, unterstützt (HP-Cores aus, LP-Core aktiv).
+- **Speicher:** 32 KB LP SRAM für den LP-Core, bleibt im Deep-Sleep aktiv. Kein RTC SRAM, da LP-Core die Low-Power-Aufgaben übernimmt.
+- **Nutzung:** LP SRAM für Daten und Code des LP-Cores, ideal für anspruchsvolle Low-Power-Anwendungen (z. B. Bildverarbeitung, Sensor-Logik).
+- **Limit:** 32 KB ist großzügiger als bei C5/C6, keine wesentlichen Einschränkungen.
+
+
+
+## Zusammenfassung
+
+- Alle ESP32-Modelle unterstützen Deep-Sleep.
+- RTC-Speicher (oder Äquivalent) zum Sichern von Daten bei allen Modellen
+- **ESP32, S2, S3:** RTC SRAM (16 KB bei S2/S3, kleinerer Bereich beim klassischen ESP32) für Datenspeicherung, unterstützt durch ULP-Co-Procs.
+- **C3, C2:** Kleiner RTC-Bereich (nicht explizit spezifiziert, <8 KB), nur für statische Datenspeicherung, kein ULP/LP-Core.
+- **C5, C6, P4:** LP SRAM (16 KB bei C5/C6, 32 KB bei P4) für Datenspeicherung und LP-Core-Aufgaben, flexibler als RTC SRAM.
+- Unterschiede: Modelle mit ULP (ESP32, S2, S3) oder LP-Core (C5, C6, P4) bieten mehr Flexibilität, da sie im Deep-Sleep aktiv Code ausführen können. C3 und C2 sind eingeschränkt (nur Speicherung, keine Verarbeitung).
+- **C5, C6, P4** können zusätzlich den LP-Core nutzen, um **im Deep-Sleep** aktiv zu sein.
+
 ### Gründliche Bewertung jedes Modells
 
-Basierend auf den offiziellen Espressif-Datasheets (Stand September 2025) und den gesammelten Details aus den Quellen analysiere ich jedes ESP32-Modell hinsichtlich seiner Vor- und Nachteile. Der Fokus liegt auf der **Schwerpunkt-Nutzbarkeit**, d.h. wie die Ausstattung (Architektur, Memory, Radios, Interfaces, Power) das Modell für bestimmte Anwendungsbereiche optimiert. Die Bewertung berücksichtigt Faktoren wie Leistung, Energieeffizienz, Kosten, Kompatibilität (z.B. RISC-V vs. Xtensa), Wireless-Optionen und Peripherie. Modelle mit RISC-V sind zukunftsorientiert (besser für Open-Source), während Xtensa etabliert ist. Neuere Modelle (C-Serie, H2, P4) betonen Low-Power und Multi-Protocol (z.B. Matter), ältere (Classic, S2, S3) sind allgemeiner, aber verbrauchsintensiver.
+Basierend auf den offiziellen Espressif-Datasheets (Stand September 2025) und den gesammelten Details aus den Quellen wird jedes ESP32-Modell hinsichtlich seiner Vor- und Nachteile analysiert. Der Fokus liegt auf der **Schwerpunkt-Nutzbarkeit**, d.h. wie die Ausstattung (Architektur, Memory, Radios, Interfaces, Power) das Modell für bestimmte Anwendungsbereiche optimiert. Die Bewertung berücksichtigt Faktoren wie Leistung, Energieeffizienz, Kosten, Kompatibilität (z.B. RISC-V vs. Xtensa), Wireless-Optionen und Peripherie. Modelle mit RISC-V sind zukunftsorientiert (besser für Open-Source), während Xtensa etabliert ist. Neuere Modelle (C-Serie, H2, P4) betonen Low-Power und Multi-Protocol (z.B. Matter), ältere (Classic, S2, S3) sind allgemeiner, aber verbrauchsintensiver.
 
 #### ESP32 (Classic)
 - **Schwerpunkt**: Allrounder für drahtlose Netzwerke und Legacy-Anwendungen; stark in Wi-Fi + BT Classic/LE-Kombinationen mit Ethernet/CAN.
@@ -163,7 +191,7 @@ Basierend auf den offiziellen Espressif-Datasheets (Stand September 2025) und de
 
 ### Liste typischer Anwendungen
 
-Ich habe 35 typische Anwendungen für ESP32-Modelle zusammengestellt, basierend auf Espressif-Empfehlungen (z.B. Smart Home, IoT, Industrial). Diese decken Bereiche wie Low-Power Sensoren, Multimedia, AI, Industrial und Wearables ab. Die Liste ist nummeriert und beschreibt kurz den Fokus.
+Nachfolgend sind 35 typische Anwendungen für ESP32-Modelle zusammengestellt, basierend auf Espressif-Empfehlungen (z.B. Smart Home, IoT, Industrial). Diese decken Bereiche wie Low-Power Sensoren, Multimedia, AI, Industrial und Wearables ab. Die Liste ist nummeriert und beschreibt kurz den Fokus.
 
 1. Smart Home Hub (z.B. Zentrale Steuerung mit Multi-Protocol).
 2. Wi-Fi Access Point/Extender (z.B. Netzwerk-Erweiterung).
@@ -241,32 +269,4 @@ Die Tabelle bewertet die Eignung jedes Modells für die Anwendungen mit ++ (sehr
 | 32. Audio Streaming Device | ++ (I2S + BT) | ++ (I2S + Wi-Fi) | ++ (I2S + BT LE) | + (I2S + BT LE) | + (I2S + BT LE) | ++ (I2S + BT LE 5) | ++ (I2S + BT 5.3) | ++ (I2S + BT LE 5.3) | ++ (I2S/LP + VAD) |
 | 33. Health Monitoring Wearable | + (BT + ADC) | + (ADC + Touch) | ++ (BT LE + Touch/AI) | ++ (BT LE + ADC) | ++ (BT LE + ADC) | ++ (BT LE 5 + ADC) | ++ (BT 5.3 + ADC) | ++ (BT LE 5.3 + ADC) | + (ADC + Touch) |
 | 34. Agricultural Sensor | + (Wi-Fi/BT + ADC) | + (Wi-Fi + ADC) | + (Wi-Fi/BT + ADC) | ++ (Wi-Fi/BT + Low-Power) | ++ (Wi-Fi/BT + Low-Power) | ++ (Multi-Protocol + ADC) | ++ (Wi-Fi 6 + ADC) | ++ (802.15.4/BT + ADC) | + (ADC, externe Radios) |
-| 35. Vending Machine Controller | ++ (Ethernet + Display) | ++ (USB + LCD/Touch) | ++ (SD + LCD/Touch) | + (SPI) | 0 (Minimal) | + (SDIO) | + (SDIO) | 0 (Kein SD) | ++ (SD/MMC + Ethernet)
-#### ESP32-H2: 
-
-- **Deep-Sleep:** Ja, unterstützt (optimiert für ultra-niedrigen Verbrauch, 7 μA).
-- **Speicher:** 4 KB LP SRAM, bleibt im Deep-Sleep aktiv. Kein separater RTC SRAM oder dedizierter LP-Core.
-- **Nutzung:** LP SRAM für passive Datenspeicherung (z. B. Zustandsvariablen, Sensor-Daten) im Deep-Sleep; LP-Peripherie (z. B. Timer, Sensoren) unterstützt einfache Aufgaben.
-- **Limit:** 4 KB LP SRAM ist klein; kein LP-Core, daher keine komplexe Verarbeitung im Deep-Sleep.
-
-
-#### ESP32-P4:
-
-- **Deep-Sleep:** Ja, unterstützt (HP-Cores aus, LP-Core aktiv).
-- **Speicher:** 32 KB LP SRAM für den LP-Core, bleibt im Deep-Sleep aktiv. Kein RTC SRAM, da LP-Core die Low-Power-Aufgaben übernimmt.
-- **Nutzung:** LP SRAM für Daten und Code des LP-Cores, ideal für anspruchsvolle Low-Power-Anwendungen (z. B. Bildverarbeitung, Sensor-Logik).
-- **Limit:** 32 KB ist großzügiger als bei C5/C6, keine wesentlichen Einschränkungen.
-
-
-
-## Zusammenfassung
-
-- Alle ESP32-Modelle unterstützen Deep-Sleep.
-- RTC-Speicher (oder Äquivalent) zum Sichern von Daten bei allen Modellen
-- **ESP32, S2, S3:** RTC SRAM (16 KB bei S2/S3, kleinerer Bereich beim klassischen ESP32) für Datenspeicherung, unterstützt durch ULP-Co-Procs.
-- **C3, C2:** Kleiner RTC-Bereich (nicht explizit spezifiziert, <8 KB), nur für statische Datenspeicherung, kein ULP/LP-Core.
-- **C5, C6, P4:** LP SRAM (16 KB bei C5/C6, 32 KB bei P4) für Datenspeicherung und LP-Core-Aufgaben, flexibler als RTC SRAM.
-- Unterschiede: Modelle mit ULP (ESP32, S2, S3) oder LP-Core (C5, C6, P4) bieten mehr Flexibilität, da sie im Deep-Sleep aktiv Code ausführen können. C3 und C2 sind eingeschränkt (nur Speicherung, keine Verarbeitung).
-- **C5, C6, P4** können zusätzlich den LP-Core nutzen, um **im Deep-Sleep** aktiv zu sein.
-
-
+| 35. Vending Machine Controller | ++ (Ethernet + Display) | ++ (USB + LCD/Touch) | ++ (SD + LCD/Touch) | + (SPI) | 0 (Minimal) | + (SDIO) | + (SDIO) | 0 (Kein SD) | ++ (SD/MMC + Ethernet) |
