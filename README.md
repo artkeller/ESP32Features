@@ -189,7 +189,7 @@ Based on the official Espressif datasheets (as of September 2025) and the detail
 - **Focus**: High-performance MCU without radios, for AI/multimedia (JPEG/H.264/MIPI) with wired connectivity.
 - **Advantages**: Dual-HP + mono-LP RISC-V (up to 360 MHz), AI/DSP extensions, multimedia (JPEG codec, H.264 encoder, MIPI CSI/DSI), USB HS/FS OTG, Ethernet, 55 GPIOs (16 LP), large memory (up to 32 MB embedded PSRAM), VAD/Touch.
 - **Disadvantages**: No integrated radios (external required), no embedded flash, higher power consumption (deep sleep 0.025 mA), more expensive, new (less support).
-- * *Overall rating**: Perfect for high-performance wired/AI devices (e.g., HMI panels), but not for wireless without add-ons.
+- **Overall rating**: Perfect for high-performance wired/AI devices (e.g., HMI panels), but not for wireless without add-ons.
 
 ## List of typical applications
 
