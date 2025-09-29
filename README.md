@@ -373,6 +373,9 @@ Diese Kombinationen erweitern die Einzelstärken zu robusten Systemen, besonders
 - ESP32 Module Reference (WROOM/WROVER) (Version 2.0, abgerufen September 2025)
 - ESP-IDF: Für Entwicklung mit allen Modellen.
 
-- Beitrag: Pull Requests willkommen! Star & Fork für Updates.
-- Lizenz: MIT.
+Beitrag: Pull Requests willkommen! Star & Fork für Updates.
+
+## Lizenz: 
+
+MIT
   
