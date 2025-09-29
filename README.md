@@ -1,16 +1,6 @@
 # ESP32Features
 Übersichtstabelle mit den aktuellen ESP32-Modellen basierend auf den offiziellen Espressif-Datasheets (Stand September 2025)
 
-- [Übersichtstabelle](#übersichtstabelle)
-  - [ESP32](#esp32)
-  - [ESP32-S2](#esp32-s2)
-  - [ESP32-S3](#esp32-s3)
-  - [ESP32-C3](#esp32-c3)
-  - [ESP32-C2](#esp32-c2)
-  - [ESP32-C5](#esp32-c5)
-  - [ESP32-C6](#esp32-c6)
-  - [ESP32-H2](#esp32-h2)
-  - [ESP32-P4](#esp32-p4)
 - [Deep-Sleep](#deep-sleep)
   - [Details](#details)
 - [Referenzen](#referenzen)
@@ -27,7 +17,7 @@
 - [Anwendungsbewertung](#anwendungsbewertung)
 
 
-## Übersicht der wichtigsten Eigenschaften
+## Uebersicht der wichtigsten Eigenschaften
 
 | Modell     | Architektur (Kerne, Clock min/max, LP/ULP) | Embedded SRAM | Embedded Flash/PSRAM-Optionen (Kombos) | Max PSRAM (embedded/external, Future) | Max Flash (embedded/external, Future) | Radio (Varianten)                          | Interfaces (Auswahl: Anzahl, Typ) |
 |------------|--------------------------------------------|---------------|----------------------------------------|---------------------------------------|---------------------------------------|--------------------------------------------|-----------------------------------|
