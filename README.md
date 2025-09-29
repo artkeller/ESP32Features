@@ -64,7 +64,7 @@ Alle ESP32-Modelle (ESP32, S2, S3, C3, C2, C5, C6, P4) unterstützen Deep-Sleep-
 
 ### Modell-spezifische Details
 
-#### ESP3:
+#### ESP32:
 
 - **Deep-Sleep:** Ja, unterstützt.
 - **Speicher:** 520 KB SRAM, davon ein Teil (nicht separat als "RTC SRAM" spezifiziert, aber ca. 8 KB im RTC-Domain) bleibt im Deep-Sleep aktiv. Der ULP-Co-Prozessor (FSM-basiert) kann darauf zugreifen, um Daten zu sichern oder einfache Aufgaben auszuführen.
