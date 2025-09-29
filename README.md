@@ -1,7 +1,7 @@
 # ESP32Features
 Übersichtstabelle mit den aktuellen ESP32-Modellen basierend auf den offiziellen Espressif-Datasheets (Stand September 2025)
 
-- [Übersicht](#uebersicht-der-wichtigsten-eigenschaften)
+- [Übersicht](#übersicht-der-wichtigsten-eigenschaften)
 - [Deep-Sleep](#deep-sleep)
   - [Details](#details)
 - [Referenzen](#referenzen)
@@ -40,7 +40,7 @@ x
 
 
 
-## Uebersicht der wichtigsten Eigenschaften
+## Übersicht der wichtigsten Eigenschaften
 
 | Modell     | Architektur (Kerne, Clock min/max, LP/ULP) | Embedded SRAM | Embedded Flash/PSRAM-Optionen (Kombos) | Max PSRAM (embedded/external, Future) | Max Flash (embedded/external, Future) | Radio (Varianten)                          | Interfaces (Auswahl: Anzahl, Typ) |
 |------------|--------------------------------------------|---------------|----------------------------------------|---------------------------------------|---------------------------------------|--------------------------------------------|-----------------------------------|
