@@ -360,17 +360,17 @@ Diese Kombinationen erweitern die Einzelstärken zu robusten Systemen, besonders
 
 ## Referenzen & Weiterführendes
 
-- ESP32 Series Datasheet (Version 4.3, abgerufen September 2025)
-- ESP32-S2 Series Datasheet (Version 1.4, abgerufen September 2025)
-- ESP32-S3 Series Datasheet (Version 1.3, abgerufen September 2025)
-- ESP32-C3 Series Datasheet (Version 1.2, abgerufen September 2025)
-- ESP32-C2 Technical Reference Manual (Version 1.0, abgerufen September 2025, Hinweis: Kein vollständiges Datasheet verfügbar, basierend auf Moduldaten wie ESP8684)
-- ESP32-C5 Series Datasheet (Version 1.0, abgerufen September 2025)
-- ESP32-C6 Series Datasheet (Version 1.1, abgerufen September 2025)
-- ESP32-H2 Series Datasheet (Version 1.1, abgerufen September 2025)
-- ESP32-P4 Series Datasheet (Version 0.7, abgerufen September 2025)
-- Espressif Product Selector (abgerufen September 2025)-
-- ESP32 Module Reference (WROOM/WROVER) (Version 2.0, abgerufen September 2025)
+- [ESP32 Series Datasheet](#) (Version 4.3, abgerufen September 2025)
+- [ESP32-S2 Series Datasheet](#) (Version 1.4, abgerufen September 2025)
+- [ESP32-S3 Series Datasheet](#) (Version 1.3, abgerufen September 2025)
+- [ESP32-C3 Series Datasheet](#)(Version 1.2, abgerufen September 2025)
+- [ESP32-C2 Technical Reference Manual](#) (Version 1.0, abgerufen September 2025, Hinweis: Kein vollständiges Datasheet verfügbar, basierend auf Moduldaten wie ESP8684)
+- [ESP32-C5 Series Datasheet](#) (Version 1.0, abgerufen September 2025)
+- [ESP32-C6 Series Datasheet](#) (Version 1.1, abgerufen September 2025)
+- [ESP32-H2 Series Datasheet](#) (Version 1.1, abgerufen September 2025)
+- [ESP32-P4 Series Datasheet](#) (Version 0.7, abgerufen September 2025)
+- [Espressif Product Selector](#) (abgerufen September 2025)-
+- [ESP32 Module Reference (WROOM/WROVER)](#) (Version 2.0, abgerufen September 2025)
 - ESP-IDF: Für Entwicklung mit allen Modellen.
 
 Beitrag: Pull Requests willkommen! Star & Fork für Updates.
