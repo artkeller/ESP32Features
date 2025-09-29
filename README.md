@@ -3,7 +3,6 @@
 
 - [Übersicht](#übersicht-der-wichtigsten-eigenschaften)
 - [Deep-Sleep](#deep-sleep)
-  - [Details](#details)
 - [Referenzen](#referenzen)
 - [Vor-/Nachteile](#vor-nachteile)
   - [ESP32](#esp32-1)
