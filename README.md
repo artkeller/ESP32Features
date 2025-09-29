@@ -36,7 +36,7 @@ The table below summarizes the core features. For detailed analysis, see the sub
 
 ### Details
 
-All ESP32 models (ESP32, S2, S3, C3, C2, C5, C6, P4) support deep sleep mode, and in most cases, special memory (RTC SRAM or comparable) can be used to back up data during deep sleep. However, there are differences in architecture (RTC SRAM, LP SRAM, or other mechanisms) that affect how and which memory is used for this purpose. 
+**All** ESP32 models (ESP32, S2, S3, C3, C2, C5, C6, H2, P4) support deep sleep mode, and in most cases, special memory (RTC SRAM or comparable) can be used to back up data during deep sleep. However, there are differences in architecture (RTC SRAM, LP SRAM, or other mechanisms) that affect how and which memory is used for this purpose. 
 
 ### Overview: Deep sleep and memory for backing up data
 
@@ -44,7 +44,7 @@ All ESP32 models (ESP32, S2, S3, C3, C2, C5, C6, P4) support deep sleep mode, an
 
 **RTC SRAM**: In models without a dedicated LP core (ESP32, S2, S3, some C3), the RTC SRAM is the main memory that remains active in deep sleep to back up data or execute ULP co-processor code.
 
-**LP SRAM**: In models with a dedicated LP core (C5, C6, P4), the LP SRAM often takes on this role, as the LP core can remain active in deep sleep and stores its own data/code. The H2 has 4 KB of LP SRAM, but without an LP core, only for data storage and LP peripherals.
+**LP SRAM**: In models with a dedicated LP core (C5, C6, H2, P4), the LP SRAM often takes on this role, as the LP core can remain active in deep sleep and stores its own data/code. The H2 has 4 KB of LP SRAM, but without an LP core, only for data storage and LP peripherals.
 
 **Special cases:** C2 does not have dedicated RTC SRAM or LP SRAM, but there is a small RTC area (not explicitly specified) that offers similar functions. C3 has limited options. H2 is optimized for ultra-low consumption (7 μA deep sleep), with LP SRAM for passive storage.
 
