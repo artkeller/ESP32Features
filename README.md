@@ -280,81 +280,81 @@ Based on the previous analyses (architecture, radios, interfaces, advantages/dis
 - **Description**: P4 as a high-performance MCU (dual-HP RISC-V up to 360 MHz, AI/DSP, multimedia interfaces such as MIPI CSI/DSI, Ethernet, USB HS) combined with C6 as wireless module (Wi-Fi 6 2.4 GHz, BT 5.3 Mesh, 802.15.4 for Zigbee/Thread, dedicated LP core for low power).
 - **Why it makes sense**: P4 lacks radios, C6 complements with multi-protocol wireless and LP core for energy-efficient edge tasks; common RISC-V architecture facilitates software integration (e.g., via SPI/I2C/UART connection).
 - **Applications**:
-- Simple: Smart home gateway (P4 for display/USB processing, C6 for Wi-Fi/Thread connectivity).
-- Medium: AR glasses for training (P4 for H.264 encoding/MIPI camera, C6 for BT mesh to sensors).
-- Sophisticated (Industry 4.0): Predictive maintenance system in factories (P4 for edge AI analysis of vibrations/images, C6 for secure wireless transmission to the cloud; enables real-time fault detection in machine networks).
+  - Simple: Smart home gateway (P4 for display/USB processing, C6 for Wi-Fi/Thread connectivity).
+  - Medium: AR glasses for training (P4 for H.264 encoding/MIPI camera, C6 for BT mesh to sensors).
+  - Sophisticated (Industry 4.0): Predictive maintenance system in factories (P4 for edge AI analysis of vibrations/images, C6 for secure wireless transmission to the cloud; enables real-time fault detection in machine networks).
 
 #### 2. ESP32-P4 + ESP32-C5
 - **Description**: P4 (high-performance MCU with AI, Ethernet, USB HS/FS, large memory) + C5 (dual-band Wi-Fi 6 2.4/5 GHz, BT LE 5, 802.15.4, LP-Core, CAN FD).
 - **Why it makes sense**: C5 offers dual-band Wi-Fi for higher bandwidth (e.g., video streaming), P4 complements with wired connectivity (Ethernet) and multimedia processing; both RISC-V-based for seamless integration.
 - **Applications**:
-- Simple: Video doorbell (P4 for JPEG/H.264, C5 for Wi-Fi upload).
-- Medium: Smart factory monitor (P4 for VAD/voice control, C5 for dual-band network).
-- Demanding (Industry 4.0): Robotics control in automation lines (P4 for MCPWM motor control and AI navigation, C5 for CAN FD + Wi-Fi 6 to coordinate multiple robots; supports real-time data aggregation for supply chain optimization).
+  - Simple: Video doorbell (P4 for JPEG/H.264, C5 for Wi-Fi upload).
+  - Medium: Smart factory monitor (P4 for VAD/voice control, C5 for dual-band network).
+  - Demanding (Industry 4.0): Robotics control in automation lines (P4 for MCPWM motor control and AI navigation, C5 for CAN FD + Wi-Fi 6 to coordinate multiple robots; supports real-time data aggregation for supply chain optimization).
 
 #### 3. ESP32-S3 + ESP32-C6
 - **Description**: S3 (dual Xtensa with AI/vector extensions, LCD/camera, USB OTG, BT 5 LE) + C6 (Wi-Fi 6, BT 5.3, 802.15.4, LP core).
 - **Why it makes sense**: S3 brings AI/multimedia, C6 extends to Wi-Fi 6/802.15.4 for better IoT interoperability (e.g., Matter); ULP co-pros from S3 + LP core from C6 for hybrid low-power modes.
 - **Applications**:
-- Simple: AI voice assistant (S3 for voice recognition, C6 for mesh connectivity).
-- Medium: Security camera network (S3 for image processing, C6 for Wi-Fi 6 streaming).
-- Demanding (Industry 4.0): Quality control in production (S3 for AI-based defect detection via camera, C6 for 802.15.4 mesh to sensors; enables adaptive manufacturing with real-time feedback).
+  - Simple: AI voice assistant (S3 for voice recognition, C6 for mesh connectivity).
+  - Medium: Security camera network (S3 for image processing, C6 for Wi-Fi 6 streaming).
+  - Demanding (Industry 4.0): Quality control in production (S3 for AI-based defect detection via camera, C6 for 802.15.4 mesh to sensors; enables adaptive manufacturing with real-time feedback).
 
 #### 4. ESP32-S3 + ESP32-P4
 - **Description**: S3 (AI/multimedia, Wi-Fi/BT LE) + P4 (high-performance RISC-V, MIPI CSI/DSI, Ethernet, VAD/touch).
 - **Why it makes sense**: S3 for wireless/AI edge, P4 for advanced processing/multimedia (e.g., H.264 encoder); combination for scalable systems with wired/wireless hybrid.
 - **Applications**:
-- Simple: Interactive display (S3 for Wi-Fi, P4 for touch/LCD).
-- Medium: VR training tool (S3 for BT LE sensors, P4 for ISP/image processing).
-- Sophisticated (Industry 4.0): Augmented reality for maintenance (S3 for Wi-Fi data retrieval, P4 for MIPI camera and H.264 streaming; supports collaborative AR in factories for remote assistance).
+  - Simple: Interactive display (S3 for Wi-Fi, P4 for touch/LCD).
+  - Medium: VR training tool (S3 for BT LE sensors, P4 for ISP/image processing).
+  - Sophisticated (Industry 4.0): Augmented reality for maintenance (S3 for Wi-Fi data retrieval, P4 for MIPI camera and H.264 streaming; supports collaborative AR in factories for remote assistance).
 
 #### 5. ESP32-C6 + ESP32-H2
 - **Description**: C6 (Wi-Fi 6, BT 5.3, 802.15.4, LP core) + H2 (BT LE 5.3 long range, 802.15.4, ultra-low power) .
 - **Why it makes sense**: Both multi-protocol (802.15.4/BT), H2 for ultra-low-power end nodes (7 μA deep sleep), C6 as a gateway with Wi-Fi; ideal mesh extension.
 - **Applications**:
-- Simple: Smart lighting mesh (H2 for lamps, C6 for hub).
-- Medium: Environmental sensor network (H2 for battery sensors, C6 for Wi-Fi aggregation).
-- Sophisticated (Industry 4.0): Asset tracking in warehouses (H2 for long-range tags, C6 for Wi-Fi 6 gateway; enables real-time localization and inventory management with predictive analytics).
+  - Simple: Smart lighting mesh (H2 for lamps, C6 for hub).
+  - Medium: Environmental sensor network (H2 for battery sensors, C6 for Wi-Fi aggregation).
+  - Sophisticated (Industry 4.0): Asset tracking in warehouses (H2 for long-range tags, C6 for Wi-Fi 6 gateway; enables real-time localization and inventory management with predictive analytics).
 
 #### 6. ESP32-C3 + ESP32-P4
 - **Description**: C3 (low-cost Wi-Fi/BT LE, TWAI, RISC-V) + P4 (high-performance MCU, Ethernet, USB HS, large memory).
 - **Why it makes sense**: C3 as a low-cost sensor/end device, P4 as a central controller; RISC-V compatibility for software reuse.
 - **Applications**:
-- Simple: Low-cost sensor cluster (C3 for data collection, P4 for processing).
-- Medium: Secure door lock (C3 for BT LE, P4 for encryption/USB) .
-- Sophisticated (Industry 4.0): IIoT gateway for machines (C3 for CAN bus sensors, P4 for Ethernet + AI-based anomaly detection; supports secure data aggregation in cyber-physical systems).
+  - Simple: Low-cost sensor cluster (C3 for data collection, P4 for processing).
+  - Medium: Secure door lock (C3 for BT LE, P4 for encryption/USB) .
+  - Sophisticated (Industry 4.0): IIoT gateway for machines (C3 for CAN bus sensors, P4 for Ethernet + AI-based anomaly detection; supports secure data aggregation in cyber-physical systems).
 
 #### 7. ESP32-C2 + ESP32-C6
 - **Description**: C2 (ultra-low-cost minimalist, Wi-Fi/BT LE) + C6 (multi-protocol, LP core).
 - **Why it makes sense**: C2 for mass end nodes (e.g., tags), C6 as a hub with extended connectivity; both RISC-V and low-power.
 - **Applications**:
-- Simple: Beacon network (C2 for tags, C6 for gateway).
-- Medium: Battery sensor array (C2 for minimal sensors, C6 for mesh).
-- Demanding (Industry 4.0): Condition monitoring in supply chains (C2 for low-cost vibration sensors on pallets, C6 for Wi-Fi 6/802.15.4 transmission; enables scalable predictive logistics).
+  - Simple: Beacon network (C2 for tags, C6 for gateway).
+  - Medium: Battery sensor array (C2 for minimal sensors, C6 for mesh).
+  - Demanding (Industry 4.0): Condition monitoring in supply chains (C2 for low-cost vibration sensors on pallets, C6 for Wi-Fi 6/802.15.4 transmission; enables scalable predictive logistics).
 
 #### 8. ESP32-S2 + ESP32-H2
 - **Description**: S2 (Wi-Fi, USB OTG, LCD/camera, touch) + H2 (BT LE/802.15.4, ultra-low power).
 - **Why it makes sense**: S2 for Wi-Fi/multimedia, H2 for low-power mesh; complements S2's missing BT/802.15.4.
 - **Applications**:
-- Simple: Touch panel with mesh (S2 for display, H2 for BT sensors).
-- Medium: Portable scanner (S2 for camera/USB, H2 for long-range BT).
-- Sophisticated (Industry 4.0): Handheld inspection device (S2 for LCD/touch/camera, H2 for 802.15.4 connectivity to machines; supports mobile quality control with real-time data sync).
+  - Simple: Touch panel with mesh (S2 for display, H2 for BT sensors).
+  - Medium: Portable scanner (S2 for camera/USB, H2 for long-range BT).
+  - Sophisticated (Industry 4.0): Handheld inspection device (S2 for LCD/touch/camera, H2 for 802.15.4 connectivity to machines; supports mobile quality control with real-time data sync).
 
 #### 9. ESP32 (Classic) + ESP32-C5
 - **Description**: Classic (Dual Xtensa, Ethernet, BT Classic/LE, CAN) + C5 (Dual-Band Wi-Fi 6, 802.15.4, LP-Core).
 - **Why it makes sense**: Classic for legacy compatibility (BT Classic/Ethernet), C5 for modern wireless; hybrid for upgrades.
 - **Applications**:
-- Simple: Hybrid network (Classic for Ethernet, C5 for Wi-Fi 6).
-- Medium: Vehicle tracker (Classic for CAN, C5 for BT/802.15.4).
-- Demanding (Industry 4.0): Automotive IIoT (Classic for CAN bus in vehicles, C5 for dual-band Wi-Fi to cloud; enables fleet management with predictive maintenance).
+  - Simple: Hybrid network (Classic for Ethernet, C5 for Wi-Fi 6).
+  - Medium: Vehicle tracker (Classic for CAN, C5 for BT/802.15.4).
+  - Demanding (Industry 4.0): Automotive IIoT (Classic for CAN bus in vehicles, C5 for dual-band Wi-Fi to cloud; enables fleet management with predictive maintenance).
 
 #### 10. ESP32-C5 + ESP32-H2 + ESP32-P4 (Trio)
 - **Description**: C5 (dual-band Wi-Fi 6/802.15.4), H2 (low-power mesh), P4 (high-performance processing).
 - **Why it makes sense**: Complete system: H2 for end nodes, C5 for gateway wireless, P4 for central computing; scalable for large networks.
 - **Applications**:
-- Simple: Advanced smart home (H2 for sensors, C5 for Wi-Fi, P4 for hub).
-- Medium: Mesh surveillance (H2 for tags, C5 for streaming, P4 for AI).
-- Demanding (Industry 4.0): Smart factory ecosystem (H2 for battery-powered worker tags, C5 for Wi-Fi 6 network, P4 for edge AI and Ethernet integration; enables autonomous optimization of production lines with human-machine collaboration).
+  - Simple: Advanced smart home (H2 for sensors, C5 for Wi-Fi, P4 for hub).
+  - Medium: Mesh surveillance (H2 for tags, C5 for streaming, P4 for AI).
+  - Demanding (Industry 4.0): Smart factory ecosystem (H2 for battery-powered worker tags, C5 for Wi-Fi 6 network, P4 for edge AI and Ethernet integration; enables autonomous optimization of production lines with human-machine collaboration).
 
 These combinations extend individual strengths to robust systems, especially in Industry 4.0, where security, scalability, and real-time processing are critical. For implementation: Connect via SPI/UART/I2C; ESP-IDF supports multi-device setups.
 
