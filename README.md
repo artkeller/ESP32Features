@@ -190,7 +190,7 @@ Basierend auf den offiziellen Espressif-Datasheets (Stand September 2025) und de
 - **Nachteile**: Keine integrierten Radios (external nötig), kein embedded Flash, höherer Verbrauch (Deep-Sleep 0.025 mA), teurer, neu (weniger Support).
 - **Gesamtbewertung**: Perfekt für High-Perf Wired/AI-Geräte (z.B. HMI Panels), aber nicht für Wireless ohne Add-ons.
 
-### Liste typischer Anwendungen
+## Liste typischer Anwendungen
 
 Nachfolgend sind 35 typische Anwendungen für ESP32-Modelle zusammengestellt, basierend auf Espressif-Empfehlungen (z.B. Smart Home, IoT, Industrial). Diese decken Bereiche wie Low-Power Sensoren, Multimedia, AI, Industrial und Wearables ab. Die Liste ist nummeriert und beschreibt kurz den Fokus.
 
