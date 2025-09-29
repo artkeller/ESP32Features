@@ -1,37 +1,18 @@
 # ESP32Features
-Übersichtstabelle mit den aktuellen ESP32-Modellen basierend auf den offiziellen Espressif-Datasheets (Stand September 2025)
+Willkommen zu ESP32Features, einem  Leitfaden und Repository für die aktuelle ESP32-SoC-Familie von Espressif Systems. Diese README bietet eine Übersichtstabelle mit den relevanten ESP32-Modellen, basierend auf den offiziellen Espressif-Datasheets und Dokumentationen (Stand: September 2025). Die ESP32-Serie umfasst eine breite Palette an Mikrocontrollern, die für IoT-Anwendungen, Edge-Computing, Low-Power-Sensoren und industrielle Systeme optimiert sind – von Legacy-Allroundern wie dem klassischen ESP32 bis hin zu modernen RISC-V-basierten Chips mit Wi-Fi 6, Bluetooth 5.3 und Multi-Protocol-Support (z. B. Zigbee/Thread für Matter-kompatible Smart Homes).
 
-- [Übersicht der wichtigsten Eigenschaften](#übersicht-der-wichtigsten-eigenschaften)
-  - [Referenzen](#referenzen)
-    
-- [Deep-Sleep](#deep-sleep)
-   - [ESP32](#esp32)
-  - [ESP32-S2](#esp32-s2)
-  - [ESP32-S3](#esp32-s3)
-  - [ ESP32-C3](#esp32-c3)
-  - [ESP32-C2](#esp32-c2)
-  - [ESP32-C5](#esp32-c5)
-  - [ESP32-C6](#esp32-c6)
-  - [ESP32-H2](#esp32-h2)
-  - [ESP32-P4](#esp32-p4)
+## Warum ESP32Features?
 
-- [Gründliche Bewertung jedes Modells](#gründliche-bewertung-jedes-modells)
-  - [ESP32](#esp32-1)
-  - [ESP32-S2](#esp32-s2-1)
-  - [ESP32-S3](#esp32-s3-1)
-  - [ESP32-C3](#esp32-c3-1)
-  - [ESP32-C2](#esp32-c2-1)
-  - [ESP32-C5](#esp32-c5-1)
-  - [ESP32-C6](#esp32-c6-1)
-  - [ESP32-H2](#esp32-h2-1)
-  - [ESP32-P4](#esp32-p4-1)
-  - [Liste typischer Anwendungen](#liste-typischer-anwendungen)
-  - [Bewertungstabelle](#bewertungstabelle)
+- **Vollständige Abdeckung:** Alle Modelle (ESP32, S2, S3, C3, C2, C5, C6, H2, P4) mit Fokus auf Architektur, Speicher (SRAM, Flash, PSRAM), Radios, Interfaces und Low-Power-Features.
+- **Praktische Analysen:** Ergänzt durch Deep-Sleep-Details, Vor- und Nachteile, Anwendungsbewertungen und Kombinationsvorschläge für hybride Systeme (z. B. P4 + C6 für Industrie 4.0).
+- **Aktuell & Quellenbasiert:** Basierend auf Espressif's Product Selector und Datasheets (z. B. ESP32-C5 in Massenproduktion seit 2025, ESP32-C6 mit PSA Level 2 Security-Zertifizierung).
+- **Für Entwickler:** Integriert mit ESP-IDF, Arduino und Tools für schnelle Prototyping – ideal für Smart Devices, AI-Edge und IIoT.
 
-- [Sinnvolle Kombinationen von ESP32-Modellen](#sinnvolle-kombinationen-von-esp32-modellen)
+Die Tabelle unten fasst die Kernfeatures zusammen. Für detaillierte Analysen siehe die Unterabschnitte: Deep-Sleep, Vor- und Nachteile, Anwendungen und Kombinationen.
 
 
-## Übersicht der wichtigsten Eigenschaften
+
+## Übersichtstabelle der ESP32-Modelle
 
 | Modell     | Architektur (Kerne, Clock min/max, LP/ULP) | Embedded SRAM | Embedded Flash/PSRAM-Optionen (Kombos) | Max PSRAM (embedded/external, Future) | Max Flash (embedded/external, Future) | Radio (Varianten)                          | Interfaces (Auswahl: Anzahl, Typ) |
 |------------|--------------------------------------------|---------------|----------------------------------------|---------------------------------------|---------------------------------------|--------------------------------------------|-----------------------------------|
@@ -44,6 +25,14 @@
 | ESP32-C6  | Dual RISC-V (HP/LP), HP 40-160 MHz / LP 20 MHz, dedizierte LP ja; kein separater ULP | 512 KB HP + 16 KB LP | Flash: 0/4/8 MB; PSRAM: 0 MB; Kombos: z. B. C6 (0 + 0), C6FH4 (4 MB Flash + 0), C6FH8 (8 MB Flash + 0) – PSRAM external only | 0 MB embedded / 16 MB external (Future: 32 MB) | 8 MB embedded / 16 MB external (Future: 32 MB) | Wi-Fi 6 2.4 GHz (802.11 ax/b/g/n), BT 5.3 (LE + Mesh), 802.15.4 (Zigbee 3.0 / Thread 1.3) | 30/22 GPIOs; 3 SPI; 1 I2S; 2 I2C (+1 LP); 3 UART (+1 LP); USB Serial/JTAG; 2 TWAI; SDIO; LED PWM (6 ch.); MCPWM (3); RMT (4 ch.); PARLIO; PCNT (4); ADC (7 ch., 12-bit); Temp sensor; GDMA; ETM |
 | ESP32-H2 | Mono RISC-V, 32 MHz (min typ. low-power) / 96 MHz, keine dedizierte LP/ULP; LP-Komponenten für Deep-Sleep | 320 KB HP + 4 KB LP | Flash: 0/2/4 MB; PSRAM: 0 MB; Kombos: z. B. H2FH2S (2 MB Flash + 0 PSRAM), H2FH4S (4 MB Flash + 0 PSRAM) – PSRAM external only | 0 MB embedded / 16 MB external (Future: 32 MB) | 4 MB embedded / 16 MB external (Future: 32 MB) | BT LE 5.3 (1/2 Mbps, Coded PHY, Long Range, Advertising Extensions), 802.15.4 (250 Kbps OQPSK, Thread/Zigbee 3.0/Matter) | 19 GPIOs; 2 SPI (Flash + gen.); 2 UART; 2 I2C; 1 I2S; RMT (2 tx/2 rx ch.); LED PWM (6 ch.); USB Serial/JTAG; TWAI (CAN); GDMA (3 tx/3 rx); PCNT; MCPWM; ADC (5 ch., 12-bit); Temp sensor; Timers (2 gen. 54-bit, 52-bit sys., 3 WDT) | 
 | ESP32-P4  | Dual HP + Mono LP RISC-V, HP 40-360 MHz / LP 40 MHz, dedizierte LP ja; kein separater ULP | 768 KB HP L2MEM + 32 KB LP + 8 KB SPM | Flash: 0 MB; PSRAM: 0/16/32 MB; Kombos: z. B. P4NRW16 (0 Flash + 16 MB PSRAM), P4NRW32 (0 + 32 MB PSRAM) | 32 MB embedded / 64 MB external (Future: 128 MB) | 0 MB embedded / 64 MB external (Future: 128 MB) | Keine integrierten Radios (MCU-fokussiert, external möglich) | 55 GPIOs (16 LP); 4 SPI (+1 LP); 3 I2S (+1 LP); 3 I2C (+1 Analog +1 I3C); 6 UART (5 HP +1 LP); USB HS/FS OTG + Serial/JTAG; Ethernet (10/100 RMII); 3 TWAI; SD/MMC; LED PWM (8 ch.); MCPWM (2); RMT (8 ch.); PARLIO; Touch (14); 2 ADC; VAD; Image: JPEG Codec, ISP, H.264 Encoder, MIPI CSI/DSI (2-lane), LCD/Camera | 
+
+## Hinweise zur Tabelle:
+
+- **Architektur:** Berücksichtigt Kerne (HP/LP), Clock-Ranges und Low-Power-Features (ULP/LP).
+- **Speicher:** Embedded-Optionen mit Varianten-Kombos; Max-Werte inkl. Future-Support (z. B. bis 128 MB bei P4).
+- **Radios:** Alle Varianten, inkl. Multi-Protocol (z. B. Wi-Fi 6 bei C5/C6, 802.15.4 bei C5/C6/H2 für Matter).
+- **Interfaces:** Wichtige Peripherie mit Anzahlen; fokussiert auf GPIOs, Wireless-Relevanz und Spezialfeatures (z. B. MIPI bei P4).
+- **Quellen:** Direkt aus Espressif-Datasheets; keine neuen Modelle jenseits der Liste (Stand 2025, z. B. C5 in Massenproduktion).
 
 ## Referenzen
 
