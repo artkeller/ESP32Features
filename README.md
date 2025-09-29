@@ -27,3 +27,110 @@
 - ESP32-P4 Series Datasheet (Version 0.7, abgerufen September 2025)
 - Espressif Product Selector (abgerufen September 2025)-
 - ESP32 Module Reference (WROOM/WROVER) (Version 2.0, abgerufen September 2025)
+
+## Deep sleep
+
+Alle ESP32-Modelle (ESP32, S2, S3, C3, C2, C5, C6, P4) unterstützen Deep-Sleep-Modus, und in den meisten Fällen sind speziellen Speicher (RTC SRAM oder vergleichbar) nutzbar, um Daten während des Deep-Sleeps zu sichern. Allerdings gibt es Unterschiede in der Architektur (RTC SRAM, LP SRAM, oder andere Mechanismen), die beeinflussen, wie und welcher Speicher für diesen Zweck genutzt wird. 
+
+### Übersicht: Deep-Sleep und Speicher zum Sichern von Daten
+
+Deep-Sleep-Modus: Alle Modelle können in Deep-Sleep gehen, wodurch der Hauptprozessor (HP-Core) und die meisten Peripherien abgeschaltet werden, um Strom zu sparen. Bestimmte Speicherbereiche bleiben aktiv, um Daten zu sichern oder einfache Aufgaben auszuführen.
+
+**RTC SRAM**: In Modellen ohne dedizierten LP-Core (ESP32, S2, S3, teilweise C3) ist der RTC SRAM der Hauptspeicher, der im Deep-Sleep aktiv bleibt, um Daten zu sichern oder ULP-Co-Prozessor-Code auszuführen.
+
+**LP SRAM**: In Modellen mit dediziertem LP-Core (C5, C6, P4) übernimmt der LP SRAM oft diese Rolle, da der LP-Core im Deep-Sleep aktiv bleiben kann und eigene Daten/Code speichert.
+
+**Spezialfälle:** C2 hat keinen dedizierten RTC SRAM oder LP SRAM, aber es gibt einen kleinen RTC-Bereich (nicht explizit spezifiziert), der ähnliche Funktionen bietet. C3 hat eingeschränkte Optionen.
+
+
+### Modell-spezifische Details
+
+#### ESP32 (Classic):
+
+**Deep-Sleep:** Ja, unterstützt.
+
+**Speicher:** 520 KB SRAM, davon ein Teil (nicht separat als "RTC SRAM" spezifiziert, aber ca. 8 KB im RTC-Domain) bleibt im Deep-Sleep aktiv. Der ULP-Co-Prozessor (FSM-basiert) kann darauf zugreifen, um Daten zu sichern oder einfache Aufgaben auszuführen.
+
+**Nutzung:** Sicherung von Variablen im RTC-Speicherbereich (via RTC-Speicher-API) z. B. Zustandsdaten, Zähler, oder Sensorwerte. Der ULP kann diese Daten verarbeiten.
+
+**Limit:** Begrenzter Speicher im Vergleich zu neueren Modellen; ULP ist nicht so flexibel wie ein LP-Core.
+
+
+#### ESP32-S2:
+
+**Deep-Sleep:** Ja, unterstützt.
+
+**Speicher:** 16 KB RTC SRAM explizit im Datasheet, bleibt im Deep-Sleep aktiv. Zwei ULP-Co-Procs (RISC-V + FSM, nicht simultan) können darauf zugreifen.
+
+**Nutzung:** RTC SRAM kann für Daten (z. B. Zustände, Konfigurationsdaten) genutzt werden. Der RISC-V-ULP erlaubt komplexere Berechnungen als beim klassischen ESP32.
+
+**Limit:** 16 KB ist nicht riesig, aber ausreichend für die meisten Sensor- oder Zustandsdaten.
+
+
+#### ESP32-S3:
+
+**Deep-Sleep:** Ja, unterstützt.
+
+**Speicher:** 16 KB RTC SRAM, bleibt im Deep-Sleep aktiv. ULP-Co-Procs (RISC-V + FSM) können diesen Speicher nutzen.
+
+**Nutzung:** Ähnlich wie S2, ideal für Daten wie Konfigurationen, Sensorwerte, oder kleine Zustandsmaschinen. Der ULP-RISC-V ist programmierbar für komplexere Deep-Sleep-Logik.
+
+**Limit:** Wie S2, 16 KB RTC SRAM begrenzt die Datenmenge.
+
+
+#### ESP32-C3:
+
+Deep-Sleep: Ja, unterstützt.
+Speicher: Kein expliziter RTC SRAM, aber ein Teil der 400 KB SRAM (ca. 8 KB im RTC-Domain, ähnlich ESP32) bleibt im Deep-Sleep aktiv. Kein ULP-Co-Prozessor, daher kein Programmieren im Deep-Sleep.
+Nutzung: Du kannst Daten im RTC-Bereich sichern (via ESP-IDF RTC-Speicher-APIs), aber ohne ULP nur statische Speicherung, keine aktive Verarbeitung.
+Limit: Kein ULP oder LP-Core schränkt die Flexibilität ein; kleinerer Speicherbereich.
+
+
+#### ESP32-C2:
+
+Deep-Sleep: Ja, unterstützt.
+Speicher: Kein expliziter RTC SRAM oder LP SRAM. Ein kleiner RTC-Bereich (nicht im Datasheet quantifiziert, geschätzt <8 KB) bleibt aktiv, ähnlich wie bei C3.
+Nutzung: Begrenzte Datenspeicherung im RTC-Bereich möglich (z. B. Zustandsvariablen), aber keine aktive Verarbeitung, da kein ULP oder LP-Core.
+Limit: Sehr eingeschränkt, da kein dedizierter Speicher oder Co-Prozessor vorhanden.
+
+
+#### ESP32-C5:
+
+Deep-Sleep: Ja, unterstützt (HP-Core aus, LP-Core kann aktiv bleiben).
+Speicher: 16 KB LP SRAM für den dedizierten LP-Core (RISC-V), bleibt im Deep-Sleep aktiv. Kein separater RTC SRAM, da der LP-Core diese Aufgaben übernimmt.
+Nutzung: LP SRAM kann für Daten und Code des LP-Cores genutzt werden, der im Deep-Sleep läuft. Ideal für komplexe Low-Power-Logik oder Datenspeicherung.
+Limit: 16 KB LP SRAM ist ausreichend, aber nicht riesig; LP-Core bietet mehr Flexibilität als ULP.
+
+
+#### ESP32-C6:
+
+Deep-Sleep: Ja, unterstützt (ähnlich wie C5).
+Speicher: 16 KB LP SRAM für den LP-Core, bleibt im Deep-Sleep aktiv. Kein separater RTC SRAM.
+Nutzung: Wie C5, LP SRAM für Daten/Code des LP-Cores, geeignet für komplexe Deep-Sleep-Aufgaben.
+Limit: 16 KB LP SRAM, aber flexibler durch LP-Core.
+
+
+#### ESP32-P4:
+
+Deep-Sleep: Ja, unterstützt (HP-Cores aus, LP-Core aktiv).
+Speicher: 32 KB LP SRAM für den LP-Core, bleibt im Deep-Sleep aktiv. Kein RTC SRAM, da LP-Core die Low-Power-Aufgaben übernimmt.
+Nutzung: LP SRAM für Daten und Code des LP-Cores, ideal für anspruchsvolle Low-Power-Anwendungen (z. B. Bildverarbeitung, Sensor-Logik).
+Limit: 32 KB ist großzügiger als bei C5/C6, keine wesentlichen Einschränkungen.
+
+
+
+## Zusammenfassung
+
+Alle ESP32-Modelle unterstützen Deep-Sleep.
+RTC-Speicher (oder Äquivalent) zum Sichern von Daten bei allen Modellen
+
+**ESP32, S2, S3:** RTC SRAM (16 KB bei S2/S3, kleinerer Bereich beim klassischen ESP32) für Datenspeicherung, unterstützt durch ULP-Co-Procs.
+
+**C3, C2:** Kleiner RTC-Bereich (nicht explizit spezifiziert, <8 KB), nur für statische Datenspeicherung, kein ULP/LP-Core.
+
+  **C5, C6, P4:++ LP SRAM (16 KB bei C5/C6, 32 KB bei P4) für Datenspeicherung und LP-Core-Aufgaben, flexibler als RTC SRAM.
+
+
+Unterschiede: Modelle mit ULP (ESP32, S2, S3) oder LP-Core (C5, C6, P4) bieten mehr Flexibilität, da sie im Deep-Sleep aktiv Code ausführen können. C3 und C2 sind eingeschränkt (nur Speicherung, keine Verarbeitung).
+
+C5/C6/P4 können zusätzlich den LP-Core programmieren, um im Deep-Sleep aktiv zu sein.
