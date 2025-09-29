@@ -36,7 +36,7 @@ Die Tabelle unten fasst die Kernfeatures zusammen. Für detaillierte Analysen si
 
 ### Details
 
-Alle ESP32-Modelle (ESP32, S2, S3, C3, C2, C5, C6, P4) unterstützen Deep-Sleep-Modus, und in den meisten Fällen sind speziellen Speicher (RTC SRAM oder vergleichbar) nutzbar, um Daten währened des Deep-Sleeps zu sichern. Allerdings gibt es Unterschiede in der Architektur (RTC SRAM, LP SRAM, oder andere Mechanismen), die beeinflussen, wie und welcher Speicher für diesen Zweck genutzt wird. 
+**Alle** ESP32-Modelle (ESP32, S2, S3, C3, C2, C5, C6, P4) unterstützen Deep-Sleep-Modus, und in den meisten Fällen sind speziellen Speicher (RTC SRAM oder vergleichbar) nutzbar, um Daten währened des Deep-Sleeps zu sichern. Allerdings gibt es Unterschiede in der Architektur (RTC SRAM, LP SRAM, oder andere Mechanismen), die beeinflussen, wie und welcher Speicher für diesen Zweck genutzt wird. 
 
 ### Übersicht: Deep-Sleep und Speicher zum Sichern von Daten
 
@@ -44,7 +44,7 @@ Alle ESP32-Modelle (ESP32, S2, S3, C3, C2, C5, C6, P4) unterstützen Deep-Sleep-
 
 **RTC SRAM**: In Modellen ohne dedizierten LP-Core (ESP32, S2, S3, teilweise C3) ist der RTC SRAM der Hauptspeicher, der im Deep-Sleep aktiv bleibt, um Daten zu sichern oder ULP-Co-Prozessor-Code auszuführen.
 
-**LP SRAM**: In Modellen mit dediziertem LP-Core (C5, C6, P4) übernimmt der LP SRAM oft diese Rolle, da der LP-Core im Deep-Sleep aktiv bleiben kann und eigene Daten/Code speichert. Beim H2 gibt es 4 KB LP SRAM, aber ohne LP-Core, nur für Datenspeicherung und LP-Peripherie.
+**LP SRAM**: In Modellen mit dediziertem LP-Core (C5, C6, H2, P4) übernimmt der LP SRAM oft diese Rolle, da der LP-Core im Deep-Sleep aktiv bleiben kann und eigene Daten/Code speichert. Beim H2 gibt es 4 KB LP SRAM, aber ohne LP-Core, nur für Datenspeicherung und LP-Peripherie.
 
 **Spezialfälle:** C2 hat keinen dedizierten RTC SRAM oder LP SRAM, aber es gibt einen kleinen RTC-Bereich (nicht explizit spezifiziert), der ähnliche Funktionen bietet. C3 hat eingeschränkte Optionen. H2 ist für ultra-niedrigen Verbrauch (7 μA Deep-Sleep) optimiert, mit LP SRAM für passive Speicherung.
 
