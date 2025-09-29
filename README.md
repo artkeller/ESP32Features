@@ -236,7 +236,7 @@ Below is a list of 35 typical applications for ESP32 models, based on Espressif 
 The table evaluates the suitability of each model for the applications with ++ (very good, optimal), + (good, feasible), 0 (neutral, with limitations), - (poor, unsuitable), -- (very poor, impossible). Evaluation is based on features (e.g., radios for wireless, LP core for low power, interfaces for multimedia). Optional text in parentheses explains key reasons.
 
 | Application | ESP32 | ESP32-S2 | ESP32-S3 | ESP32-C3 | ESP32-C2 | ESP32-C5 | ESP32-C6 | ESP32-H2 | ESP32-P4 |
-|-----------|-------|----------|-------- --|----------|----------|----------|----------|----------|----------|
+|-----------|-------|----------|----------|----------|----------|----------|----------|----------|----------|
 | 1. Smart home hub | ++ (Wi-Fi/BT + Ethernet) | + (Wi-Fi, but no BT) | ++ (AI/multimedia + BT LE) | + (low-cost Wi-Fi/BT) | 0 (minimal, but Wi-Fi/BT) | ++ (Multi-Protocol Wi-Fi 6) | ++ (Wi-Fi 6 + 802.15.4) | + (802.15.4/BT, no Wi-Fi) | + (High-Perf, but external radios) |
 | 2. Wi-Fi Access Point/Extender | ++ (Dual-Core Wi-Fi) | ++ (Wi-Fi + USB) | ++ (Wi-Fi + Memory) | + (Low-Power Wi-Fi) | + (Minimal Wi-Fi) | ++ (Dual-Band Wi-Fi 6) | ++ (Wi-Fi 6) | -- (No Wi-Fi) | - (No Radios) |
 | 3. Bluetooth Audio Device | ++ (BT Classic/LE) | -- (No BT) | ++ (BT LE + I2S) | + (BT LE) | + (BT LE) | ++ (BT LE 5 + I2S) | ++ (BT 5.3 Mesh) | ++ (BT LE 5.3) | + (I2S/LP, but external BT) |
