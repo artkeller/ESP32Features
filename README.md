@@ -40,9 +40,11 @@ The table below summarizes the core features. For detailed analyses, see the sub
 
 ## Deep sleep
 
+The information is based on the Espressif SoC product portfolio and the official datasheets (as of September 2025). The structure takes into account the specific characteristics of the new models (e.g., C61 as a single-core Wi-Fi 6 low-power, H4 as a dual-core low-power with 802.15.4). Since the exact deep sleep power consumption values for C61 and H4 are not explicitly stated in the portfolio, these are estimated based on similar models (C6/H2) and marked accordingly.
+
 ### Details
 
-**All** ESP32 models (ESP32, S2, S3, C3, C2, C5, C6, H2, P4) support deep sleep mode, and in most cases, special memory (RTC SRAM or comparable) can be used to back up data during deep sleep. However, there are differences in architecture (RTC SRAM, LP SRAM, or other mechanisms) that affect how and which memory is used for this purpose. 
+**All** ESP32 models (ESP32, S2, S3, C3, C2, C5, C6, C61, H2, H4, P4) support deep sleep mode, and in most cases, special memory (RTC SRAM or comparable) can be used to back up data during deep sleep. However, there are differences in architecture (RTC SRAM, LP SRAM, or other mechanisms) that affect how and which memory is used for this purpose. 
 
 ### Overview: Deep sleep and memory for backing up data
 
@@ -50,9 +52,9 @@ The table below summarizes the core features. For detailed analyses, see the sub
 
 **RTC SRAM**: In models without a dedicated LP core (ESP32, S2, S3, some C3), the RTC SRAM is the main memory that remains active in deep sleep to back up data or execute ULP co-processor code.
 
-**LP SRAM**: In models with a dedicated LP core (C5, C6, H2, P4), the LP SRAM often takes on this role, as the LP core can remain active in deep sleep and stores its own data/code. The H2 has 4 KB of LP SRAM, but without an LP core, only for data storage and LP peripherals.
+**LP SRAM**: In models with a dedicated LP core (C5, C6, H4, P4), LP SRAM takes on this role, as the LP core can remain active in deep sleep mode. The H2/C61 has LP SRAM, but without an LP core, for data storage only.
 
-**Special cases:** C2 does not have dedicated RTC SRAM or LP SRAM, but there is a small RTC area (not explicitly specified) that offers similar functions. C3 has limited options. H2 is optimized for ultra-low consumption (7 μA deep sleep), with LP SRAM for passive storage.
+**Special cases:** C2/C3 have small RTC areas (<8 KB) without ULP/LP core, limited. H2/C61 are optimized for ultra-low consumption (approx. 7–10 μA), with LP peripherals. H4 has a dedicated LP core for more flexible low-power tasks.
 
 
 ### Model-specific details
