@@ -34,7 +34,7 @@ The table below summarizes the core features. For detailed analyses, see the sub
 
 ### Espressif Product Selector
 
-![Espressif Product Selector](res/logo.png "Espressif Product Selector")
+![Espressif Product Selector](res/4de262290804bb22f2a6272d7fc53db0.jpg "Espressif Product Selector")
 
 
 ## Deep sleep
