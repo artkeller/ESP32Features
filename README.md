@@ -112,6 +112,13 @@ The table below summarizes the core features. For detailed analyses, see the sub
 - **Usage:** Like C5, LP SRAM for LP core data/code, suitable for complex deep sleep tasks.
 - **Limit:** 16 KB LP SRAM, but more flexible due to LP core.
 
+#### ESP32-C61:
+
+- **Deep sleep:** Yes, supported (optimized for low-power Wi-Fi 6, est. ~10 μA).
+- **Memory:**  4 KB LP SRAM, remains active in deep sleep. No separate RTC SRAM or dedicated LP core.
+- **Usage:** LP SRAM for passive data storage (e.g., state variables, sensor data) in deep sleep; LP peripherals (e.g., timers, ADC) support simple tasks.
+- **Limit:** 4 KB LP SRAM is small; no LP core, therefore no complex processing in deep sleep.
+
 
 #### ESP32-H2:
 
@@ -119,6 +126,14 @@ The table below summarizes the core features. For detailed analyses, see the sub
 - **Memory:** 4 KB LP SRAM, remains active in deep sleep. No separate RTC SRAM or dedicated LP core.
 - **Usage:** LP SRAM for passive data storage (e.g., state variables, sensor data) in deep sleep; LP peripherals (e.g., timers, sensors) support simple tasks.
 - **Limit:** 4 KB LP SRAM is small; no LP core, therefore no complex processing in deep sleep.
+
+
+#### ESP32-H4:
+
+- **Deep sleep:**  Yes, supported (optimized for ultra-low consumption with selective peripherals, est. ~7 μA).
+- **Memory:** 16 KB LP SRAM for the LP core, remains active in deep sleep. No separate RTC SRAM.
+- **Usage:** LP SRAM for LP core data/code, suitable for complex deep sleep tasks (e.g., Mesh-Networking, sensor processing).
+- **Limit:** 16 KB LP SRAM, but flexible due to dedicated LP core.
 
 
 #### ESP32-P4:
