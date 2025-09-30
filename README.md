@@ -3,7 +3,7 @@ Welcome to ESP32Features, a guide and repository for the current ESP32 SoC famil
 
 ## Why ESP32Features?
 
-- **Complete coverage:** All models (ESP32, S2, S3, C3, C2, C5, C6, H2, P4) with a focus on architecture, memory (SRAM, Flash, PSRAM), radios, interfaces, and low-power features.
+- **Complete coverage:** All models (ESP32, S2, S3, C3, C2, C5, C6, C61, H2, H4, P4) with a focus on architecture, memory (SRAM, Flash, PSRAM), radios, interfaces, and low-power features.
 - **Practical analysis:** Supplemented by deep sleep details, pros and cons, application evaluations, and combination suggestions for hybrid systems (e.g., P4 + C6 for Industry 4.0).
 - **Up-to-date & source-based:** Based on Espressif's Product Selector and datasheets (e.g., ESP32-C5 in mass production since 2025, ESP32-C6 with PSA Level 2 security certification).
 - **For developers:** Integrated with ESP-IDF, Arduino, and tools for rapid prototyping – ideal for smart devices, AI edge, and IIoT.
