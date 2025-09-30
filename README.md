@@ -32,6 +32,11 @@ The table below summarizes the core features. For detailed analyses, see the sub
 - **Interfaces:** Important peripherals with quantities; focused on GPIOs, wireless relevance, and special features (e.g., MIPI for P4).
 - **Sources:** Directly from Espressif datasheets; no new models beyond the list (as of 2025, e.g., C5 in mass production).
 
+### Espressif Product Selector
+
+![Espressif Product Selector](res/logo.png "Espressif Product Selector")
+
+
 ## Deep sleep
 
 ### Details
