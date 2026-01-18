@@ -168,7 +168,7 @@ Based on the official Espressif datasheets (as of September 2025) and the detail
 #### ESP32-S2
 - **Focus**: USB and multimedia-focused (LCD/camera/touch), for Wi-Fi-only devices with low power.
 - **Advantages**: USB OTG (FS) for HID/storage, LCD/camera interfaces for displays, 14 touch sensors, ULP co-pros (RISC-V + FSM) for flexible deep sleep, large external memory support (up to 1 GB), compact and energy-efficient for Wi-Fi apps.
-- ** Disadvantages**: No BT, mono-core Xtensa (less performance), no Ethernet/CAN, touch not CS-certified (restrictions in noisy environments), higher consumption than C series (deep sleep ~5-7 μA), outdated compared to S3.
+- **Disadvantages**: No BT, mono-core Xtensa (less performance), no Ethernet/CAN, touch not CS-certified (restrictions in noisy environments), higher consumption than C series (deep sleep ~5-7 μA), outdated compared to S3.
 - **Overall rating**: Strong for USB-based or display/touch devices (e.g., smart panels), but limited without BT/multi-core.
 
 #### ESP32-S3
