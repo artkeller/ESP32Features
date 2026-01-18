@@ -193,7 +193,7 @@ Based on the official Espressif datasheets (as of September 2025) and the detail
 - **Focus**: Modern multi-protocol wireless (dual-band Wi-Fi 6 + BT LE 5 + 802.15.4), for low-power IoT with LP core.
 - **Advantages**: Dual-band Wi-Fi 6 (2.4/5 GHz), BT LE 5 (incl. direction finding), 802.15.4 (Zigbee/Thread), dedicated LP core (RISC-V, up to 48 MHz), CAN FD, low power (deep sleep ~12 μA), RISC-V dual core.
 - **Disadvantages**: Fewer GPIOs (29), limited embedded memory (4 MB flash/8 MB PSRAM), higher price, new (less established).
-- * *Overall rating**: Strong for smart home/IoT networks (Matter-compatible), but not for high performance without wireless.
+- **Overall rating**: Strong for smart home/IoT networks (Matter-compatible), but not for high performance without wireless.
 
 #### ESP32-C6
 - **Focus**: Low-power multi-protocol (Wi-Fi 6 2.4GHz + BT 5.3 + 802.15.4), for battery-powered IoT with LP core.
