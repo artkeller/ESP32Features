@@ -1,4 +1,7 @@
 # ESP32Features
+
+[![CRA Status](https://img.shields.io/badge/CRA-Exempt%20(pure%20OSS)-informational)](./CRA-EXEMPTION.md)
+
 Welcome to ESP32Features, a guide and repository for the current ESP32 SoC family from Espressif Systems. This README provides an overview table of the relevant ESP32 models, based on the official Espressif datasheets and documentation (as of September 2025). The ESP32 series includes a wide range of microcontrollers optimized for IoT applications, edge computing, low-power sensors, and industrial systems—from legacy all-rounders like the classic ESP32 to modern RISC V-based chips with Wi-Fi 6, Bluetooth 5.3, and multi-protocol support (e.g., Zigbee/Thread for Matter-compatible smart homes).
 
 ## Why ESP32Features?
