@@ -13,7 +13,7 @@ Welcome to ESP32Features, a guide and repository for the current ESP32 SoC famil
 
 The table below summarizes the core features. For detailed analyses, see the subsections: [Espressif SoC Product Portfolio](#espressif-soc-product-portfolio), [Deep Sleep](#deep-sleep), [Advantages and Disadvantages](#thorough-evaluation-of-each-model), [Applications](#list-of-typical-applications), and [Combinations](#useful-combinations-of-esp32-models).
 
-### Discailmer 2026
+### Disclaimer 2026
 
 Information on the upcoming 2026 models, **ESP32-E22 (Wi-Fi 6E)** and **ESP32-H21**, will be added to this table once it is available.
 
