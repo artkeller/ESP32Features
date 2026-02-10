@@ -37,6 +37,10 @@ The table below summarizes the core features. For detailed analyses, see the sub
 - **Interfaces:** Important peripherals with quantities; focused on GPIOs, wireless relevance, and special features (e.g., MIPI for P4).
 - **Sources:** Directly from Espressif datasheets; no new models beyond the list (as of 2025, e.g., C5 in mass production; C61/H4 new to the portfolio).
 
+### Discalimer 2026
+
+The new models from 2026, **ESP32-E22 (Wi-Fi 6E)** and **ESP32-H21**, will be added to this table once reliable information is available.
+
 ### Espressif SoC Product Portfolio
 
 ![Espressif SoC Product Portfolio](res/4de262290804bb22f2a6272d7fc53db0.jpg "Espressif SoC Product Portfolio")
