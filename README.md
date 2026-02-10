@@ -13,6 +13,10 @@ Welcome to ESP32Features, a guide and repository for the current ESP32 SoC famil
 
 The table below summarizes the core features. For detailed analyses, see the subsections: [Espressif SoC Product Portfolio](#espressif-soc-product-portfolio), [Deep Sleep](#deep-sleep), [Advantages and Disadvantages](#thorough-evaluation-of-each-model), [Applications](#list-of-typical-applications), and [Combinations](#useful-combinations-of-esp32-models).
 
+### Discailmer 2026
+
+Information on the upcoming 2026 models, **ESP32-E22 (Wi-Fi 6E)** and **ESP32-H21**, will be added to this table once it is available.
+
 ## Overview table of ESP32 models
 
 | Model | Architecture (cores, Clock min/max, LP/ULP) | Embedded SRAM | Embedded Flash/PSRAM options (combos) | Max PSRAM (embedded/external, Future) | Max Flash (embedded/external, Future) | Radio (variants) | Interfaces (selection: number, type) |
@@ -36,10 +40,6 @@ The table below summarizes the core features. For detailed analyses, see the sub
 - **Radios:** All variants, including multi-protocol (e.g., Wi-Fi 6 for C5/C6, 802.15.4 for C5/C6/H2 for Matter).
 - **Interfaces:** Important peripherals with quantities; focused on GPIOs, wireless relevance, and special features (e.g., MIPI for P4).
 - **Sources:** Directly from Espressif datasheets; no new models beyond the list (as of 2025, e.g., C5 in mass production; C61/H4 new to the portfolio).
-
-### Discalimer 2026
-
-The new models from 2026, **ESP32-E22 (Wi-Fi 6E)** and **ESP32-H21**, will be added to this table once reliable information is available.
 
 ### Espressif SoC Product Portfolio
 
