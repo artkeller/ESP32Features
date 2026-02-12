@@ -19,7 +19,7 @@ According to **Article 3(22)** and the **recitals of the Cyber Resilience Act**,
 
 This repository is:
 
-- Distributed under the **GPL-2.0 license**, fully open-source  
+- Distributed fully open-source  
 - Maintained by an **individual contributor** with no commercial intent  
 - Free to use, modify, and redistribute under the license terms  
 
