@@ -13,7 +13,7 @@ Willkommen zu ESP32Features, einem  Leitfaden und Repository für die aktuelle E
 - **Aktuell & Quellenbasiert:** Basierend auf Espressif's Product Selector und Datasheets (z. B. ESP32-C5 in Massenproduktion seit 2025, ESP32-C6 mit PSA Level 2 Security-Zertifizierung).
 - **Für Entwickler:** Integriert mit ESP-IDF, Arduino und Tools für schnelle Prototyping – ideal für Smart Devices, AI-Edge und IIoT.
 
-Die Tabelle unten fasst die Kernfeatures zusammen. Für detaillierte Analysen siehe die Unterabschnitte: [Deep-Sleep](#deep-sleep), [Vor- und Nachteile](#gründliche-bewertung-jedes-modells), [Anwendungen](#liste-typischer-anwendungen) und [Kombinationen](#sinnvolle-kombinationen-von-esp32-modellen), and [Referenzen](#referenzen--weiterführendes)
+Die Tabelle unten fasst die Kernfeatures zusammen. Für detaillierte Analysen siehe die Unterabschnitte: [Deep-Sleep](#deep-sleep), [Vor- und Nachteile](#gründliche-bewertung-jedes-modells), [Anwendungen](#liste-typischer-anwendungen) [Kombinationen](#sinnvolle-kombinationen-von-esp32-modellen), und [Referenzen](#referenzen--weiterführendes)
 
 ### Disclaimer 2026
 
