@@ -407,7 +407,7 @@ These combinations extend individual strengths to robust systems, especially in 
 
 Contribution: Pull requests welcome! Star & fork for updates.
 
-## License: 
+## License
 
 [CC-BY-4.09](LICENSE)
 
