@@ -1,4 +1,4 @@
 ### Shoppinlist
 
 - Update 2026 new ESP models
-- Cryptostack basic/advanced 
+- Cryptostack basic/advanced (Ref: Secure IoT Device (e.g., with encryption/boot))
