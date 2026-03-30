@@ -409,5 +409,5 @@ Contribution: Pull requests welcome! Star & fork for updates.
 
 ## License: 
 
-MITMIT
+[CC-BY-4.09](LICENSE)
 
