@@ -21,7 +21,7 @@ This repository is:
 
 - Distributed fully open-source  
 - Maintained by an **individual contributor** with no commercial intent  
-- Free to use, modify, and redistribute under the license terms  
+- Free to use, modify, and redistribute under the license terms  **[LICENSE](LICENSE)**
 
 There are **no sales, paid services, or monetized offerings** associated with this project.
 
