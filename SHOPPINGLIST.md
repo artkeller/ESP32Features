@@ -1,3 +1,3 @@
 ### Shopping List
 
-<empty>
+\<empty\>
