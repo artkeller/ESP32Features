@@ -518,7 +518,7 @@ These combinations extend individual strengths to robust systems, especially in 
 
 This chapter provides a comprehensive analysis of the cryptographic capabilities of the ESP32 family, with a special focus on **quantum‑safe cryptography** and **crypto‑agility** – the ability to replace or upgrade cryptographic algorithms without changing the underlying infrastructure.
 
-### 1. The Quantum Threat – Why RSA and ECC Are Obsolete
+#### 1. The Quantum Threat – Why RSA and ECC Are Obsolete
 
 The **Q‑Day** (or **Y2Q**) is the point at which a quantum computer becomes powerful enough to break today’s asymmetric encryption (RSA, ECC) in a practical time. This threat is real and imminent:
 
@@ -544,7 +544,7 @@ The **“Harvest Now, Decrypt Later”** strategy is already in use: attackers c
 
 The critical insight: **a quantum computer with only 10,000 stable qubits could break ECC‑256**. This requires far fewer qubits than breaking RSA. Therefore, **both RSA and ECC are equally obsolete** – ECC even earlier, due to the lower qubit requirement.
 
-### 2. Quantum‑Resistant Key Exchange – The New Standards
+#### 2. Quantum‑Resistant Key Exchange – The New Standards
 
 In August 2024, NIST published the first three Post‑Quantum Cryptography (PQC) standards:
 
@@ -560,7 +560,7 @@ In August 2024, NIST published the first three Post‑Quantum Cryptography (PQC)
 
 The **long‑term solution** is **hybrid** schemes that combine classical (e.g., X25519) with quantum‑resistant algorithms (e.g., ML‑KEM). TLS 1.3 already supports hybrid groups.
 
-### 3. Cryptographic Hardware Capabilities of the ESP32 Family
+#### 3. Cryptographic Hardware Capabilities of the ESP32 Family
 
 Crypto‑agility on ESP32 does **not** mean that a chip can run any algorithm in software – all can do that. The decisive factor is **hardware acceleration** and **ESP‑IDF support** for efficient PQC implementations.
 
@@ -586,45 +586,45 @@ The following table summarises the **hardware‑accelerated cryptographic featur
 
 *Sources: ESP Product Security Feature Matrix, supplemented by data from the respective chip datasheets.*
 
-### 4. Model‑by‑Model Cryptographic Assessment
+#### 4. Model‑by‑Model Cryptographic Assessment
 
-#### 4.1 ESP32 (Classic)
+##### 4.1 ESP32 (Classic)
 - **HW accelerators:** AES, SHA, RSA – **no ECC HW**
 - **Missing:** HMAC, Digital Signature Peripheral, TEE
 - **Assessment:** Not suitable for PQC (no ECC HW, too slow for software PQC). Adequate for legacy RSA‑2048 applications, but not future‑proof.
 
-#### 4.2 ESP32‑S2
+##### 4.2 ESP32‑S2
 - **HW accelerators:** AES, SHA, RSA
 - **ECC:** only for Secure Boot (not general crypto)
 - **HMAC, Digital Signature (RSA)** available
 - **Assessment:** Limited ECC capabilities. Not recommended for PQC.
 
-#### 4.3 ESP32‑S3
+##### 4.3 ESP32‑S3
 - **HW accelerators:** AES, SHA, RSA, ECC
 - **HMAC, Digital Signature (RSA)** available
 - **No APM/TEE**
 - **Assessment:** Good classical crypto HW, but no TEE. PQC (Kyber/Dilithium) runs in software; benchmarks show Kyber is feasible on the dual‑core, but lacks HW acceleration for PQC‑specific operations.
 
-#### 4.4 ESP32‑C3 (RISC‑V)
+##### 4.4 ESP32‑C3 (RISC‑V)
 - **HW accelerators:** AES‑128/256, SHA‑1/224/256, RSA‑3072
 - **ECC, HMAC** available
 - **No APM/TEE**
 - **PSA Level 1 certified**
 - **Assessment:** Good HW support for classical crypto. PQC in software possible (liboqs benchmarks exist for C3), but without HW acceleration.
 
-#### 4.5 ESP32‑C2
+##### 4.5 ESP32‑C2
 - **HW accelerators:** AES, SHA, RSA, ECC (limited scope)
 - **No HMAC, no Digital Signature**
 - **Assessment:** Minimalistic crypto HW. Unsuitable for PQC (too little performance and memory).
 
-#### 4.6 ESP32‑C5 (Dual‑Band Wi‑Fi 6)
+##### 4.6 ESP32‑C5 (Dual‑Band Wi‑Fi 6)
 - **HW accelerators:** AES, SHA, RSA, ECC, HMAC, DSA, ECDSA
 - **APM (Access Permission Management), PMP (Physical Memory Protection)**
 - **External Memory Encryption (XTS‑AES)**
 - **TRNG**
 - **Assessment:** First RISC‑V platform with **APM/TEE‑like** security. HW ECC for classical crypto, but no PQC‑specific HW. Still, TEE and memory protection make it suitable for security‑critical applications.
 
-#### 4.7 ESP32‑C6 – **The PSA Level 2 Chip**
+##### 4.7 ESP32‑C6 – **The PSA Level 2 Chip**
 - **HW accelerators:** AES, SHA, RSA, ECC, HMAC
 - **APM/TEE (ESP‑TEE)**
 - **Key Manager**
@@ -632,49 +632,49 @@ The following table summarises the **hardware‑accelerated cryptographic featur
 - **PSA Level 2 certified** (first RISC‑V MCU with PSA‑L2)
 - **Assessment:** **Best ESP32 for security‑critical applications.** PSA‑L2 means the PSA Root of Trust has been laboratory‑tested for resilience against scalable software attacks. **ESP‑TEE** (Trusted Execution Environment) provides hardware‑enforced isolation. PQC in software is possible, but the security architecture is the best in the ESP32 family.
 
-#### 4.8 ESP32‑C61
+##### 4.8 ESP32‑C61
 - **HW accelerators:** AES, SHA, RSA, ECC
 - **ECDSA‑based Digital Signature Peripheral** (private keys in eFuse)
 - **APM + PMP** (TEE‑like)
 - **Assessment:** Affordable Wi‑Fi 6 chip with a solid security package. The **ECDSA‑DS Peripheral** is a real advantage over older models. PQC only in software, but TEE makes it suitable for secure environments.
 
-#### 4.9 ESP32‑H2
+##### 4.9 ESP32‑H2
 - **HW accelerators:** AES‑128/256 (with DPA protection), SHA, RSA, ECC, HMAC
 - **Digital Signature (ECDSA)**
 - **ECC‑based Secure Boot**
 - **No APM/TEE**
 - **Assessment:** Ultra‑low‑power with good crypto HW. **ECC‑based Secure Boot** is more modern than RSA‑based on older models. PQC in software possible, but the low compute power (96 MHz) and small SRAM (320 KB) limit complex PQC operations.
 
-#### 4.10 ESP32‑H4
+##### 4.10 ESP32‑H4
 - **HW accelerators:** AES, SHA, RSA, ECC
 - **Digital Signature (ECDSA)**
 - **TRNG**
 - **Assessment:** Like H2, but with dual‑core (96 MHz) and more performance. Better suited for PQC than H2, but still without TEE.
 
-#### 4.11 ESP32‑P4 – **The High‑Performance Flagship**
+##### 4.11 ESP32‑P4 – **The High‑Performance Flagship**
 - **AES** with **DPA resistance** and **Pseudo‑Round protection** (against side‑channel attacks)
 - **SHA, RSA, ECC, HMAC** in HW accelerator
 - **APM/TEE**
 - **Key Manager**
 - **Assessment:** **Best performance for PQC in software.** The dual‑core RISC‑V with up to 360 MHz (400 MHz in v3.x) and 768 KB SRAM offers enough “muscle” for computationally intensive PQC algorithms. The DPA‑resistant AES HW is a unique feature. **No integrated radio** – ideal as a central security controller in hybrid systems (e.g., P4 + C6).
 
-#### 4.12 ESP32‑E22 (RCP for Wi‑Fi 6E)
+##### 4.12 ESP32‑E22 (RCP for Wi‑Fi 6E)
 - **Crypto HW** for radio stack security present
 - **Focus on RCP architecture** – cryptographic processing is primarily handled by the host system
 - **Assessment:** Not to be considered as a standalone crypto engine; security is determined by the host processor.
 
-#### 4.13 ESP32‑H21 (Ultra‑Low‑Power)
+##### 4.13 ESP32‑H21 (Ultra‑Low‑Power)
 - **Crypto HW** similar to H2 (AES, SHA, RSA, ECC, HMAC)
 - **No APM/TEE**
 - **Assessment:** Like H2, but with optimised power consumption (5 µA deep sleep). Suitable for PQC only in very simple scenarios.
 
-#### 4.14 ESP32‑S31 (Announced)
+##### 4.14 ESP32‑S31 (Announced)
 - **Expected crypto HW:** AES, SHA, RSA, ECC, ECDSA, HMAC
 - **TEE + APM** (as expected for RISC‑V platforms)
 - **RAM‑based PUF** (Physical Unclonable Function) – unique device identity
 - **Assessment:** Potentially the **most secure ESP32** with PUF and TEE. Specifications not final, but promising.
 
-### 5. X25519 / Ed25519 Support – Which ESP32 Can Do It?
+#### 5. X25519 / Ed25519 Support – Which ESP32 Can Do It?
 
 **X25519** and **Ed25519** are ECC schemes based on **Curve25519**. They are part of **Elliptic‑Curve Cryptography (ECC)** and are supported by all ESP32 models with an **ECC hardware accelerator** – that is:
 
@@ -694,7 +694,7 @@ Software support for X25519 and Ed25519 is available in ESP‑IDF via **Mbed TLS
 
 **Important:** X25519 and Ed25519 are **not quantum‑resistant**. They offer excellent performance and are suitable for the **transition phase** (hybrid mode with ML‑KEM), but they become obsolete on Q‑Day.
 
-### 6. Recommendations for Quantum‑Safe Architectures on ESP32
+#### 6. Recommendations for Quantum‑Safe Architectures on ESP32
 
 | Requirement | Recommended ESP32 | Reason |
 |-------------|-------------------|--------|
@@ -705,7 +705,7 @@ Software support for X25519 and Ed25519 is available in ESP‑IDF via **Mbed TLS
 | **Low‑cost PQC evaluation** | **ESP32‑C3** | Affordable, RISC‑V, liboqs‑compatible |
 | **Future‑proof (PUF + TEE)** | **ESP32‑S31** (announced) | RAM‑based PUF + TEE (specs pending) |
 
-### 7. Practical Implementation – PQC on ESP32 Today
+#### 7. Practical Implementation – PQC on ESP32 Today
 
 Post‑Quantum Cryptography can already be implemented on ESP32 today:
 
@@ -727,7 +727,7 @@ Post‑Quantum Cryptography can already be implemented on ESP32 today:
 
 Integration is possible via the ESP‑IDF Component Registry (e.g., argenox/noxtls).
 
-### 8. Conclusion
+#### 8. Result
 
 The ESP32 family provides all the necessary tools to implement both classical and post‑quantum‑safe cryptography. The decisive factors are:
 
