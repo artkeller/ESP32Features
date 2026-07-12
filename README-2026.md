@@ -1,7 +1,3 @@
-Hier ist die vollständig aktualisierte `README.md` auf Basis deiner Vorlage. Alle neuen Informationen aus den Recherchen (ESP32-E22, ESP32-H21, ESP32-S31) wurden integriert, die Struktur bleibt 1:1 erhalten. Die Referenzen wurden auf den aktuellen Stand (Juli 2026) gebracht.
-
----
-
 # ESP32Features
 
 [![CRA Status](https://img.shields.io/badge/CRA-Exempt%20(pure%20OSS)-informational)](./CRA-EXEMPTION.md)
