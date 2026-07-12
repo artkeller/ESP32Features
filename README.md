@@ -740,6 +740,67 @@ The message to legal and security departments: The ESP32 platform is quantum‑r
 
 The Q‑Day 2029 is a real threat – but with the right architecture (e.g., hybrid schemes like X25519 + ML‑KEM) and crypto‑agile designs, ESP32‑based systems can meet this challenge.
 
+## Hardware Lifecycle Management & Practical Soft-Fade-out Combinations
+
+While combining different ESP32 SoCs is highly effective for expanding peripheral interfaces or radio protocols (as shown in the hardware topology section), this multi-chip architecture serves a critical economic and compliance purpose: enforcing **Crypto-Agility** to prevent total asset depreciation of "legacy" or "soon-to-be-legacy" silicon.
+
+With strict cybersecurity regulations in place (such as the EU Cyber Resilience Act (CRA), DORA, and NIS2) and active Post-Quantum Cryptography (PQC) transition timelines (like CNSA 2.0), chips lacking advanced cryptographic enclaves, sufficient RAM for heavy software stacks, or side-channel protections face premature obsolescence. 
+
+Instead of undergoing a costly and complex full redesign of a high-performance main application board, developers can implement a **Co-Chip or Hybrid-Crypto-Topology**. This approach keeps legacy components in their functional comfort zone (handling application logic, peripherals, displays, and compute), while modern, security-optimized co-chips act as a cryptographic shield. This strategy guarantees a soft, compliant, and highly profitable hardware fade-out until the regular product End-of-Life (EOL) is reached.
+
+### Strategic Co-Chip Combinations for Enhanced Security Compliance
+
+#### 1. ESP32 (Classic) / ESP32-S2 + ESP32-H2
+* **Description:** Classic `ESP32` (Dual Xtensa, Ethernet, legacy Bluetooth) or `ESP32-S2` (Wi-Fi, USB OTG, LCD) combined with `ESP32-H2` (802.15.4/BLE 5.3, ultra-low power, hardware ECC/ECDSA, Secure Boot).
+* **Why it makes sense:** Legacy SoCs lack hardware-accelerated ECC/ECDSA engines and rely on obsolete, non-compliant RSA-only boot structures. The `ESP32-H2` acts as an upstream cryptographic "Gatekeeper" (Root-of-Trust). It handles firmware image verification (Secure Boot), secure identity anchoring, and initial key exchanges before releasing the legacy chip from reset.
+* **Applications:**
+  * **Simple:** Smart access panel (S2 handles touch display/camera; H2 manages secure Thread/BLE access control tokens).
+  * **Medium:** Retrofitted industrial terminal (Classic handles legacy wired Ethernet/RS-485 communication; H2 provides modern, secure wireless device identity).
+  * **Sophisticated (Industry 4.0):** Mobile quality control terminal (S2/Classic handles camera inspection, local UI, and USB peripherals; H2 manages authenticated, cryptographically signed data synchronization with the factory network, bypassing legacy software weaknesses).
+
+#### 2. ESP32-S3 + ESP32-H21 / ESP32-S31
+* **Description:** `ESP32-S3` (High-performance dual Xtensa with AI/vector extensions, LCD, camera, USB) combined with `ESP32-H21` or `ESP32-S31` (utilizing advanced integrated APM/TEE, Key Manager, and hardware-level DPA Protection).
+* **Why it makes sense:** The `ESP32-S3` provides exceptional edge-AI and multimedia processing power but lacks advanced hardware-level Trusted Execution Environments (TEE) and Differential Power Analysis (DPA) countermeasures required to shield sensitive private keys from physical side-channel harvesting. The `H21` or `S31` serves as an isolated cryptographic coprocessor, handling all sensitive key storage and signing routines.
+* **Applications:**
+  * **Simple:** Smart lock controller (S3 runs local face/voice recognition; H21/S31 securely manages and isolates the private authentication keys).
+  * **Medium:** Secure payment hub (S3 drives display and barcode scanner; H21/S31 processes encryption in a dedicated, side-channel-protected TEE).
+  * **Sophisticated (Industry 4.0):** Automated AI inspection node (S3 processes high-speed camera streams and runs complex vibration anomaly models on the factory edge; H21/S31 signs the resulting telemetry data with high-grade certificates inside a hardened cryptographic boundary before network transmission).
+
+
+
+#### 3. ESP32-Classic / ESP32-C2 + ESP32-C6 / ESP32-C61
+* **Description:** `ESP32-Classic` or `ESP32-C2` (low-cost, minimal RAM <128 KB, legacy wireless) combined with `ESP32-C6` or `ESP32-C61` (Wi-Fi 6, 802.15.4, modern crypto acceleration).
+* **Why it makes sense:** Minimalist or legacy chips do not possess the SRAM required to execute complex, lattice-based PQC algorithms (e.g., ML-DSA, which demands a massive RAM overhead for signature processing) alongside an active network stack. This combination completely offloads network operations: the legacy chip is stripped of its crypto duties ("Krypto-Befreiung") and acts as a pure local computing element, while the C6/C61 isolates it from the network via an encrypted compliant tunnel.
+* **Applications:**
+  * **Simple:** Local multi-sensor cluster (C2/Classic polls raw GPIO/ADC data; C6 handles the encrypted Wi-Fi upload stack).
+  * **Medium:** Smart home actuator network (C2 manages local relay/triac timing; C6 handles secure Matter-over-Thread mesh integration).
+  * **Sophisticated (Industry 4.0):** IIoT machine controller (Classic or C2 connects directly to legacy internal vehicle/machine interfaces like CAN-Bus or local Modbus without any encryption overhead; the C6/C61 encapsulates this raw data stream into a secure, compliant TLS 1.3 connection to the enterprise cloud, ensuring full CRA compliance with zero redesign of the operational controller).
+
+#### 4. ESP32-P4 + ESP32-S31
+* **Description:** `ESP32-P4` (High-performance application MCU up to 360 MHz, MIPI CSI/DSI, Ethernet, AI/DSP) combined with `ESP32-S31` (utilizing integrated Key Manager, DPA Protection, and advanced hardware security extensions).
+* **Why it makes sense:** The `P4` is the ultimate processing powerhouse for multimedia and edge AI but features a standard security architecture. For highly regulated high-risk environments (e.g., critical infrastructure or payment gateways), the `P4` can offload the absolute root of trust, secure boot attestation, and live signature generation to the `S31`. The `S31` acts as a side-channel-attack-resistant cryptographic vault, shielding the main system identity.
+* **Applications:**
+  * **Simple:** Secure biometric access terminal (P4 handles camera stream and face recognition; S31 verifies the encrypted credential signature).
+  * **Medium:** Connected medical gateway (P4 aggregation of local sensor logs via high-speed USB; S31 signs the health-data packets inside a DPA-protected boundary).
+  * **Sophisticated (Industry 4.0):** Critical infrastructure edge controller (P4 executes real-time machine-learning anomaly detection via MIPI cameras and Ethernet; S31 encapsulates and signs the control commands with quantum-resistant signatures, completely protecting the private keys against physical side-channel harvesting on the factory floor).
+
+#### 5. ESP32-C3 / ESP32-C5 + ESP32-H21
+* **Description:** `ESP32-C3` (Low-cost RISC-V with Wi-Fi/BLE) or `ESP32-C5` (Dual-Band Wi-Fi 6, CAN FD) combined with `ESP32-H21` (Ultra-low-power BLE 5 + 802.15.4 with 5 µA deep sleep, 20 dBm TX power).
+* **Why it makes sense:** While the `C3` or `C5` handle standard field communications (like Wi-Fi or vehicle CAN networks), they lack dedicated digital signature blocks for ECDSA and the enhanced 20 dBm transmission power needed to punch through thick industrial walls. The `H21` adds long-range secure mesh routing (Zigbee/Thread/Matter) and hardware-accelerated **Digital Signature (ECDSA)** with **PSA Level 2** compliance, acting as the secure radio-bridge.
+* **Applications:**
+  * **Simple:** Protected agricultural sensor (C3 reads soil sensors; H21 transmits long-range encrypted data over an outdoor mesh).
+  * **Medium:** Vehicle-to-Infrastructure (V2I) tracking unit (C5 interfaces with the automobile CAN FD bus; H21 signs the positional telemetry and broadcasts it securely via long-range BLE).
+  * **Sophisticated (Industry 4.0):** Hazardous environment telemetry hub (C5 aggregates local real-time operational technology data; H21 acts as a low-power, highly secure, high-penetration transmitter that signs every data packet using hardware ECDSA, allowing legacy field-buses to securely exit harsh industrial basements without risking data tampering).
+
+#### 6. ESP32-S2 + ESP32-C61
+* **Description:** `ESP32-S2` (Wi-Fi, USB OTG, DVP Camera, LCD interface) combined with `ESP32-C61` (Wi-Fi 6, BT 5.4, 802.15.4, hardware-accelerated Digital Signature and ECC-based Secure Boot).
+* **Why it makes sense:** The `S2` is a highly popular legacy choice for cost-effective display and camera systems, but it lacks Bluetooth and modern, regulatory-compliant hardware security infrastructure. Instead of scraping existing `S2`-based camera/display stock, adding a minimalist `C61` upgrades the system to Wi-Fi 6, introduces Thread/Matter capability, and provides a modern cryptographic identity that handles the secure boot chain for the entire system.
+* **Applications:**
+  * **Simple:** Secure QR-code reader (S2 handles camera image capturing; C61 signs and transmits the verified payload).
+  * **Medium:** Smart HMI home automation dashboard (S2 drives the LCD touch interface; C61 provides secure Matter-over-Wi-Fi communication).
+  * **Sophisticated (Industry 4.0):** Remote visual inspection node (S2 captures periodic high-resolution still images via its camera interface and stores them via USB; the C61 encrypts the storage using its internal Key Manager and transmits the data over an uncrowded Wi-Fi 6 channel using modern, authenticated cryptographic protocols, breathing compliance into a classic image-processing setup).
+
+
 ## References & Further Reading
 
 - **ESP32 Series Datasheet** (Version 5.2, accessed July 2026)  
