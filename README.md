@@ -516,23 +516,60 @@ These combinations extend individual strengths to robust systems, especially in 
 
 ## References & Further Reading
 
-- ESP32 Series Datasheet (Version 4.3, accessed July 2026)
-- ESP32‑S2 Series Datasheet (Version 1.4, accessed July 2026)
-- ESP32‑S3 Series Datasheet (Version 1.3, accessed July 2026)
-- ESP32‑C3 Series Datasheet (Version 1.2, accessed July 2026)
-- ESP32‑C2 Technical Reference Manual (Version 1.0, accessed July 2026; note: no complete datasheet available, based on module data such as ESP8684)
-- ESP32‑C5 Series Datasheet (Version 1.2, accessed July 2026)
-- ESP32‑C6 Series Datasheet (Version 1.5, accessed July 2026)
-- ESP32‑C61 Series Datasheet (Version 1.0, accessed July 2026)
-- ESP32‑H2 Series Datasheet (Version 1.5, accessed July 2026)
-- ESP32‑H4 Series Datasheet (Version 0.6, accessed July 2026)
-- ESP32‑P4 Series Datasheet (Version 1.0, accessed July 2026)
-- **ESP32‑E22 Series Datasheet** (Version 1.0, accessed July 2026)
-- **ESP32‑H21 Series Datasheet** (Version 1.0, accessed July 2026)
-- **ESP32‑S31 Series Datasheet** (Version 0.2, accessed July 2026)
-- Espressif Product Selector (accessed July 2026)
-- ESP32 Module Reference (WROOM/WROVER) (Version 2.0, accessed July 2026)
-- ESP‑IDF: For development with all models. (ESP‑IDF v6.0.1 stable for C5, E22, H21, S31 support)
+- **ESP32 Series Datasheet** (Version 5.2, accessed July 2026)  
+  [https://documentation.espressif.com/esp32_datasheet_en.html](https://documentation.espressif.com/esp32_datasheet_en.html)
+
+- **ESP32‑S2 Series Datasheet** (Version 1.4, accessed July 2026)  
+  [https://documentation.espressif.com/esp32-s2-solo-2_esp32-s2-solo-2u_datasheet_en.html](https://documentation.espressif.com/esp32-s2-solo-2_esp32-s2-solo-2u_datasheet_en.html)
+
+- **ESP32‑S3 Series Datasheet** (Version 1.3, accessed July 2026)  
+  [https://documentation.espressif.com/api/resource/doc/file/AyK0PQ1l/FILE/esp32-s3_datasheet_cn.pdf](https://documentation.espressif.com/api/resource/doc/file/AyK0PQ1l/FILE/esp32-s3_datasheet_cn.pdf)
+
+- **ESP32‑C3 Series Datasheet** (Version 1.2, accessed July 2026)  
+  [https://documentation.espressif.com/esp32-c3_datasheet_en.html](https://documentation.espressif.com/esp32-c3_datasheet_en.html)
+
+- **ESP32‑C2 Technical Reference Manual** (Version 1.0, accessed July 2026; note: no complete datasheet available, based on module data such as ESP8684)  
+  [https://www.espressif.com/en/support/documents/technical-documents?field_type_tid[]=1211](https://www.espressif.com/en/support/documents/technical-documents?field_type_tid[]=1211)  
+  *(Direct PDF link available via the Espressif technical documents portal.)*
+
+- **ESP32‑C5 Series Datasheet** (Version 1.2, accessed July 2026)  
+  [https://www.espressif.com/en/support/documents/technical-documents?field_type_tid[]=1211](https://www.espressif.com/en/support/documents/technical-documents?field_type_tid[]=1211)
+
+- **ESP32‑C6 Series Datasheet** (Version 1.5, accessed July 2026)  
+  [https://documentation.espressif.com/esp32-c6_datasheet_en.html](https://documentation.espressif.com/esp32-c6_datasheet_en.html)
+
+- **ESP32‑C61 Series Datasheet** (Version 1.0, accessed July 2026)  
+  [https://www.espressif.com/en/support/documents/technical-documents?field_type_tid[]=1637](https://www.espressif.com/en/support/documents/technical-documents?field_type_tid[]=1637)
+
+- **ESP32‑H2 Series Datasheet** (Version 1.5, accessed July 2026)  
+  [https://www.espressif.com/en/support/documents/technical-documents](https://www.espressif.com/en/support/documents/technical-documents) (search for „ESP32-H2 Series Datasheet“)
+
+- **ESP32‑H4 Series Datasheet** (Version 0.6, accessed July 2026)  
+  [https://www.espressif.com/en/news/ESP32-H4_Announcement](https://www.espressif.com/en/news/ESP32-H4_Announcement)  
+  *(Official announcement; datasheet available via Espressif technical documents portal.)*
+
+- **ESP32‑P4 Series Datasheet** (Version 1.0, accessed July 2026)  
+  [https://documentation.espressif.com/esp32-p4_datasheet_en.html](https://documentation.espressif.com/esp32-p4_datasheet_en.html)
+
+- **ESP32‑E22 Series Datasheet** (Version 1.0, accessed July 2026)  
+  [https://www.espressif.com/en/news/ESP32-E22_Announcement](https://www.espressif.com/en/news/ESP32-E22_Announcement)  
+  *(Official announcement; datasheet available via Espressif technical documents portal.)*
+
+- **ESP32‑H21 Series Datasheet** (Version 1.0, accessed July 2026)  
+  [https://www.espressif.com/en/news/ESP32-H21_Announcement](https://www.espressif.com/en/news/ESP32-H21_Announcement)  
+  *(Official announcement; datasheet available via Espressif technical documents portal.)*
+
+- **ESP32‑S31 Series Datasheet** (Version 0.2 – pre-release, accessed July 2026)  
+  [https://documentation.espressif.com/esp32-s31_datasheet_en.html](https://documentation.espressif.com/esp32-s31_datasheet_en.html)
+
+- **Espressif Product Selector** (accessed July 2026)  
+  [https://www.espressif.com/en/products/socs](https://www.espressif.com/en/products/socs)
+
+- **ESP32 Module Reference (WROOM/WROVER)** (Version 2.0, accessed July 2026)  
+  [https://www.espressif.com/en/support/documents/technical-documents?field_type_tid[]=1211](https://www.espressif.com/en/support/documents/technical-documents?field_type_tid[]=1211)
+
+- **ESP‑IDF** – For development with all models. (ESP‑IDF v6.0.1 stable for C5, E22, H21, S31 support)  
+  [https://docs.espressif.com/projects/esp-idf/en/latest/](https://docs.espressif.com/projects/esp-idf/en/latest/)
 
 Contribution: Pull requests welcome! Star & fork for updates.
 
