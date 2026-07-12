@@ -16,7 +16,7 @@ Welcome to ESP32Features, a guide and repository for the current ESP32 SoC famil
 The table below summarizes the core features. For detailed analyses, see the subsections: [Espressif SoC Product Portfolio](#espressif-soc-product-portfolio), [Deep Sleep](#deep-sleep), [Advantages and Disadvantages](#thorough-evaluation-of-each-model), [Applications](#list-of-typical-applications), [Combinations](#useful-combinations-of-esp32-models), and [References](#references--further-reading)
 
 ### Disclaimer 2026
-The following models have been announced by Espressif since September 2025 and are **already included in the table above**:
+The following models have been announced by Espressif since September 2025 and are **already included in the table below**:
 - **ESP32‑E22** – Tri‑Band Wi‑Fi 6E + Dual‑Mode Bluetooth 5.4 Connectivity Co‑Processor (RCP) – available since Jan 2026, Wi‑Fi 6E‑certified since Jun 2026
 - **ESP32‑H21** – Ultra‑Low‑Power BLE 5 + 802.15.4 SoC – available with preview support in ESP‑IDF v6.0 since March 2026
 - **ESP32‑S31** – Dual‑Core RISC‑V SoC with Wi‑Fi 6, BT 5.4, 802.15.4, Gigabit Ethernet, and advanced HMI features – announced in March 2026, release pending
