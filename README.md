@@ -922,12 +922,10 @@ Here is the complete, updated reference list in its original English format with
 ## References & Further Reading
 
 * **ESP32 Series Datasheet** (Version 5.2, accessed July 2026)
-
-[https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf)
+  [https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf)
 
 * **ESP32‑S2 Series Datasheet** (Version 1.9, accessed July 2026)
-
-[https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf)
+  [https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf)
 
 * **ESP32‑S3 Series Datasheet** (Version 1.8/1.9, accessed July 2026)
 
