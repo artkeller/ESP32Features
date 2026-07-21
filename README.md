@@ -560,6 +560,62 @@ In August 2024, NIST published the first three Post‑Quantum Cryptography (PQC)
 
 The **long‑term solution** is **hybrid** schemes that combine classical (e.g., X25519) with quantum‑resistant algorithms (e.g., ML‑KEM). TLS 1.3 already supports hybrid groups.
 
+
+## Addendum for Germany — BSI Compatibility Notes
+
+### A.1 Scope
+
+German security‑critical deployments — federal agencies, KRITIS operators, and VS‑NfD (classified) contexts — are not governed by FIPS certification. The Bundesamt für Sicherheit in der Informationstechnik (BSI) does not recognize FIPS 140‑3 / FIPS 203/204/205 certificates as a conformity proof for German systems. The relevant reference document is **BSI TR‑02102**, supplemented by **TR‑03116** for federal government projects. Any claim of PQC-readiness in a BSI-regulated context must be phrased against TR‑02102, not against the FIPS designation.
+
+### A.2 Algorithm Mapping: NIST/FIPS → BSI TR‑02102
+
+| NIST/FIPS Designation | Algorithm | BSI Status (TR‑02102‑1, ed. 2026‑01) | Notes |
+|---|---|---|---|
+| FIPS 203 | ML‑KEM (Kyber) | Recommended | Primary BSI-recognized KEM; adopted independently of FIPS certification |
+| FIPS 204 | ML‑DSA (Dilithium) | Recommended | Primary BSI-recognized signature scheme |
+| FIPS 205 | SLH‑DSA (SPHINCS+) | Recommended | Fallback / stateless hash-based signature, BSI-recognized |
+| — | FrodoKEM | Recommended (since 2020) | BSI-preferred alternative KEM; unstructured lattice, currently under ISO standardization with BSI participation |
+| — | Classic McEliece | Recommended (since 2020) | BSI-preferred alternative KEM; code-based, conservative security margin |
+| — | XMSS / LMS | Recommended | BSI-preferred stateful hash-based signature schemes |
+
+**Key point:** ML‑KEM and ML‑DSA are BSI-compliant *because* TR‑02102‑1 lists them, not because they carry a FIPS 203/204 label. Documentation intended for BSI review should cite "ML‑KEM per BSI TR‑02102‑1 (2026‑01)" rather than "FIPS 203."
+
+### A.3 Governing Documents
+
+| Document | Applicability |
+|---|---|
+| BSI TR‑02102‑1 | General crypto algorithm and key-length recommendations |
+| BSI TR‑02102‑2 | TLS-specific recommendations |
+| BSI TR‑02102‑3 | IPsec/IKEv2-specific recommendations |
+| BSI TR‑02102‑4 | SSH-specific recommendations |
+| BSI TR‑03116 | Mandatory crypto specifications for German federal government projects |
+
+TR‑02102 is updated annually; conformity claims should reference the specific edition (currently **2026‑01**).
+
+### A.4 Migration Deadlines (BSI, February 2026)
+
+BSI has moved from a recommendation to a binding statement: migration to post-quantum cryptography is described as without alternative ("alternativlos"). For data requiring long-term confidentiality protection (high-protection-need categories), classical RSA/ECC without PQC hybridization must be phased out by end of 2030. This is more conservative than the NIST 2035 target and the NSA 2031 target referenced in Section 1.
+
+| Entity | PQC Migration Target |
+|---|---|
+| Google | 2029 (internal) |
+| NSA (USA) | 2031 |
+| NIST (USA) | 2035 |
+| **BSI (Germany, high-protection data)** | **End of 2030** |
+
+### A.5 Hybrid Requirement
+
+BSI explicitly recommends hybrid key exchange (classical + PQC, e.g. X25519 + ML‑KEM) as the transitional approach — consistent with Section 2 above — rather than a pure-PQC cutover. For classified material (Verschlusssachen) processing, conformity to TR‑02102 is not optional but mandatory; a FIPS 203 certificate does not substitute for this requirement.
+
+### A.6 Practical Note for This Chapter's ESP32 Context
+
+Where this document elsewhere states firmware or driver conformance in terms of "FIPS 203/204/205," an equivalent BSI-facing statement should be added or substituted, e.g.:
+
+> *"ML‑KEM (Kyber) is implemented per BSI TR‑02102‑1 (2026‑01) recommendations for quantum-safe key exchange; hybrid operation with X25519 is supported per Section 2, consistent with BSI's transitional hybrid guidance."*
+
+This phrasing is what a BSI-facing audit or a KRITIS/Bund procurement review would expect to see, independent of any FIPS certification status of the underlying cryptographic library.
+
+
 #### 3. Cryptographic Hardware Capabilities of the ESP32 Family
 
 Crypto‑agility on ESP32 does **not** mean that a chip can run any algorithm in software – all can do that. The decisive factor is **hardware acceleration** and **ESP‑IDF support** for efficient PQC implementations.
