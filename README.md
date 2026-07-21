@@ -921,23 +921,20 @@ Here is the complete, updated reference list in its original English format with
 
 ## References & Further Reading
 
-* **ESP32 Series Datasheet** (Version 5.2, accessed July 2026)
+* **ESP32 Series Datasheet** (Version 5.2, accessed July 2026)  
   [https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf)
 
-* **ESP32‑S2 Series Datasheet** (Version 1.9, accessed July 2026)
+* **ESP32‑S2 Series Datasheet** (Version 1.9, accessed July 2026)  
   [https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf)
 
 * **ESP32‑S3 Series Datasheet** (Version 1.8/1.9, accessed July 2026)
-
-[https://documentation.espressif.com/esp32-s3_datasheet_en.pdf](https://documentation.espressif.com/esp32-s3_datasheet_en.pdf) *(Updated link)*
+  [https://documentation.espressif.com/esp32-s3_datasheet_en.pdf](https://documentation.espressif.com/esp32-s3_datasheet_en.pdf) *(Updated link)*
 
 * **ESP32‑C3 Series Datasheet** (Version 1.2, accessed July 2026)
-
-[https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf)
+  [https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf)
 
 * **ESP32‑C2 Technical Reference Manual** (Version 1.0, accessed July 2026; no complete datasheet available, based on module data such as ESP8684)
-
-[https://www.espressif.com/en/support/documents/technical-documents?field_type_tid%5B%5D=1211](https://www.espressif.com/en/support/documents/technical-documents?field_type_tid%5B%5D=1211)
+  [https://www.espressif.com/en/support/documents/technical-documents?field_type_tid%5B%5D=1211](https://www.espressif.com/en/support/documents/technical-documents?field_type_tid%5B%5D=1211)
 
 * **ESP32‑C5 Series Datasheet** (Version 1.3, accessed July 2026)
 
