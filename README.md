@@ -862,11 +862,11 @@ Instead of undergoing a costly and complex full redesign of a high-performance m
 - **ESP32 Series Datasheet** (Version 5.2, accessed July 2026)  
   [https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf)
 
-- **ESP32‑S2 Series Datasheet** (Version 1.4, accessed July 2026)  
+- **ESP32‑S2 Series Datasheet** (Version 1.9, accessed July 2026)  
   [https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf)
 
 - **ESP32‑S3 Series Datasheet** (Version 1.8/1.9, accessed July 2026)  
-  [https://www.espressif.com/documentation/esp32-s3_datasheet_en.pdf](https://www.espressif.com/documentation/esp32-s3_datasheet_en.pdf)
+  <[https://www.espressif.com/documentation/esp32-s3_datasheet_en.pdf](https://www.espressif.com/documentation/esp32-s3_datasheet_en.pdf)>
 
 - **ESP32‑C3 Series Datasheet** (Version 1.2, accessed July 2026)  
   [https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf)
