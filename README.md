@@ -913,7 +913,7 @@ Instead of undergoing a costly and complex full redesign of a high-performance m
 - **ESP‑IDF** – For development with all models. (ESP‑IDF v6.0.1 stable for C5, E22, H21, S31 support)  
   [https://docs.espressif.com/projects/esp-idf/en/latest/](https://docs.espressif.com/projects/esp-idf/en/latest/)
 
-  Disclaimer: linked marked with < ... > are not accessable (e. g. 403)
+  Disclaimer: urls marked with < ... > are not accessable (e. g. 403) at this moment
   
 Contribution: Pull requests welcome! Star & fork for updates.
 
