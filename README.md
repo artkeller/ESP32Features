@@ -922,39 +922,73 @@ Here is the complete, updated reference list in its original English format with
 ## References & Further Reading
 
 * **ESP32 Series Datasheet** (Version 5.2, accessed July 2026)
+
 [https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32_datasheet_en.pdf)
+
 * **ESP32‑S2 Series Datasheet** (Version 1.9, accessed July 2026)
+
 [https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32-s2_datasheet_en.pdf)
+
 * **ESP32‑S3 Series Datasheet** (Version 1.8/1.9, accessed July 2026)
+
 [https://documentation.espressif.com/esp32-s3_datasheet_en.pdf](https://documentation.espressif.com/esp32-s3_datasheet_en.pdf) *(Updated link)*
+
 * **ESP32‑C3 Series Datasheet** (Version 1.2, accessed July 2026)
+
 [https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf)
+
 * **ESP32‑C2 Technical Reference Manual** (Version 1.0, accessed July 2026; no complete datasheet available, based on module data such as ESP8684)
+
 [https://www.espressif.com/en/support/documents/technical-documents?field_type_tid%5B%5D=1211](https://www.espressif.com/en/support/documents/technical-documents?field_type_tid%5B%5D=1211)
+
 * **ESP32‑C5 Series Datasheet** (Version 1.3, accessed July 2026)
+
 [https://documentation.espressif.com/esp32-c5_datasheet_en.pdf](https://documentation.espressif.com/esp32-c5_datasheet_en.pdf) *(Updated link)*
+
 * **ESP32‑C6 Series Datasheet** (Version 1.5, accessed July 2026)
+
 [https://www.espressif.com/sites/default/files/documentation/esp32-c6_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32-c6_datasheet_en.pdf)
+
 * **ESP32‑C61 Series Datasheet** (Version 1.0, accessed July 2026)
+
 [https://documentation.espressif.com/esp32-c61_datasheet_en.pdf](https://documentation.espressif.com/esp32-c61_datasheet_en.pdf) *(Updated link)*
+
 * **ESP32‑H2 Series Datasheet** (Version 1.0/1.5, accessed July 2026)
+
 [https://www.espressif.com/sites/default/files/documentation/esp32-h2_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32-h2_datasheet_en.pdf) *(Updated link)*
+
 * **ESP32‑H4 Series Datasheet** (Version 0.6, accessed July 2026)
+
 [https://www.espressif.com/sites/default/files/documentation/esp32-h4_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32-h4_datasheet_en.pdf)
+
 *(Note: Direct PDF link restricted/403 – accessible via the Espressif Technical Documents Portal)*
+
 * **ESP32‑P4 Series Datasheet** (Version 1.0 / Chip Revision v1.3, accessed July 2026)
+
 [https://www.espressif.com/sites/default/files/documentation/esp32-p4_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp32-p4_datasheet_en.pdf)
+
 * **ESP32‑E22 Series – Product Page** (accessed July 2026)
+
 *(No direct public URL available / pre-release – datasheet available via Espressif Technical Documents Portal)*
+
 * **ESP32‑H21 Series – Product Page** (accessed July 2026)
+
 *(No direct public URL available / pre-release – datasheet available via Espressif Technical Documents Portal)*
+
 * **ESP32‑S31 Series Datasheet** (Version 0.2 – pre-release, accessed July 2026)
+
 *(No direct public URL available / pre-release draft)*
+
 * **Espressif Product Selector** (accessed July 2026)
+
 [https://www.espressif.com/en/products/socs](https://www.espressif.com/en/products/socs)
+
 * **ESP32 Module Reference (WROOM/WROVER)** (Version 2.0, accessed July 2026)
+
 [https://www.espressif.com/en/support/documents/technical-documents?field_type_tid%5B%5D=1211](https://www.espressif.com/en/support/documents/technical-documents?field_type_tid%5B%5D=1211)
+
 * **ESP‑IDF** – For development with all models. (ESP‑IDF v6.0.1 stable for C5, E22, H21, S31 support)
+
 [https://docs.espressif.com/projects/esp-idf/en/latest/](https://docs.espressif.com/projects/esp-idf/en/latest/)
   
 Contribution: Pull requests welcome! Star & fork for updates.
