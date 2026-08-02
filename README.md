@@ -201,6 +201,68 @@ The information is based on the Espressif SoC product portfolio and the official
 - **Differences:** Models with ULP (ESP32, S2, S3) or LP core (C5, C6, H2, P4, **S31**) offer more flexibility as they can actively execute code in deep sleep. C3 and C2 are limited (storage only, no processing).
 - **C5, C6, H2, P4** can also use the LP core to be active **in deep sleep**.
 
+## Interface Speed Classes and Bus Characteristics
+
+[#interface-speed-classes-and-bus-characteristics](#interface-speed-classes-and-bus-characteristics)
+
+The overview table lists interfaces by type and count (e.g., "USB OTG", "3 SPI"), but does not distinguish speed classes or bus-specific limitations — a detail that matters for throughput-sensitive applications (mass storage, video capture, high-rate sensor polling) and is often glossed over in datasheet summaries. This section breaks down USB, UART, I2C, and SPI characteristics per model.
+
+### USB
+
+[#usb](#usb)
+
+Not all "USB OTG" is equal. USB 2.0 defines three speed classes: Low Speed (1.5 Mbit/s), Full Speed (12 Mbit/s), and High Speed (480 Mbit/s). Most ESP32 models with USB OTG only implement Full Speed.
+
+- **Full Speed only (12 Mbit/s):** ESP32-S2, ESP32-S3
+- **High Speed (480 Mbit/s):** ESP32-P4 — features a dedicated High-Speed OTG controller *in addition to* a separate Full-Speed OTG controller and a Full-Speed-only USB Serial/JTAG controller (three independent USB controllers total).
+- **Expected High Speed (unconfirmed):** ESP32-S31 — not yet stated in a public datasheet; positioning as S2/S3 successor suggests it, but treat as unverified until Espressif publishes final specs.
+- **USB Serial/JTAG only (12 Mbit/s, not general-purpose OTG):** ESP32-C3, ESP32-C2, ESP32-C5, ESP32-C6, ESP32-C61, ESP32-H2
+
+For applications needing fast USB throughput (e.g. UVC video capture, mass storage emulation), P4 is currently the only *confirmed* High-Speed option in the family.
+
+*(h/t [ukezi](https://www.reddit.com/user/ukezi/) on [r/embedded](https://www.reddit.com/r/embedded/comments/1vdgc5l/comment/p19jubw/) for flagging this)*
+
+### UART
+
+[#uart](#uart)
+
+*(To be completed: max baud rate per model, hardware flow control support, LP-UART availability, IrDA support where applicable.)*
+
+### I2C
+
+[#i2c](#i2c)
+
+*(To be completed: standard/fast/fast-plus/high-speed mode support per model, LP-I2C availability, master/slave capability, I3C support where applicable — e.g. P4.)*
+
+### SPI
+
+[#spi](#spi)
+
+*(To be completed: max clock frequency per model, single/dual/quad/octal SPI support, dedicated flash/PSRAM SPI vs. general-purpose SPI count, LP-SPI availability.)*
+
+### Summary
+
+[#summary-1](#summary-1)
+
+| Model | USB Speed Class | UART Max Baud | I2C Modes | SPI Max Clock / Modes |
+|---|---|---|---|---|
+| ESP32 | — (no USB OTG) | *TBD* | *TBD* | *TBD* |
+| ESP32-S2 | Full Speed (12 Mbit/s) | *TBD* | *TBD* | *TBD* |
+| ESP32-S3 | Full Speed (12 Mbit/s) | *TBD* | *TBD* | *TBD* |
+| ESP32-C3 | Serial/JTAG only | *TBD* | *TBD* | *TBD* |
+| ESP32-C2 | Serial/JTAG only | *TBD* | *TBD* | *TBD* |
+| ESP32-C5 | Serial/JTAG only | *TBD* | *TBD* | *TBD* |
+| ESP32-C6 | Serial/JTAG only | *TBD* | *TBD* | *TBD* |
+| ESP32-C61 | Serial/JTAG only | *TBD* | *TBD* | *TBD* |
+| ESP32-H2 | Serial/JTAG only | *TBD* | *TBD* | *TBD* |
+| ESP32-H4 | *TBD* | *TBD* | *TBD* | *TBD* |
+| ESP32-P4 | **High Speed (480 Mbit/s)** + Full Speed | *TBD* | *TBD* | *TBD* |
+| ESP32-E22 | USB 2.0 (host-managed) | *TBD* | *TBD* | *TBD* |
+| ESP32-H21 | Serial/JTAG only | *TBD* | *TBD* | *TBD* |
+| ESP32-S31 | High Speed (**unconfirmed**) | *TBD* | *TBD* | *TBD* |
+
+*Sources: Espressif datasheets and ESP-IoT-Solution documentation, USB section confirmed as of this entry. UART/I2C/SPI columns pending per-chip datasheet review.*
+
 ## Thorough evaluation of each model
 
 Based on the official Espressif datasheets (as of July 2026) and the details collected from the sources, each ESP32 model is analyzed in terms of its advantages and disadvantages. The focus is on **key usability**, i.e., how the features (architecture, memory, radios, interfaces, power) optimize the model for specific areas of application. The evaluation takes into account factors such as performance, energy efficiency, cost, compatibility (e.g., RISC‑V vs. Xtensa), wireless options, and peripherals. Models with RISC‑V are future‑oriented (better for open source), while Xtensa is established. Newer models (C series, H2, P4, **E22, H21, S31**) emphasize low power and multi‑protocol (e.g., Matter), while older models (Classic, S2, S3) are more general but consume more power.
