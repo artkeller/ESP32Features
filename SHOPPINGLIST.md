@@ -12,4 +12,4 @@ note that not all "USB OTG" is equal:
 For applications needing fast USB throughput (e.g. UVC video capture, mass storage emulation), P4 is currently 
 the only *confirmed* High-Speed option in the family.
 
-*(h/t [sultan_papagani](https://reddit.com) on r/embedded for flagging this)*
+*(h/t [ukezi](https://www.reddit.com/user/ukezi/) on [r/embedded](https://www.reddit.com/r/embedded/comments/1vdgc5l/comment/p19jubw/) for flagging this)*
