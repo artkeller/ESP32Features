@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/License-CC--BY--4.0-blue?style=flat-square)](./LICENSE)
 [![Version](https://img.shields.io/badge/Version-2026.08-brightgreen?style=flat-square)](./README.md)
 
-Welcome to ESP32Features, a guide and repository for the current ESP32 SoC family from Espressif Systems. This README provides an overview table of the relevant ESP32 models, based on the official Espressif datasheets and documentation (as of July 2026). The ESP32 series includes a wide range of microcontrollers optimized for IoT applications, edge computing, low-power sensors, and industrial systems—from legacy all-rounders like the classic ESP32 to modern RISC‑V‑based chips with Wi‑Fi 6, Bluetooth 5.4, and multi-protocol support (e.g., Zigbee/Thread for Matter-compatible smart homes).
+Welcome to ESP32Features, a guide and repository for the current ESP32 SoC family from Espressif Systems. This README provides an overview table of the relevant ESP32 models, based on the official Espressif datasheets and documentation (as of July 2026). The ESP32 series includes a wide range of microcontrollers optimized for IoT applications, edge computing, low-power sensors, and industrial systems - from legacy all-rounders like the classic ESP32 to modern RISC‑V‑based chips with Wi‑Fi 6, Bluetooth 5.4, and multi-protocol support (e.g., Zigbee/Thread for Matter-compatible smart homes).
 
 ## Why ESP32Features?
 
