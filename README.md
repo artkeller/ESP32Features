@@ -717,24 +717,24 @@ The following table summarises the **hardware‑accelerated cryptographic featur
 | **TRNG** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 *Sources: ESP Product Security Feature Matrix, supplemented by data from the respective chip datasheets.*
-> **Note on reading this table — checkmarks are not performance guarantees:**
+> **Note on reading this table - checkmarks are not performance guarantees:**
 > A "✓" for a given feature means the capability exists in silicon, not that every 
 > chip's implementation performs equally, or that different chips implement the 
 > capability the same way. Two cases worth flagging explicitly:
 >
 > - **"Digital Signature (ECDSA)" is genuinely different per chip, not just a naming 
 >   quirk.** ESP32-C5 has a dedicated ECDSA Digital Signature peripheral (ECDSA_DS), 
->   confirmed in its datasheet and TRM (Ch. 28) — separate from its RSA-only DS unit. 
+>   confirmed in its datasheet and TRM (Ch. 28) - separate from its RSA-only DS unit. 
 >   ESP32-C6, despite similar marketing language, only has the RSA-flavored Digital 
 >   Signature peripheral; Espressif's own ESP-IDF security overview for C6 does not 
 >   mention ECDSA hardware signing. Both S3 and C6 lack a dedicated ECDSA_DS engine.
 >
 > - **"ECC (HW) ✓" can mean two structurally different things, and this table doesn't 
 >   yet distinguish them.** Real-world benchmarks show ESP32-S3 signing ECDSA-P256 in 
->   ~170 ms against ~22 ms on ESP32-C6 — a 7.7x gap — despite neither chip having a 
+>   ~170 ms against ~22 ms on ESP32-C6 - a 7.7x gap - despite neither chip having a 
 >   dedicated ECDSA_DS peripheral. The cause: ESP32-C6 has a genuinely separate ECC 
 >   Accelerator hardware block (its own TRM chapter, its own mbedTLS build option 
->   `CONFIG_MBEDTLS_HARDWARE_ECC`). ESP32-S3 has no such block — its ECC point 
+>   `CONFIG_MBEDTLS_HARDWARE_ECC`). ESP32-S3 has no such block - its ECC point 
 >   operations are handled entirely by the general-purpose RSA/MPI (bignum) unit 
 >   (`CONFIG_MBEDTLS_HARDWARE_MPI` only), which assists but was not built for ECC 
 >   specifically. Both chips are marked "✓" in the ECC row above, but they represent 
@@ -742,11 +742,11 @@ The following table summarises the **hardware‑accelerated cryptographic featur
 >   **This means the "ECC (HW)" column in this table likely needs per-chip 
 >   verification against each target's `soc_caps.h` (`SOC_ECC_SUPPORTED` vs. 
 >   ECC-via-MPI-only) rather than treating a checkmark as equivalent across the 
->   family — this has only been confirmed for S3 and C6 so far, not the other 12 
+>   family - this has only been confirmed for S3 and C6 so far, not the other 12 
 >   models.**
 >
 > *(h/t [Relative-Ad-9876](https://github.com/NIkir0LL/lacert) for the measured 
-> benchmark and for tracing this down to the TRM chapter and Kconfig level — 
+> benchmark and for tracing this down to the TRM chapter and Kconfig level - 
 > significantly more precise than my first explanation.)*
 
 #### 4. Model‑by‑Model Cryptographic Assessment
