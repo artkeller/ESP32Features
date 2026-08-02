@@ -13,7 +13,21 @@ Welcome to ESP32Features, a guide and repository for the current ESP32 SoC famil
 - **Up‑to‑date & source‑based:** Based on Espressif's Product Selector and datasheets (e.g., ESP32‑C5 in mass production since 2025, ESP32‑C6 with PSA Level 2 security certification, ESP32‑E22 Wi‑Fi 6E certified since June 2026).
 - **For developers:** Integrated with ESP‑IDF, Arduino, and tools for rapid prototyping – ideal for smart devices, AI edge, and IIoT.
 
-The table below summarizes the core features. For detailed analyses, see the subsections: [Espressif SoC Product Portfolio](#espressif-soc-product-portfolio), [Deep Sleep](#deep-sleep), [Advantages and Disadvantages](#thorough-evaluation-of-each-model), [Applications](#list-of-typical-applications), [Combinations](#useful-combinations-of-esp32-models), [Cryptographic Security & Post‑Quantum Readiness](#cryptographic-security--postquantum-readiness), and [References](#references--further-reading)
+The table below summarizes the core features. For detailed analyses, see the following sections:
+
+## Table of Contents
+
+- [Overview table of ESP32 models](#overview-table-of-esp32-models)
+- [Espressif SoC Product Portfolio](#espressif-soc-product-portfolio)
+- [Deep Sleep](#deep-sleep)
+- [Interface Speed Classes and Bus Characteristics](#interface-speed-classes-and-bus-characteristics)
+- [Thorough Evaluation of Each Model](#thorough-evaluation-of-each-model)
+- [List of Typical Applications](#list-of-typical-applications)
+- [Useful Combinations of ESP32 Models](#useful-combinations-of-esp32-models)
+- [Cryptographic Security & Post-Quantum Readiness](#cryptographic-security--postquantum-readiness)
+- [Addendum for Germany — BSI Compatibility Notes](#addendum-for-germany--bsi-compatibility-notes)
+- [Hardware Lifecycle Management & Practical Soft-Fade-out Combinations](#hardware-lifecycle-management--practical-soft-fade-out-combinations)
+- [References & Further Reading](#references--further-reading)
 
 ### Disclaimer 2026
 The following models have been announced by Espressif since September 2025 and are **already included in the table below**:
