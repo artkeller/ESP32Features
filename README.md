@@ -718,6 +718,29 @@ The following table summarises the **hardware‑accelerated cryptographic featur
 
 *Sources: ESP Product Security Feature Matrix, supplemented by data from the respective chip datasheets.*
 
+> **Note on reading this table — checkmarks are not performance guarantees:**
+> A "✓" for a given feature means the capability exists in silicon, not that every 
+> chip's implementation performs equally. Two cases worth flagging explicitly:
+>
+> - **"Digital Signature (ECDSA)" is genuinely different per chip, not just a naming 
+>   quirk.** ESP32-C5 has a dedicated ECDSA Digital Signature peripheral (ECDSA_DS), 
+>   confirmed in its datasheet and TRM (Ch. 28) — separate from its RSA-only DS unit. 
+>   ESP32-C6, despite similar marketing language, only has the RSA-flavored Digital 
+>   Signature peripheral; Espressif's own ESP-IDF security overview for C6 does not 
+>   mention ECDSA hardware signing. Both S3 and C6 lack a dedicated ECDSA engine.
+>
+> - **"ECC (HW) ✓" does not imply comparable acceleration across chip generations.** 
+>   Real-world benchmarks show ESP32-S3 signing ECDSA-P256 in ~170 ms against ~22 ms 
+>   on ESP32-C6 — a 7.7x gap — despite neither chip having a dedicated ECDSA_DS 
+>   peripheral. Both rely on the general ECC/bignum accelerator, but that block's 
+>   underlying efficiency differs meaningfully between the older Xtensa-era S3 
+>   implementation and the newer RISC-V-era C6 implementation. The checkmark alone 
+>   is not a reliable performance proxy — benchmark on your actual target chip before 
+>   assuming acceleration numbers transfer across the family.
+>
+> *(h/t [Relative-Ad-9876](https://github.com/NIkir0LL/lacert) for the measured 
+> S3/C6 comparison that surfaced this.)*
+
 #### 4. Model‑by‑Model Cryptographic Assessment
 
 ##### 4.1 ESP32 (Classic)
