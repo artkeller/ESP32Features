@@ -25,7 +25,7 @@ The table below summarizes the core features. For detailed analyses, see the fol
 - [List of Typical Applications](#list-of-typical-applications)
 - [Useful Combinations of ESP32 Models](#useful-combinations-of-esp32-models)
 - [Cryptographic Security & Post-Quantum Readiness](#cryptographic-security--postquantum-readiness)
-- [Addendum for Germany — BSI Compatibility Notes](#addendum-for-germany--bsi-compatibility-notes)
+- [Addendum for Germany - BSI Compatibility Notes](#addendum-for-germany--bsi-compatibility-notes)
 - [Hardware Lifecycle Management & Practical Soft-Fade-out Combinations](#hardware-lifecycle-management--practical-soft-fade-out-combinations)
 - [References & Further Reading](#references--further-reading)
 
