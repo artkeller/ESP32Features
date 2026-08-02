@@ -246,7 +246,7 @@ For applications needing fast USB throughput (e.g. UVC video capture, mass stora
 
 | Model | USB Speed Class | UART Max Baud | I2C Modes | SPI Max Clock / Modes |
 |---|---|---|---|---|
-| ESP32 | — (no USB OTG) | *TBD* | *TBD* | *TBD* |
+| ESP32 | - (no USB OTG) | *TBD* | *TBD* | *TBD* |
 | ESP32-S2 | Full Speed (12 Mbit/s) | *TBD* | *TBD* | *TBD* |
 | ESP32-S3 | Full Speed (12 Mbit/s) | *TBD* | *TBD* | *TBD* |
 | ESP32-C3 | Serial/JTAG only | *TBD* | *TBD* | *TBD* |
