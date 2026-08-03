@@ -72,6 +72,8 @@ The following models have been announced by Espressif since September 2025 and a
 
 > **Note:** The Espressif product portfolio image above (as of September 2025) **does not** include the **ESP32‑E22**, **ESP32‑H21**, and **ESP32‑S31** variants, which have been announced since then. These were added to the table at a later date.
 
+---
+
 ## Deep sleep
 
 The information is based on the Espressif SoC product portfolio and the official datasheets (as of July 2026). The structure takes into account the specific characteristics of the new models (e.g., C61 as a single‑core Wi‑Fi 6 low‑power, H4 as a dual‑core low‑power with 802.15.4, E22 as RCP with host‑controlled power management, H21 as ultra‑low‑power BLE/802.15.4 SoC). Since the exact deep sleep power consumption values for C61 and H4 are not explicitly stated in the portfolio, these are estimated based on similar models (C6/H2) and marked accordingly.
