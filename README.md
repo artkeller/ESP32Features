@@ -934,6 +934,8 @@ The message to legal and security departments: The ESP32 platform is quantum‑r
 
 The Q‑Day 2029 is a real threat – but with the right architecture (e.g., hybrid schemes like X25519 + ML‑KEM) and crypto‑agile designs, ESP32‑based systems can meet this challenge.
 
+---
+
 ## Hardware Lifecycle Management & Practical Soft-Fade-out Combinations
 
 While combining different ESP32 SoCs is highly effective for expanding peripheral interfaces or radio protocols (as shown in the hardware topology section), this multi-chip architecture serves a critical economic and compliance purpose: enforcing Crypto-Agility to prevent total asset depreciation of "legacy" or "soon-to-be-legacy" silicon.
@@ -955,9 +957,7 @@ This approach keeps legacy components in their functional comfort zone (handling
 > link is weakest, not to the co-chip. None of the combinations below should be read 
 > as complete without addressing this.
 
----
-
-## Strategic Co-Chip Combinations for Enhanced Security Compliance
+### Strategic Co-Chip Combinations for Enhanced Security Compliance
 
 #### 1. ESP32 (Classic) / ESP32-S2 + ESP32-H2
 * **Description:** Classic `ESP32` (Dual Xtensa, Ethernet, legacy Bluetooth) or `ESP32-S2` (Wi-Fi, USB OTG, LCD) combined with `ESP32-H2` (802.15.4/BLE 5.3, ultra-low power, hardware ECC/ECDSA, Secure Boot).
