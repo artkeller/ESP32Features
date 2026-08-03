@@ -721,6 +721,7 @@ Where this document elsewhere states firmware or driver conformance in terms of 
 
 This phrasing is what a BSI-facing audit or a KRITIS/Bund procurement review would expect to see, independent of any FIPS certification status of the underlying cryptographic library.
 
+---
 
 #### 3. Cryptographic Hardware Capabilities of the ESP32 Family
 
