@@ -203,15 +203,15 @@ The information is based on the Espressif SoC product portfolio and the official
 
 ## Interface Speed Classes and Bus Characteristics
 
-The overview table lists interfaces by type and count (e.g., "USB OTG", "3 SPI"), but does not distinguish speed classes or bus-specific limitations — a detail that matters for throughput-sensitive applications (mass storage, audio streaming, video capture, high-rate sensor polling) and is often glossed over in datasheet summaries. This section breaks down USB, UART, I2C, SPI, and I2S characteristics per model.
+The overview table lists interfaces by type and count (e.g., "USB OTG", "3 SPI"), but does not distinguish speed classes or bus-specific limitations - a detail that matters for throughput-sensitive applications (mass storage, audio streaming, video capture, high-rate sensor polling) and is often glossed over in datasheet summaries. This section breaks down USB, UART, I2C, SPI, and I2S characteristics per model.
 
 ### USB
 
 Not all "USB OTG" interfaces are equal. USB 2.0 defines three speed classes: Low Speed (1.5 Mbit/s), Full Speed (12 Mbit/s), and High Speed (480 Mbit/s). Most ESP32 models with USB OTG only implement Full Speed.
 
 * **Full Speed OTG only (12 Mbit/s):** ESP32-S2, ESP32-S3
-* **High Speed OTG (480 Mbit/s):** ESP32-P4 — features a dedicated High-Speed OTG controller (with integrated HS PHY) in addition to a separate Full-Speed OTG controller and a USB Serial/JTAG controller (three independent USB controllers total).
-* **Expected High Speed (unconfirmed):** ESP32-S31 — not yet stated in a public Espressif datasheet; positioning as an S2/S3 successor suggests it, but treat as unverified until Espressif publishes final specs.
+* **High Speed OTG (480 Mbit/s):** ESP32-P4 - features a dedicated High-Speed OTG controller (with integrated HS PHY) in addition to a separate Full-Speed OTG controller and a USB Serial/JTAG controller (three independent USB controllers total).
+* **Expected High Speed (unconfirmed):** ESP32-S31 - not yet stated in a public Espressif datasheet; positioning as an S2/S3 successor suggests it, but treat as unverified until Espressif publishes final specs.
 * **USB Serial/JTAG only (12 Mbit/s, not general-purpose OTG):** ESP32-C3, ESP32-C2, ESP32-C5, ESP32-C6, ESP32-C61, ESP32-H2, ESP32-H21
 * **Host-managed USB:** ESP32-E22
 * **No USB Interface:** Original ESP32 (ESP32-D0WD, etc.), ESP32-H4
@@ -256,8 +256,6 @@ I2S peripherals handle digital audio (PCM, I2S, PDM) and, on legacy models, para
 * **ESP32-C3 / C2 / H2:** 1x I2S controller. Max clock 40 MHz. Supports standard I2S and PDM.
 * **ESP32-C6 / C5:** 1x I2S controller. Max clock 40 MHz.
 * **ESP32-P4:** 2x HP-I2S controllers (up to 50 MHz clock) with dedicated TDM (Time Division Multiplexing, up to 16 channels) and PDM support.
-
----
 
 ### Summary
 
