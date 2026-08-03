@@ -955,7 +955,9 @@ This approach keeps legacy components in their functional comfort zone (handling
 > link is weakest, not to the co-chip. None of the combinations below should be read 
 > as complete without addressing this.
 
-### Strategic Co-Chip Combinations for Enhanced Security Compliance
+---
+
+## Strategic Co-Chip Combinations for Enhanced Security Compliance
 
 #### 1. ESP32 (Classic) / ESP32-S2 + ESP32-H2
 * **Description:** Classic `ESP32` (Dual Xtensa, Ethernet, legacy Bluetooth) or `ESP32-S2` (Wi-Fi, USB OTG, LCD) combined with `ESP32-H2` (802.15.4/BLE 5.3, ultra-low power, hardware ECC/ECDSA, Secure Boot).
