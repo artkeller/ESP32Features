@@ -513,7 +513,9 @@ The table evaluates the suitability of each model for the applications with ++ (
 | 49. Matter Gateway | + | + | + | + | + | ++ | ++ | ++ | - | + | ++ | ++ (Wi‑Fi 6 + 802.15.4 + Ethernet) |
 | 50. POS Terminal | + | ++ | ++ | 0 | - | 0 | 0 | 0 | ++ | 0 | - | ++ (USB OTG + SD/MMC + Security) |
 
-### Useful combinations of ESP32 models
+---
+
+## Useful combinations of ESP32 models
 
 Based on the previous analyses (architecture, radios, interfaces, advantages/disadvantages, and applications), potential combinations were identified that complement the strengths of the models. For example, a model without radios (e.g., P4) is compensated for by a wireless model (e.g., C6), or a low‑power model (e.g., H2) extends a high‑performance model (e.g., S3). The focus is on meaningful pairs/trios (not all possible ones, as Classic + S2 would be redundant, for example), prioritizing complementarity (e.g., processing + connectivity). For each combination: description of why it makes sense and applications (simple to demanding, including Industry 4.0 with a focus on edge computing, predictive maintenance, secure gateways, and multi‑protocol networks).
 
