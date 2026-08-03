@@ -905,11 +905,24 @@ The Q‑Day 2029 is a real threat – but with the right architecture (e.g., hyb
 
 ## Hardware Lifecycle Management & Practical Soft-Fade-out Combinations
 
-While combining different ESP32 SoCs is highly effective for expanding peripheral interfaces or radio protocols (as shown in the hardware topology section), this multi-chip architecture serves a critical economic and compliance purpose: enforcing **Crypto-Agility** to prevent total asset depreciation of "legacy" or "soon-to-be-legacy" silicon.
+While combining different ESP32 SoCs is highly effective for expanding peripheral interfaces or radio protocols (as shown in the hardware topology section), this multi-chip architecture serves a critical economic and compliance purpose: enforcing Crypto-Agility to prevent total asset depreciation of "legacy" or "soon-to-be-legacy" silicon.
 
-With strict cybersecurity regulations in place (such as the EU Cyber Resilience Act (CRA), DORA, and NIS2) and active Post-Quantum Cryptography (PQC) transition timelines (like CNSA 2.0), chips lacking advanced cryptographic enclaves, sufficient RAM for heavy software stacks, or side-channel protections face premature obsolescence. 
+With strict cybersecurity regulations in place (such as the EU Cyber Resilience Act (CRA), DORA, and NIS2) and active Post-Quantum Cryptography (PQC) transition timelines (like CNSA 2.0), chips lacking advanced cryptographic enclaves, sufficient RAM for heavy software stacks, or side-channel protections face premature obsolescence.
 
-Instead of undergoing a costly and complex full redesign of a high-performance main application board, developers can implement a **Co-Chip or Hybrid-Crypto-Topology**. This approach keeps legacy components in their functional comfort zone (handling application logic, peripherals, displays, and compute), while modern, security-optimized co-chips act as a cryptographic shield. This strategy guarantees a soft, compliant, and highly profitable hardware fade-out until the regular product End-of-Life (EOL) is reached.
+Instead of undergoing a costly and complex full redesign of a high-performance main application board, developers can implement a Co-Chip or Hybrid-Crypto-Topology. 
+This approach keeps legacy components in their functional comfort zone (handling application logic, peripherals, displays, and compute), while modern, security-optimized co-chips act as a cryptographic shield. This strategy guarantees a soft, compliant, and highly profitable hardware fade-out until the regular product End-of-Life (EOL) is reached.
+
+> **Important: the inter-chip link is part of the threat model, not outside it.** 
+> The local interface between the legacy chip and the co-chip (SPI/UART/I2C) must 
+> itself be authenticated — and encrypted, if the bus is physically exposed or the 
+> threat model includes board-level tampering. An attacker with physical access — 
+> the same access class that co-chip's TEE and side-channel protection are meant to 
+> defend against — can otherwise simply tap or spoof that link instead of attacking 
+> either chip directly. A session-key handshake at boot or a pre-provisioned shared 
+> secret are the usual minimum. Skipping this doesn't just weaken the pattern, it 
+> defeats its purpose: the security boundary silently moves to wherever the internal 
+> link is weakest, not to the co-chip. None of the combinations below should be read 
+> as complete without addressing this.
 
 ### Strategic Co-Chip Combinations for Enhanced Security Compliance
 
