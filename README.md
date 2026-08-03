@@ -263,6 +263,89 @@ For applications needing fast USB throughput (e.g. UVC video capture, mass stora
 
 *Sources: Espressif datasheets and ESP-IoT-Solution documentation, USB section confirmed as of this entry. UART/I2C/SPI columns pending per-chip datasheet review.*
 
+---
+
+## Interface Speed Classes and Bus Characteristics
+
+The overview table lists interfaces by type and count (e.g., "USB OTG", "3 SPI"), but does not distinguish speed classes or bus-specific limitations — a detail that matters for throughput-sensitive applications (mass storage, audio streaming, video capture, high-rate sensor polling) and is often glossed over in datasheet summaries. This section breaks down USB, UART, I2C, SPI, and I2S characteristics per model.
+
+### USB
+
+Not all "USB OTG" interfaces are equal. USB 2.0 defines three speed classes: Low Speed (1.5 Mbit/s), Full Speed (12 Mbit/s), and High Speed (480 Mbit/s). Most ESP32 models with USB OTG only implement Full Speed.
+
+* **Full Speed OTG only (12 Mbit/s):** ESP32-S2, ESP32-S3
+* **High Speed OTG (480 Mbit/s):** ESP32-P4 — features a dedicated High-Speed OTG controller (with integrated HS PHY) in addition to a separate Full-Speed OTG controller and a USB Serial/JTAG controller (three independent USB controllers total).
+* **Expected High Speed (unconfirmed):** ESP32-S31 — not yet stated in a public Espressif datasheet; positioning as an S2/S3 successor suggests it, but treat as unverified until Espressif publishes final specs.
+* **USB Serial/JTAG only (12 Mbit/s, not general-purpose OTG):** ESP32-C3, ESP32-C2, ESP32-C5, ESP32-C6, ESP32-C61, ESP32-H2, ESP32-H21
+* **Host-managed USB:** ESP32-E22
+* **No USB Interface:** Original ESP32 (ESP32-D0WD, etc.), ESP32-H4
+
+*(h/t u/kezi on r/embedded for flagging initial USB distinctions)*
+
+### UART
+
+Across the ESP32 family, HP-UART controllers share a uniform maximum baud rate of **5 MBaud** (5 Mbits/s), limited by the APB clock frequency and internal division.
+
+* **Hardware Flow Control (RTS/CTS):** Supported on all general-purpose UART controllers across all models.
+* **IrDA Support:** Supported on original ESP32, ESP32-S2, ESP32-S3, ESP32-C3, ESP32-C6, and ESP32-P4.
+* **LP-UART (Low-Power UART):** Available on models with LP domains (ESP32-C6, ESP32-C5, ESP32-P4). Limited to lower baud rates operating on RTC clock sources.
+
+### I2C
+
+* **Standard Mode (100 kbit/s) & Fast Mode (400 kbit/s):** Supported on all models across all I2C controllers.
+* **Fast Mode Plus (1 Mbit/s):** Supported on ESP32-S3, ESP32-C3, ESP32-C6, ESP32-C5, ESP32-H2, and ESP32-P4 (conforming to timing constraints via software/clock tuning).
+* **High-Speed Mode (3.4 Mbit/s):** Not supported natively on standard ESP32 I2C controllers.
+* **I3C Support:** Exclusive to **ESP32-P4** (supports I3C SDR/SDR-only Master/SDR-Slave modes up to 12.5 MHz).
+* **LP-I2C:** Present on ESP32-C6, ESP32-C5, and ESP32-P4 for sensor polling in low-power modes.
+* **Master / Slave Modes:** All general-purpose HP-I2C controllers support both Master and Slave roles.
+
+### SPI
+
+SPI controllers are divided into **Flash/PSRAM dedicated SPI** (SPI0/SPI1) and **General-Purpose SPI (GPSPI)** (SPI2/SPI3).
+
+* **General-Purpose SPI Max Clock:**
+  * **ESP32 (original):** Up to 80 MHz (Master), 40 MHz (Slave).
+  * **ESP32-S2 / S3:** Up to 80 MHz (Master/Slave). Supports Single/Dual/Quad SPI. SPI3 supports Octal (OPI) on S3.
+  * **ESP32-C2 / C3 / C6 / C5 / H2:** Up to 60 MHz or 80 MHz (Master depending on clock routing), 40 MHz (Slave). Quad SPI supported on C3/C6/C5.
+  * **ESP32-P4:** Up to 80 MHz / 100 MHz on HP-SPI.
+* **LP-SPI:** Available on ESP32-P4 and ESP32-C6 LP-system.
+
+### I2S (Inter-IC Sound)
+
+I2S peripherals handle digital audio (PCM, I2S, PDM) and, on legacy models, parallel camera interface modes.
+
+* **ESP32 (original):** 2x I2S controllers. Max clock ~40 MHz. Supports I2S, PCM, MSB/LSB alignment, PDM (TX/RX), and Parallel LCD/Camera mode.
+* **ESP32-S2:** 1x I2S controller. Max clock 40 MHz.
+* **ESP32-S3:** 2x I2S controllers. Max clock 40 MHz. Adds enhanced PDM microphone receiver support.
+* **ESP32-C3 / C2 / H2:** 1x I2S controller. Max clock 40 MHz. Supports standard I2S and PDM.
+* **ESP32-C6 / C5:** 1x I2S controller. Max clock 40 MHz.
+* **ESP32-P4:** 2x HP-I2S controllers (up to 50 MHz clock) with dedicated TDM (Time Division Multiplexing, up to 16 channels) and PDM support.
+
+---
+
+### Summary
+
+| Model | USB Speed Class | UART Max Baud | I2C Modes | SPI Max Clock / Modes | I2S Max Clock / Capabilities |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **ESP32 (original)** | None | 5 MBaud | Standard, Fast | 80 MHz (Master) / Single, Dual, Quad | 40 MHz / 2x I2S, PDM, Camera Parallel |
+| **ESP32-S2** | Full Speed (12 Mbit/s) | 5 MBaud | Standard, Fast | 80 MHz / Single, Dual, Quad | 40 MHz / 1x I2S, PDM |
+| **ESP32-S3** | Full Speed (12 Mbit/s) | 5 MBaud | Standard, Fast, Fast+ | 80 MHz / Octal (OPI), Quad, Dual | 40 MHz / 2x I2S, PDM RX/TX |
+| **ESP32-C2** | Serial/JTAG (12 Mbit/s) | 5 MBaud | Standard, Fast | 60 MHz / Single, Dual, Quad | 40 MHz / 1x I2S |
+| **ESP32-C3** | Serial/JTAG (12 Mbit/s) | 5 MBaud | Standard, Fast, Fast+ | 60 MHz / Single, Dual, Quad | 40 MHz / 1x I2S, PDM |
+| **ESP32-C5** | Serial/JTAG (12 Mbit/s) | 5 MBaud | Standard, Fast, Fast+, LP-I2C | 80 MHz / Single, Dual, Quad | 40 MHz / 1x I2S, PDM |
+| **ESP32-C6** | Serial/JTAG (12 Mbit/s) | 5 MBaud | Standard, Fast, Fast+, LP-I2C | 80 MHz / Single, Dual, Quad, LP-SPI | 40 MHz / 1x I2S, PDM |
+| **ESP32-C61** | Serial/JTAG (12 Mbit/s) | 5 MBaud | Standard, Fast | 80 MHz / Quad SPI | 40 MHz / 1x I2S |
+| **ESP32-H2** | Serial/JTAG (12 Mbit/s) | 5 MBaud | Standard, Fast, Fast+ | 60 MHz / Single, Dual, Quad | 40 MHz / 1x I2S, PDM |
+| **ESP32-H4** | TBD (Unconfirmed) | 5 MBaud | Standard, Fast | TBD | TBD |
+| **ESP32-P4** | High Speed (480 Mbit/s) + Full Speed | 5 MBaud (HP & LP) | Standard, Fast, Fast+, LP-I2C, **I3C SDR** | 80/100 MHz / Single, Dual, Quad, Octal, LP-SPI | **50 MHz / 2x I2S, TDM (16-ch), PDM** |
+| **ESP32-E22** | USB 2.0 (Host-managed) | 5 MBaud | Standard, Fast | TBD | TBD |
+| **ESP32-H21** | Serial/JTAG (12 Mbit/s) | 5 MBaud | Standard, Fast | TBD | TBD |
+| **ESP32-S31** | High Speed (Unconfirmed) | 5 MBaud | Standard, Fast, Fast+ | TBD | TBD |
+
+*Sources: Espressif Systems Datasheets and Technical Reference Manuals (TRM). Speeds represent theoretical hardware controller maximums; actual achievable bus speeds depend on GPIO Matrix routing vs. Direct I/O muxing, PCB layout, and external pull-up configurations.*
+
+---
+
 ## Thorough evaluation of each model
 
 Based on the official Espressif datasheets (as of July 2026) and the details collected from the sources, each ESP32 model is analyzed in terms of its advantages and disadvantages. The focus is on **key usability**, i.e., how the features (architecture, memory, radios, interfaces, power) optimize the model for specific areas of application. The evaluation takes into account factors such as performance, energy efficiency, cost, compatibility (e.g., RISC‑V vs. Xtensa), wireless options, and peripherals. Models with RISC‑V are future‑oriented (better for open source), while Xtensa is established. Newer models (C series, H2, P4, **E22, H21, S31**) emphasize low power and multi‑protocol (e.g., Matter), while older models (Classic, S2, S3) are more general but consume more power.
