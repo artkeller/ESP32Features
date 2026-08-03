@@ -667,11 +667,11 @@ The **long‑term solution** is **hybrid** schemes that combine classical (e.g.,
 
 ---
 
-## Addendum for Germany — BSI Compatibility Notes
+## Addendum for Germany - BSI Compatibility Notes
 
 ### A.1 Scope
 
-German security‑critical deployments — federal agencies, KRITIS operators, and VS‑NfD (classified) contexts — are not governed by FIPS certification. The Bundesamt für Sicherheit in der Informationstechnik (BSI) does not recognize FIPS 140‑3 / FIPS 203/204/205 certificates as a conformity proof for German systems. The relevant reference document is **BSI TR‑02102**, supplemented by **TR‑03116** for federal government projects. Any claim of PQC-readiness in a BSI-regulated context must be phrased against TR‑02102, not against the FIPS designation.
+German security‑critical deployments - federal agencies, KRITIS operators, and VS‑NfD (classified) contexts - are not governed by FIPS certification. The Bundesamt für Sicherheit in der Informationstechnik (BSI) does not recognize FIPS 140‑3 / FIPS 203/204/205 certificates as a conformity proof for German systems. The relevant reference document is **BSI TR‑02102**, supplemented by **TR‑03116** for federal government projects. Any claim of PQC-readiness in a BSI-regulated context must be phrased against TR‑02102, not against the FIPS designation.
 
 ### A.2 Algorithm Mapping: NIST/FIPS → BSI TR‑02102
 
@@ -680,9 +680,9 @@ German security‑critical deployments — federal agencies, KRITIS operators, a
 | FIPS 203 | ML‑KEM (Kyber) | Recommended | Primary BSI-recognized KEM; adopted independently of FIPS certification |
 | FIPS 204 | ML‑DSA (Dilithium) | Recommended | Primary BSI-recognized signature scheme |
 | FIPS 205 | SLH‑DSA (SPHINCS+) | Recommended | Fallback / stateless hash-based signature, BSI-recognized |
-| — | FrodoKEM | Recommended (since 2020) | BSI-preferred alternative KEM; unstructured lattice, currently under ISO standardization with BSI participation |
-| — | Classic McEliece | Recommended (since 2020) | BSI-preferred alternative KEM; code-based, conservative security margin |
-| — | XMSS / LMS | Recommended | BSI-preferred stateful hash-based signature schemes |
+| - | FrodoKEM | Recommended (since 2020) | BSI-preferred alternative KEM; unstructured lattice, currently under ISO standardization with BSI participation |
+| - | Classic McEliece | Recommended (since 2020) | BSI-preferred alternative KEM; code-based, conservative security margin |
+| - | XMSS / LMS | Recommended | BSI-preferred stateful hash-based signature schemes |
 
 **Key point:** ML‑KEM and ML‑DSA are BSI-compliant *because* TR‑02102‑1 lists them, not because they carry a FIPS 203/204 label. Documentation intended for BSI review should cite "ML‑KEM per BSI TR‑02102‑1 (2026‑01)" rather than "FIPS 203."
 
@@ -711,7 +711,7 @@ BSI has moved from a recommendation to a binding statement: migration to post-qu
 
 ### A.5 Hybrid Requirement
 
-BSI explicitly recommends hybrid key exchange (classical + PQC, e.g. X25519 + ML‑KEM) as the transitional approach — consistent with Section 2 above — rather than a pure-PQC cutover. For classified material (Verschlusssachen) processing, conformity to TR‑02102 is not optional but mandatory; a FIPS 203 certificate does not substitute for this requirement.
+BSI explicitly recommends hybrid key exchange (classical + PQC, e.g. X25519 + ML‑KEM) as the transitional approach - consistent with Section 2 above - rather than a pure-PQC cutover. For classified material (Verschlusssachen) processing, conformity to TR‑02102 is not optional but mandatory; a FIPS 203 certificate does not substitute for this requirement.
 
 ### A.6 Practical Note for This Chapter's ESP32 Context
 
