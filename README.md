@@ -37,6 +37,8 @@ The following models have been announced by Espressif since September 2025 and a
 
 **Additional future models** (beyond those listed above) have **not** been announced by Espressif at this time. This list will be updated as new products are announced.
 
+---
+
 ## Overview table of ESP32 models
 
 | Model | Architecture (cores, Clock min/max, LP/ULP) | Embedded SRAM | Embedded Flash/PSRAM options (combos) | Max PSRAM (embedded/external, Future) | Max Flash (embedded/external, Future) | Radio (variants) | Interfaces (selection: number, type) |
@@ -200,6 +202,8 @@ The information is based on the Espressif SoC product portfolio and the official
 - **S31:** Expected to have RTC SRAM and ULP co‑pros (specifications pending).
 - **Differences:** Models with ULP (ESP32, S2, S3) or LP core (C5, C6, H2, P4, **S31**) offer more flexibility as they can actively execute code in deep sleep. C3 and C2 are limited (storage only, no processing).
 - **C5, C6, H2, P4** can also use the LP core to be active **in deep sleep**.
+
+---
 
 ## Interface Speed Classes and Bus Characteristics
 
@@ -392,6 +396,8 @@ Based on the official Espressif datasheets (as of July 2026) and the details col
   - **Complexity** – many features increase development effort
   - **Positioning** – between S3 (AI/multimedia) and P4 (high‑performance) → possible overlaps
 - **Overall rating**: ESP32‑S31 is the **successor to S2/S3 with RISC‑V architecture** and an expanded feature set. It combines **Wi‑Fi 6, BT 5.4, 802.15.4 and Gigabit‑Ethernet** with **advanced HMI and security features**. Ideal for **demanding IoT applications** with high requirements for connectivity, multimedia and security.
+
+---
 
 ## List of typical applications
 
@@ -607,6 +613,8 @@ Based on the previous analyses (architecture, radios, interfaces, advantages/dis
 
 These combinations extend individual strengths to robust systems, especially in Industry 4.0, where security, scalability, and real‑time processing are critical. For implementation: Connect via SPI/UART/I2C/PCIe/SDIO; ESP‑IDF supports multi‑device setups.
 
+---
+
 ## Cryptographic Security & Post‑Quantum Readiness
 
 This chapter provides a comprehensive analysis of the cryptographic capabilities of the ESP32 family, with a special focus on **quantum‑safe cryptography** and **crypto‑agility** – the ability to replace or upgrade cryptographic algorithms without changing the underlying infrastructure.
@@ -653,6 +661,7 @@ In August 2024, NIST published the first three Post‑Quantum Cryptography (PQC)
 
 The **long‑term solution** is **hybrid** schemes that combine classical (e.g., X25519) with quantum‑resistant algorithms (e.g., ML‑KEM). TLS 1.3 already supports hybrid groups.
 
+---
 
 ## Addendum for Germany — BSI Compatibility Notes
 
@@ -993,6 +1002,7 @@ This approach keeps legacy components in their functional comfort zone (handling
   * **Medium:** Smart HMI home automation dashboard (S2 drives the LCD touch interface; C61 provides secure Matter-over-Wi-Fi communication).
   * **Sophisticated (Industry 4.0):** Remote visual inspection node (S2 captures periodic high-resolution still images via its camera interface and stores them via USB; the C61 encrypts the storage using its internal Key Manager and transmits the data over an uncrowded Wi-Fi 6 channel using modern, authenticated cryptographic protocols, breathing compliance into a classic image-processing setup).
 
+---
 
 ## References & Further Reading
 
@@ -1048,6 +1058,8 @@ This approach keeps legacy components in their functional comfort zone (handling
   [https://docs.espressif.com/projects/esp-idf/en/latest/](https://docs.espressif.com/projects/esp-idf/en/latest/)
   
 Contribution: Pull requests welcome! Star & fork for updates.
+
+---
 
 ## License
 
