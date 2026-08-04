@@ -297,7 +297,7 @@ software-defined precision timing generally.
 | ESP32 (original) | 8 | Flexible (any channel = TX or RX) | No |
 | ESP32-S2 | 4 | Flexible (any channel = TX or RX) | No |
 | ESP32-S3 | 8 | Dedicated (4 TX + 4 RX) | **Yes** (only chip in family) |
-| ESP32-C2 | None | - | — |
+| ESP32-C2 | None | - | - |
 | ESP32-C3 | 4 | Dedicated (2 TX + 2 RX) | No |
 | ESP32-C5 | 4 | *TBD* | *TBD* |
 | ESP32-C6 | 4 | Dedicated (2 TX + 2 RX) | No |
