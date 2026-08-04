@@ -806,28 +806,28 @@ The following table summarises the **hardware‑accelerated cryptographic featur
 > capability the same way.
 >
 > - **"Digital Signature (ECDSA)" is genuinely different per chip, not just a naming 
->   quirk.** A dedicated ECDSA_DS peripheral — with the private key held in an eFuse 
->   block, inaccessible to software — has been verified via official datasheets, 
+>   quirk.** A dedicated ECDSA_DS peripheral - with the private key held in an eFuse 
+>   block, inaccessible to software - has been verified via official datasheets, 
 >   TRM chapters, and ESP-IDF documentation on **C5, C61, H2, H4, P4, and S31**. 
 >   ESP32-C6, despite similar marketing language, only has the RSA-flavored Digital 
->   Signature peripheral (RSA_DS) — Espressif's own security overview for C6 does 
+>   Signature peripheral (RSA_DS) - Espressif's own security overview for C6 does 
 >   not mention ECDSA hardware signing. Both S3 and C6 lack a dedicated ECDSA_DS 
 >   engine.
 >
 > - **"ECC (HW) ✓" can mean two structurally different things.** ESP32-C6 has a 
 >   genuinely separate ECC Accelerator hardware block (its own TRM chapter, its own 
 >   mbedTLS build option `CONFIG_MBEDTLS_HARDWARE_ECC`) that measurably accelerates 
->   ECDSA signing (~7.2x) and ECDH point multiplication (~16.5–18x) — independently 
+>   ECDSA signing (~7.2x) and ECDH point multiplication (~16.5–18x) - independently 
 >   confirmed via direct accelerator on/off measurement by 
 >   [NIkir0LL](https://github.com/NIkir0LL/lacert), not just inferred from vendor 
->   docs. ESP32-S3 has no such block — its ECC operations run entirely through the 
+>   docs. ESP32-S3 has no such block - its ECC operations run entirely through the 
 >   general-purpose RSA/MPI (bignum) unit (`CONFIG_MBEDTLS_HARDWARE_MPI` only). 
 >   Both chips are marked "✓" in the ECC row above, but represent two different 
 >   hardware architectures with materially different performance.
 >
 > - **The accelerator covers NIST curves only, not Curve25519.** On ESP32-C6, 
 >   X25519 point multiplication measured at ~121 ms whether the ECC accelerator is 
->   on or off — no difference at all. This matters directly for BSI TR-02102's 
+>   on or off - no difference at all. This matters directly for BSI TR-02102's 
 >   recommended X25519+ML-KEM hybrid scheme: on C6, the classical (X25519) half of 
 >   that hybrid costs more time than the entire ML-KEM-1024 encapsulation. A hybrid 
 >   scheme chosen for regulatory alignment can end up more expensive on this 
