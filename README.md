@@ -1159,7 +1159,7 @@ This approach keeps legacy components in their functional comfort zone (handling
 
 ---
   
-# Support & Feedback:
+## Support & Feedback:
 
     Leaving a ⭐ star and sharing your feedback is greatly appreciated!
 
