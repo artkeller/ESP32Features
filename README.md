@@ -1156,8 +1156,14 @@ This approach keeps legacy components in their functional comfort zone (handling
 
 * **ESP‑IDF** – For development with all models. (ESP‑IDF v6.0.1 stable for C5, E22, H21, S31 support)  
   [https://docs.espressif.com/projects/esp-idf/en/latest/](https://docs.espressif.com/projects/esp-idf/en/latest/)
+
+---
   
-Contribution: Pull requests welcome! Star & fork for updates.
+# Support & Feedback:
+
+    Leaving a ⭐ star and sharing your feedback is greatly appreciated!
+
+    Note on Contributions: Since this repository contains a large document that I centrally curate and maintain, I’m currently not accepting pull requests. However, if you spot any errors, have suggestions, or want to share ideas, please feel free to open an issue—I’d love to check it out!
 
 ---
 
