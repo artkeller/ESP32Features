@@ -1161,9 +1161,9 @@ This approach keeps legacy components in their functional comfort zone (handling
   
 ## Support & Feedback:
 
-    Leaving a ⭐ star and sharing your feedback is greatly appreciated!
+Leaving a ⭐ star and sharing your feedback is greatly appreciated!
 
-    Note on Contributions: Since this repository contains a large document that I centrally curate and maintain, I’m currently not accepting pull requests. However, if you spot any errors, have suggestions, or want to share ideas, please feel free to open an issue—I’d love to check it out!
+**Note on Contributions**: Since this repository contains a large document that I centrally curate and maintain, I’m currently not accepting pull requests. However, if you spot any errors, have suggestions, or want to share ideas, please feel free to open an issue—I’d love to check it out!
 
 ---
 
