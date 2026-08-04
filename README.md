@@ -207,6 +207,12 @@ The information is based on the Espressif SoC product portfolio and the official
 
 ---
 
+## Radio & Connectivity
+
+> *Work in progress*
+
+---
+
 ## Interface Speed Classes and Bus Characteristics
 
 The overview table lists interfaces by type and count (e.g., "USB OTG", "3 SPI"), but does not distinguish speed classes or bus-specific limitations - a detail that matters for throughput-sensitive applications (mass storage, audio streaming, video capture, high-rate sensor polling) and is often glossed over in datasheet summaries. This section breaks down USB, UART, I2C, SPI, and I2S characteristics per model.
