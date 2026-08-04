@@ -748,37 +748,53 @@ The following table summarises the **hardware‑accelerated cryptographic featur
 | **TRNG** | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 
 *Sources: ESP Product Security Feature Matrix, supplemented by data from the respective chip datasheets.*
-> **Note on reading this table - checkmarks are not performance guarantees:**
+
+> **Note on reading this table — checkmarks are not performance guarantees:**
 > A "✓" for a given feature means the capability exists in silicon, not that every 
 > chip's implementation performs equally, or that different chips implement the 
-> capability the same way. Two cases worth flagging explicitly:
+> capability the same way.
 >
 > - **"Digital Signature (ECDSA)" is genuinely different per chip, not just a naming 
->   quirk.** ESP32-C5 has a dedicated ECDSA Digital Signature peripheral (ECDSA_DS), 
->   confirmed in its datasheet and TRM (Ch. 28) - separate from its RSA-only DS unit. 
+>   quirk.** A dedicated ECDSA_DS peripheral — with the private key held in an eFuse 
+>   block, inaccessible to software — has been verified via official datasheets, 
+>   TRM chapters, and ESP-IDF documentation on **C5, C61, H2, H4, P4, and S31**. 
 >   ESP32-C6, despite similar marketing language, only has the RSA-flavored Digital 
->   Signature peripheral; Espressif's own ESP-IDF security overview for C6 does not 
->   mention ECDSA hardware signing. Both S3 and C6 lack a dedicated ECDSA_DS engine.
+>   Signature peripheral (RSA_DS) — Espressif's own security overview for C6 does 
+>   not mention ECDSA hardware signing. Both S3 and C6 lack a dedicated ECDSA_DS 
+>   engine.
 >
-> - **"ECC (HW) ✓" can mean two structurally different things, and this table doesn't 
->   yet distinguish them.** Real-world benchmarks show ESP32-S3 signing ECDSA-P256 in 
->   ~170 ms against ~22 ms on ESP32-C6 - a 7.7x gap - despite neither chip having a 
->   dedicated ECDSA_DS peripheral. The cause: ESP32-C6 has a genuinely separate ECC 
->   Accelerator hardware block (its own TRM chapter, its own mbedTLS build option 
->   `CONFIG_MBEDTLS_HARDWARE_ECC`). ESP32-S3 has no such block - its ECC point 
->   operations are handled entirely by the general-purpose RSA/MPI (bignum) unit 
->   (`CONFIG_MBEDTLS_HARDWARE_MPI` only), which assists but was not built for ECC 
->   specifically. Both chips are marked "✓" in the ECC row above, but they represent 
->   two different hardware architectures with materially different performance. 
->   **This means the "ECC (HW)" column in this table likely needs per-chip 
->   verification against each target's `soc_caps.h` (`SOC_ECC_SUPPORTED` vs. 
->   ECC-via-MPI-only) rather than treating a checkmark as equivalent across the 
->   family - this has only been confirmed for S3 and C6 so far, not the other 12 
->   models.**
+> - **"ECC (HW) ✓" can mean two structurally different things.** ESP32-C6 has a 
+>   genuinely separate ECC Accelerator hardware block (its own TRM chapter, its own 
+>   mbedTLS build option `CONFIG_MBEDTLS_HARDWARE_ECC`) that measurably accelerates 
+>   ECDSA signing (~7.2x) and ECDH point multiplication (~16.5–18x) — independently 
+>   confirmed via direct accelerator on/off measurement by 
+>   [NIkir0LL](https://github.com/NIkir0LL/lacert), not just inferred from vendor 
+>   docs. ESP32-S3 has no such block — its ECC operations run entirely through the 
+>   general-purpose RSA/MPI (bignum) unit (`CONFIG_MBEDTLS_HARDWARE_MPI` only). 
+>   Both chips are marked "✓" in the ECC row above, but represent two different 
+>   hardware architectures with materially different performance.
 >
-> *(h/t [Relative-Ad-9876](https://github.com/NIkir0LL/lacert) for the measured 
-> benchmark and for tracing this down to the TRM chapter and Kconfig level - 
-> significantly more precise than my first explanation.)*
+> - **The accelerator covers NIST curves only, not Curve25519.** On ESP32-C6, 
+>   X25519 point multiplication measured at ~121 ms whether the ECC accelerator is 
+>   on or off — no difference at all. This matters directly for BSI TR-02102's 
+>   recommended X25519+ML-KEM hybrid scheme: on C6, the classical (X25519) half of 
+>   that hybrid costs more time than the entire ML-KEM-1024 encapsulation. A hybrid 
+>   scheme chosen for regulatory alignment can end up more expensive on this 
+>   hardware than the post-quantum-only alternative it was meant to hedge.
+>
+> This means the "ECC (HW)" and "Digital Signature (ECDSA)" columns require 
+> per-chip verification against each target's `soc_caps.h` 
+> (`SOC_ECC_SUPPORTED` / `SOC_ECDSA_SUPPORTED`) rather than treating a checkmark 
+> as equivalent across the family. The above is now verified for all fourteen 
+> models except E22 and H21, whose full peripheral documentation was not yet 
+> public at time of writing.
+>
+> *(h/t [Relative-Ad-9876](https://www.reddit.com/user/Relative-Ad-9876/) for the 
+> original S3/C6 measurement that surfaced this, and 
+> [NIkir0LL](https://github.com/NIkir0LL/lacert) for independently verifying it 
+> with a pre-registered, controlled hardware experiment — see 
+> [ECC_ACCELERATOR.md](https://github.com/NIkir0LL/lacert/blob/main/docs/en/ECC_ACCELERATOR.md) 
+> for the full methodology.)*
 
 #### 4. Model‑by‑Model Cryptographic Assessment
 
