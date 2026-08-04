@@ -301,7 +301,7 @@ software-defined precision timing generally.
 | ESP32-C3 | 4 | Dedicated (2 TX + 2 RX) | No |
 | ESP32-C5 | 4 | *TBD* | *TBD* |
 | ESP32-C6 | 4 | Dedicated (2 TX + 2 RX) | No |
-| ESP32-C61 | Present, count *TBD* | *TBD* | *TBD* |
+| ESP32-C61 | None | *TBD* | *TBD* |
 | ESP32-H2 | 4 | Dedicated (2 TX + 2 RX) | No |
 | ESP32-H4 | *TBD* | *TBD* | *TBD* |
 | ESP32-P4 | 8 | *TBD* | *TBD* |
