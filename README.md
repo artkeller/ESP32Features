@@ -738,7 +738,7 @@ The following table summarises the **hardware‑accelerated cryptographic featur
 | **ECDSA** (HW) | - | - | ✓ | - | - | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | - | ✓ |
 | **HMAC** (HW) | - | ✓ | ✓ | ✓ | - | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
 | **Digital Signature (RSA)** | - | ✓ | ✓ | ✓ | - | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | ✓ | - | ✓ |
-| **Digital Signature (ECDSA)** | - | - | - | - | - | ✓ | - | ✓ | ✓ | ✓ | - | - | - | ✓ |
+| **Digital Signature (ECDSA)** | - | - | - | - | - | ✓ | - | ✓ | ✓ | ✓ | ✓ | - | - | ✓ |
 | **APM / TEE** | - | - | - | - | - | ✓ | ✓ | ✓ | - | - | ✓ | ✓ | - | ✓ |
 | **Key Manager** | - | - | - | - | - | - | ✓ | - | - | - | ✓ | - | - | - |
 | **DPA Protection** | - | - | - | - | - | - | ✓ | - | - | - | ✓ | - | - | - |
