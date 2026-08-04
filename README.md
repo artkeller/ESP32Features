@@ -962,6 +962,18 @@ The message to legal and security departments: The ESP32 platform is quantum‑r
 
 The Q‑Day 2029 is a real threat – but with the right architecture (e.g., hybrid schemes like X25519 + ML‑KEM) and crypto‑agile designs, ESP32‑based systems can meet this challenge.
 
+#### 9. Related Work/Verified By
+
+> **Independent verification:** The ECC-accelerator distinction in this table was 
+> independently tested end-to-end — not just cited from documentation — by 
+> [NIkir0LL](https://github.com/NIkir0LL/lacert) as part of a post-quantum IoT 
+> security master's thesis project. Their methodology (pre-registered predictions, 
+> accelerator on/off comparison on identical firmware, a control group of 
+> unrelated operations to catch confounds) is a good model for anyone wanting to 
+> verify hardware claims on this family rather than take a datasheet at face 
+> value. Full writeup: 
+> [ECC_ACCELERATOR.md](https://github.com/NIkir0LL/lacert/blob/main/docs/en/ECC_ACCELERATOR.md).
+
 ---
 
 ## Hardware Lifecycle Management & Practical Soft-Fade-out Combinations
