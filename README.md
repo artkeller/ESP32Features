@@ -892,6 +892,7 @@ The following table summarises the **hardware‑accelerated cryptographic featur
 - **APM/TEE**
 - **Key Manager**
 - **Assessment:** **Best performance for PQC in software.** The dual‑core RISC‑V with up to 360 MHz (400 MHz in v3.x) and 768 KB SRAM offers enough “muscle” for computationally intensive PQC algorithms. The DPA‑resistant AES HW is a unique feature. **No integrated radio** – ideal as a central security controller in hybrid systems (e.g., P4 + C6).
+- Dedicated **ECDSA_DS** peripheral (eFuse-backed) also present, per Section 3.
 
 ##### 4.12 ESP32‑E22 (RCP for Wi‑Fi 6E)
 - **Crypto HW** for radio stack security present
