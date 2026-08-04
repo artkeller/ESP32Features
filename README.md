@@ -263,7 +263,62 @@ I2S peripherals handle digital audio (PCM, I2S, PDM) and, on legacy models, para
 * **ESP32-C6 / C5:** 1x I2S controller. Max clock 40 MHz.
 * **ESP32-P4:** 2x HP-I2S controllers (up to 50 MHz clock) with dedicated TDM (Time Division Multiplexing, up to 16 channels) and PDM support.
 
-### Summary
+### RMT (Remote Control Transceiver)
+
+[#rmt-remote-control-transceiver](#rmt-remote-control-transceiver)
+
+RMT was originally designed for infrared remote-control signal generation/capture, 
+but its flexible pulse-timing format has made it the de facto peripheral for 
+addressable LED protocols (WS2812/NeoPixel), one-wire buses (DS18B20), and 
+software-defined precision timing generally.
+
+- **Channel architecture varies by generation.** Older/larger chips (ESP32 
+  classic, ESP32-S2) use **flexible channels** — each can be independently 
+  configured as TX or RX. Newer chips (S3, C3, C6, H2) use **hardcoded 
+  TX/RX-dedicated channels** — you select a specific TX or RX channel rather 
+  than configuring a generic one.
+- **DMA support:** ESP32-S3 is currently the only chip with RMT DMA support, 
+  which decouples RMT transfers from interrupt latency caused by Wi-Fi/BT 
+  activity — relevant for driving long addressable-LED chains without visible 
+  glitches under radio load. Non-DMA chips rely on interrupt-driven ping-pong 
+  buffering, which can glitch if the interrupt response is delayed.
+- **Memory block size:** 64 bytes per channel on ESP32/S2, 48 bytes on the 
+  S3/C3/C6/H2 generation — this caps how many RMT symbols fit per channel 
+  before the driver borrows memory from an adjacent channel.
+- **Hardware version matters for continuous RX:** RMT v1 (older chips) always 
+  stops once its receive buffer fills. RMT v2 (`SOC_RMT_SUPPORT_RX_PINGPONG`) 
+  supports wraparound buffering for continuous reception — relevant for 
+  RMT-based UART emulation or long capture sessions.
+- **ESP32-C2:** No RMT peripheral — consistent with its minimalist, 
+  cost-reduced feature set (no MCPWM/PARLIO either).
+
+### Summary 1
+
+[#summary-2](#summary-2)
+
+| Model | RMT Channels | Architecture | DMA Support |
+|---|---|---|---|
+| ESP32 (original) | 8 | Flexible (any channel = TX or RX) | No |
+| ESP32-S2 | 4 | Flexible (any channel = TX or RX) | No |
+| ESP32-S3 | 8 | Dedicated (4 TX + 4 RX) | **Yes** (only chip in family) |
+| ESP32-C2 | None | — | — |
+| ESP32-C3 | 4 | Dedicated (2 TX + 2 RX) | No |
+| ESP32-C5 | 4 | *TBD* | *TBD* |
+| ESP32-C6 | 4 | Dedicated (2 TX + 2 RX) | No |
+| ESP32-C61 | Present, count *TBD* | *TBD* | *TBD* |
+| ESP32-H2 | 4 | Dedicated (2 TX + 2 RX) | No |
+| ESP32-H4 | *TBD* | *TBD* | *TBD* |
+| ESP32-P4 | 8 | *TBD* | *TBD* |
+| ESP32-E22 | *TBD* | *TBD* | *TBD* |
+| ESP32-H21 | *TBD* | *TBD* | *TBD* |
+| ESP32-S31 | *TBD* | *TBD* | *TBD* |
+
+*Sources: ESP-IDF RMT peripheral documentation per target, HomeSpan RFControl 
+class documentation (channel-instance limits), Espressif RMT FAQ (memory block 
+sizes, DMA support). Values for C61, H4, E22, H21, S31 not yet confirmed against 
+primary sources at time of writing — flagged as TBD rather than estimated.*
+
+### Summary 2
 
 | Model | USB Speed Class | UART Max Baud | I2C Modes | SPI Max Clock / Modes | I2S Max Clock / Capabilities |
 | :--- | :--- | :--- | :--- | :--- | :--- |
