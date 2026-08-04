@@ -292,8 +292,6 @@ software-defined precision timing generally.
 
 ### Summary 1
 
-[#summary-2](#summary-2)
-
 | Model | RMT Channels | Architecture | DMA Support |
 |---|---|---|---|
 | ESP32 (original) | 8 | Flexible (any channel = TX or RX) | No |
