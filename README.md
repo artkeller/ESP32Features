@@ -796,6 +796,18 @@ The following table summarises the **hardware‑accelerated cryptographic featur
 > [ECC_ACCELERATOR.md](https://github.com/NIkir0LL/lacert/blob/main/docs/en/ECC_ACCELERATOR.md) 
 > for the full methodology.)*
 
+> **Known issue, ROM-level only:** Espressif advisory AR2026-006 describes a 
+> Secure Boot bypass affecting the ECDSA-based ROM signature check on four of the 
+> chips with a dedicated ECDSA_DS peripheral — **H2, C5, C61, and P4**. A crafted 
+> invalid signature can be accepted as valid during the ROM-level boot check; on 
+> C5 specifically, the ROM code fails to initialize the ECDSA peripheral before 
+> verification, leaving it power-gated during the check. This does **not** affect 
+> application-layer ECDSA verification (e.g. TLS handshakes) — the ESP-IDF driver 
+> initializes the peripheral correctly there — so OTA update paths relying on 
+> application-layer checks are not vulnerable. Relevant primarily for anyone 
+> relying on Secure Boot's ROM-level signature check as the root of trust on these 
+> four chips specifically.
+
 #### 4. Model‑by‑Model Cryptographic Assessment
 
 ##### 4.1 ESP32 (Classic)
