@@ -210,8 +210,7 @@ The information is based on the Espressif SoC product portfolio and the official
 
 ## Radio & Connectivity
 
-*Status: Structure and placeholders - datasheet verification in progress. 
-Contributions and corrections welcome.*
+*Status: Structure and placeholders - datasheet verification in progress.*
 
 The overview table lists radio capability by keyword only ("Wi-Fi 6", 
 "BT 5.4", "802.15.4"), which glosses over version-level differences, 
