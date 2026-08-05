@@ -260,7 +260,7 @@ standard, BT version, 802.15.4 presence, coexistence mode, per model.*
 ---
 
 *(This section tracks the same "TBD, not estimated" discipline used elsewhere 
-in this repo — see [Interface Speed Classes](#interface-speed-classes-and-bus-characteristics) 
+in this repo - see [Interface Speed Classes](#interface-speed-classes-and-bus-characteristics) 
 for the completed USB section as a model for how this will be filled in.)*
 
 ---
