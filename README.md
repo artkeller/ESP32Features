@@ -210,58 +210,52 @@ The information is based on the Espressif SoC product portfolio and the official
 
 ## Radio & Connectivity
 
-*Status: Structure and placeholders — datasheet verification in progress. 
+*Status: Structure and placeholders - datasheet verification in progress. 
 Contributions and corrections welcome.*
 
 The overview table lists radio capability by keyword only ("Wi-Fi 6", 
 "BT 5.4", "802.15.4"), which glosses over version-level differences, 
 coexistence behavior, and protocol maturity that matter for real product 
-decisions — the same gap this repo already closed for USB, crypto hardware, 
+decisions - the same gap this repo already closed for USB, crypto hardware, 
 and RMT. This section breaks radio capability down per protocol family.
 
 ### Wi-Fi
 
-*TBD — standard revision (b/g/n/ax), channel bandwidth (20/40 MHz), TX power, 
+*TBD - standard revision (b/g/n/ax), channel bandwidth (20/40 MHz), TX power, 
 antenna diversity support, and Wi-Fi 6E (6 GHz) availability per model.*
 
 ### Bluetooth
 
-*TBD — BT version (4.2/5.0/5.3/5.4), LE-only vs. LE+Classic (BR/EDR), 
+*TBD - BT version (4.2/5.0/5.3/5.4), LE-only vs. LE+Classic (BR/EDR), 
 Bluetooth Mesh support, and long-range (Coded PHY) support per model.*
 
 ### 802.15.4 (Zigbee / Thread / Matter)
-
-[#802-15-4-zigbee--thread--matter](#802-15-4-zigbee--thread--matter)
 
 802.15.4 is the low-level radio standard underneath both Zigbee and Thread — 
 having the radio does not automatically mean full protocol-stack support, and 
 this distinction is a common source of confusion for anyone approaching Matter 
 for the first time.
 
-*TBD — this subsection will explain, in the same style as the Interfaces 
+*TBD - this subsection will explain, in the same style as the Interfaces 
 section:*
 - *what 802.15.4 actually is, and how it differs from Wi-Fi/Bluetooth at the 
   radio level (channel structure, data rate, mesh topology implications)*
 - *the relationship between 802.15.4 (radio) → Zigbee/Thread (network layer) 
-  → Matter (application layer) — since these are frequently conflated*
+  → Matter (application layer) - since these are frequently conflated*
 - *which models have 802.15.4 radio hardware at all, and which of those have 
   a qualified/certified Thread or Zigbee stack available in ESP-IDF, since 
   radio presence and protocol-stack maturity are not the same claim*
 
 ### Multi-Radio Coexistence
 
-[#multi-radio-coexistence](#multi-radio-coexistence)
-
-*TBD — for chips with more than one radio (Wi-Fi + BT, or Wi-Fi + BT + 
+*TBD - for chips with more than one radio (Wi-Fi + BT, or Wi-Fi + BT + 
 802.15.4), whether radios operate time-sliced (mutually exclusive) or with 
 genuine concurrent operation, since this materially affects achievable 
 throughput and latency in Matter-style multi-protocol devices.*
 
 ### Summary
 
-[#summary-3](#summary-3)
-
-*TBD — cross-model table once the subsections above are populated: Wi-Fi 
+*TBD - cross-model table once the subsections above are populated: Wi-Fi 
 standard, BT version, 802.15.4 presence, coexistence mode, per model.*
 
 ---
