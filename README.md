@@ -69,7 +69,7 @@ The following models have been announced by Espressif since September 2025 and a
 
 ### Espressif SoC Product Portfolio
 
-![Espressif SoC Product Portfolio](res/4de262290804bb22f2a6272d7fc53db0.jpg "Espressif SoC Product Portfolio")
+![Espressif SoC Product Portfolio](assets/espressif/4de262290804bb22f2a6272d7fc53db0.jpg "Espressif SoC Product Portfolio")
 
 > **Note:** The Espressif product portfolio image above (as of September 2025) **does not** include the **ESP32‑E22**, **ESP32‑H21**, and **ESP32‑S31** variants, which have been announced since then. These were added to the table at a later date.
 
