@@ -463,9 +463,9 @@ Based on the official Espressif datasheets (as of July 2026) and the details col
   - **Dual‑Core RISC‑V at 500 MHz**
   - **Data rate up to 2.4 Gbps**
   - **Bluetooth Classic (BR/EDR) + BLE 5.4** in one chip
-  - **RCP architecture** – offloads networking stacks from host
+  - **RCP architecture** - offloads networking stacks from host
   - **Flexible host interfaces**: PCIe 2.1, SDIO 3.0, USB 2.0
-  - **Open‑source Linux driver** (Kernel 5.4+) – lowers integration barrier
+  - **Open‑source Linux driver** (Kernel 5.4+) - lowers integration barrier
   - **Wi‑Fi CERTIFIED 6E™** – guarantees interoperability
 - **Disadvantages**:
   - **No standalone MCU operation** – always relies on host processor (RCP design)
