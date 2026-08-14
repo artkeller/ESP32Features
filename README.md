@@ -232,7 +232,7 @@ Bluetooth Mesh support, and long-range (Coded PHY) support per model.*
 
 ### 802.15.4 (Zigbee / Thread / Matter)
 
-802.15.4 is the low-level radio standard underneath both Zigbee and Thread — 
+802.15.4 is the low-level radio standard underneath both Zigbee and Thread - 
 having the radio does not automatically mean full protocol-stack support, and 
 this distinction is a common source of confusion for anyone approaching Matter 
 for the first time.
@@ -860,7 +860,7 @@ The following table summarises the **hardware‑accelerated cryptographic featur
 
 *Sources: ESP Product Security Feature Matrix, supplemented by data from the respective chip datasheets.*
 
-> **Note on reading this table — checkmarks are not performance guarantees:**
+> **Note on reading this table - checkmarks are not performance guarantees:**
 > A "✓" for a given feature means the capability exists in silicon, not that every 
 > chip's implementation performs equally, or that different chips implement the 
 > capability the same way.
@@ -903,18 +903,18 @@ The following table summarises the **hardware‑accelerated cryptographic featur
 > *(h/t [Relative-Ad-9876](https://www.reddit.com/user/Relative-Ad-9876/) for the 
 > original S3/C6 measurement that surfaced this, and 
 > [NIkir0LL](https://github.com/NIkir0LL/lacert) for independently verifying it 
-> with a pre-registered, controlled hardware experiment — see 
+> with a pre-registered, controlled hardware experiment - see 
 > [ECC_ACCELERATOR.md](https://github.com/NIkir0LL/lacert/blob/main/docs/en/ECC_ACCELERATOR.md) 
 > for the full methodology.)*
 
 > **Known issue, ROM-level only:** Espressif advisory AR2026-006 describes a 
 > Secure Boot bypass affecting the ECDSA-based ROM signature check on four of the 
-> chips with a dedicated ECDSA_DS peripheral — **H2, C5, C61, and P4**. A crafted 
+> chips with a dedicated ECDSA_DS peripheral - **H2, C5, C61, and P4**. A crafted 
 > invalid signature can be accepted as valid during the ROM-level boot check; on 
 > C5 specifically, the ROM code fails to initialize the ECDSA peripheral before 
 > verification, leaving it power-gated during the check. This does **not** affect 
-> application-layer ECDSA verification (e.g. TLS handshakes) — the ESP-IDF driver 
-> initializes the peripheral correctly there — so OTA update paths relying on 
+> application-layer ECDSA verification (e.g. TLS handshakes) - the ESP-IDF driver 
+> initializes the peripheral correctly there - so OTA update paths relying on 
 > application-layer checks are not vulnerable. Relevant primarily for anyone 
 > relying on Secure Boot's ROM-level signature check as the root of trust on these 
 > four chips specifically.
@@ -922,7 +922,7 @@ The following table summarises the **hardware‑accelerated cryptographic featur
 #### Related Work/Verified By
 
 > **Independent verification:** The ECC-accelerator distinction in this table was 
-> independently tested end-to-end — not just cited from documentation — by 
+> independently tested end-to-end - not just cited from documentation - by 
 > [NIkir0LL](https://github.com/NIkir0LL/lacert) as part of a post-quantum IoT 
 > security master's thesis project. Their methodology (pre-registered predictions, 
 > accelerator on/off comparison on identical firmware, a control group of 
@@ -1100,10 +1100,10 @@ This approach keeps legacy components in their functional comfort zone (handling
 
 > **Important: the inter-chip link is part of the threat model, not outside it.** 
 > The local interface between the legacy chip and the co-chip (SPI/UART/I2C) must 
-> itself be authenticated — and encrypted, if the bus is physically exposed or the 
-> threat model includes board-level tampering. An attacker with physical access — 
+> itself be authenticated - and encrypted, if the bus is physically exposed or the 
+> threat model includes board-level tampering. An attacker with physical access - 
 > the same access class that co-chip's TEE and side-channel protection are meant to 
-> defend against — can otherwise simply tap or spoof that link instead of attacking 
+> defend against - can otherwise simply tap or spoof that link instead of attacking 
 > either chip directly. A session-key handshake at boot or a pre-provisioned shared 
 > secret are the usual minimum. Skipping this doesn't just weaken the pattern, it 
 > defeats its purpose: the security boundary silently moves to wherever the internal 
