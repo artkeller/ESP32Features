@@ -6,23 +6,6 @@ The README stays the human interface. This is the fact layer beneath it —
 every number in the README should, in the target architecture, trace back
 to a file in here.
 
-## Why this exists
-
-Three concrete bugs in the last few review rounds all had the same root
-cause: facts lived only as hand-typed prose inside a 1200-line Markdown
-table. That made them impossible to validate mechanically:
-
-- Datasheet version numbers silently went stale (e.g. "Version 1.2" for
-  a datasheet Espressif has since revised to "Version 2.4").
-- Duplicate application rows (#44/#45/#50 vs #28/#33/#30) went unnoticed
-  because nothing checked for them.
-- A language mix-up (German prose in an English repo) slipped in because
-  there was no structural separation between "data" and "presentation."
-
-None of these are exotic failure modes — they're exactly what happens
-when a document is simultaneously the source of truth and the rendered
-output. This PoC splits those two roles apart.
-
 ## Directory layout
 
 ```
@@ -136,41 +119,6 @@ python3 -c "from pyld import jsonld; import json; jsonld.expand(json.load(open('
   cell whose reasoning doesn't reduce to a clean rule (the RCP special
   cases especially resist simple rules and may stay hand-annotated with
   a `manual_override` field — not modeled yet in this PoC).
-
-## Two bugs this JSON-LD layer caught (kept in, on purpose)
-
-Both of these happened while building this PoC, not as staged examples —
-kept here because they're the actual argument for the whole approach:
-
-1. **Unmapped domain terms silently vanish on expand.** The first draft
-   of `chips.jsonld` had a valid-looking `@context` but no mapping for
-   `architecture`, `clock_max_mhz`, `radios`, `gpio_count`, etc. A plain
-   JSON viewer showed them fine — but running the document through a
-   real JSON-LD processor's `expand()` dropped every one of them without
-   an error. Fixed with a `@vocab` fallback so every domain term resolves
-   to *some* IRI instead of disappearing. This is structurally the same
-   failure class as the earlier duplicate-application-row and stale-
-   datasheet-version bugs: something looked fine by inspection and was
-   wrong by construction. The fix, again, was: don't trust inspection,
-   run it through a real consumer and check what survives.
-
-2. **Term/prefix collision.** The context defined `"unit"` twice — once
-   as the QUDT namespace prefix (`"unit": "http://qudt.org/vocab/unit/"`)
-   and once as the property name for `qudt:unit`. In a Python dict
-   literal the second definition silently overwrites the first; no
-   exception, no warning. Result: `unit:MegaHZ` stayed as an unresolved
-   compact IRI instead of expanding to
-   `http://qudt.org/vocab/unit/MegaHZ`. Renamed the property to
-   `qudtUnit` to remove the collision, then re-ran the expand test to
-   confirm all 5 units resolve correctly across all 3 chips (14 total
-   occurrences) and that an expand→compact round-trip doesn't raise.
-
-Neither bug was visible from reading the generated JSON — both only
-showed up when a standards-conformant processor (`pyld`) actually
-consumed the document. That's the whole point of QUDT/PROV-O over an ad
-hoc schema: correctness is checkable by a third-party tool, not just by
-eyeballing our own output.
-
 
 
 - Only 3 of 12 chips have data files (enough to exercise the standard
