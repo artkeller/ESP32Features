@@ -1,4 +1,4 @@
-# ESP32Features
+## ESP32Features
 
 [![CRA Status](https://img.shields.io/badge/CRA-Exempt%20(pure%20OSS)-informational)](./CRA-EXEMPTION.md)
 [![License](https://img.shields.io/badge/License-CC--BY--4.0-blue?style=flat-square)](./LICENSE)
@@ -1184,13 +1184,13 @@ This approach keeps legacy components in their functional comfort zone (handling
   [https://documentation.espressif.com/esp32-s2_datasheet_en.pdf](https://documentation.espressif.com/esp32-s2_datasheet_en.pdf)
 
 * **ESP32‑S3 Series Datasheet** (Version 2.2, accessed August 2026)  
-  [https://documentation.espressif.com/esp32-s3_datasheet_en.pdf](https://documentation.espressif.com/esp32-s3_datasheet_en.pdf) *(previously listed as v1.8/1.9 — Espressif has since revised the datasheet to v2.2)*
+  [https://documentation.espressif.com/esp32-s3_datasheet_en.pdf](https://documentation.espressif.com/esp32-s3_datasheet_en.pdf) *(previously listed as v1.8/1.9 - Espressif has since revised the datasheet to v2.2)*
 
 * **ESP32‑C3 Series Datasheet** (Version 2.4, accessed August 2026)  
-  [https://documentation.espressif.com/esp32-c3_datasheet_en.pdf](https://documentation.espressif.com/esp32-c3_datasheet_en.pdf) *(previously listed as v1.2 — significantly out of date; current revision is v2.4)*
+  [https://documentation.espressif.com/esp32-c3_datasheet_en.pdf](https://documentation.espressif.com/esp32-c3_datasheet_en.pdf) *(previously listed as v1.2 - significantly out of date; current revision is v2.4)*
 
 * **ESP8684 (ESP32‑C2) Series Datasheet** (Version 2.2, accessed August 2026)  
-  [https://www.espressif.com/sites/default/files/documentation/esp8684_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp8684_datasheet_en.pdf) *(correction: a full datasheet does exist — it is published under the module name "ESP8684," which is the flash‑integrated ESP32‑C2 die. The previous entry incorrectly stated no complete datasheet was available.)*
+  [https://www.espressif.com/sites/default/files/documentation/esp8684_datasheet_en.pdf](https://www.espressif.com/sites/default/files/documentation/esp8684_datasheet_en.pdf) *(correction: a full datasheet does exist - it is published under the module name "ESP8684," which is the flash‑integrated ESP32‑C2 die. The previous entry incorrectly stated no complete datasheet was available.)*
 
 * **ESP32‑C5 Series Datasheet** (Version 1.4, accessed August 2026)  
   [https://documentation.espressif.com/esp32-c5_datasheet_en.pdf](https://documentation.espressif.com/esp32-c5_datasheet_en.pdf) *(previously listed as v1.3; current revision is v1.4)*
@@ -1208,7 +1208,7 @@ This approach keeps legacy components in their functional comfort zone (handling
   [https://www.espressif.com/en/products/socs/esp32-h4](https://www.espressif.com/en/products/socs/esp32-h4) *(correction: no standalone series datasheet PDF could be verified at the previously cited path, and no "Version 0.6" revision could be confirmed; the chip is currently in sampling and documented via the product page and press materials, e.g. Espressif's [ESP32‑H4 announcement](https://www.espressif.com/en/news/ESP32-H4))*
 
 * **ESP32‑P4 Series Datasheet** (Version 0.7, base series) and **ESP32‑P4 Chip Revision v1.3 Datasheet** (Version 1.2, accessed August 2026)  
-  [https://documentation.espressif.com/esp32-p4_datasheet_en.pdf](https://documentation.espressif.com/esp32-p4_datasheet_en.pdf) · [https://documentation.espressif.com/esp32-p4-chip-revision-v1.3_datasheet_en.pdf](https://documentation.espressif.com/esp32-p4-chip-revision-v1.3_datasheet_en.pdf) *(Espressif publishes ESP32‑P4 as two related documents — the base series datasheet and a chip‑revision‑specific datasheet for silicon revision v1.3; the previous single‑version citation conflated the two)*
+  [https://documentation.espressif.com/esp32-p4_datasheet_en.pdf](https://documentation.espressif.com/esp32-p4_datasheet_en.pdf) · [https://documentation.espressif.com/esp32-p4-chip-revision-v1.3_datasheet_en.pdf](https://documentation.espressif.com/esp32-p4-chip-revision-v1.3_datasheet_en.pdf) *(Espressif publishes ESP32‑P4 as two related documents - the base series datasheet and a chip‑revision‑specific datasheet for silicon revision v1.3; the previous single‑version citation conflated the two)*
 
 * **ESP32‑E22 – Product Page** (accessed August 2026)  
   [https://www.espressif.com/en/products/socs/esp32-e22](https://www.espressif.com/en/products/socs/esp32-e22) *(correction: an official public product page does exist, contrary to the previous "no direct public URL available" note. As of this writing no standalone series datasheet PDF is publicly indexed; Espressif's [E22 announcement](https://www.espressif.com/en/news/ESP32_E22_Announcement) and [Wi‑Fi 6E certification notice](https://www.espressif.com/en/news/E22_Wi-Fi_6E_Certificate) are the most detailed public sources)*
@@ -1217,21 +1217,21 @@ This approach keeps legacy components in their functional comfort zone (handling
   [https://www.espressif.com/en/products/socs/esp32-h21](https://www.espressif.com/en/products/socs/esp32-h21) *(correction: an official public product page does exist; see also Espressif's [H21 announcement](https://www.espressif.com/en/news/ESP32_H21))*
 
 * **ESP32‑S31 – Product Page** (accessed August 2026)  
-  [https://www.espressif.com/en/products/socs/esp32-s31](https://www.espressif.com/en/products/socs/esp32-s31) *(correction: ESP32‑S31 entered mass production on 2026‑07‑27 per Espressif's [mass‑production announcement](https://www.espressif.com/en/news/ESP32_S31_Mass_Production); the previous "Version 0.2 pre‑release draft, no public URL" note is outdated. A standalone series datasheet PDF was not yet indexed at the time of this check — verify via the product page before relying on exact register‑level figures.)*
+  [https://www.espressif.com/en/products/socs/esp32-s31](https://www.espressif.com/en/products/socs/esp32-s31) *(correction: ESP32‑S31 entered mass production on 2026‑07‑27 per Espressif's [mass‑production announcement](https://www.espressif.com/en/news/ESP32_S31_Mass_Production); the previous "Version 0.2 pre‑release draft, no public URL" note is outdated. A standalone series datasheet PDF was not yet indexed at the time of this check - verify via the product page before relying on exact register‑level figures.)*
 
 * **Espressif Product Selector** (accessed August 2026)  
   [https://www.espressif.com/en/products/socs](https://www.espressif.com/en/products/socs)
 
 * **Espressif Technical Documents Portal** (accessed August 2026)  
-  [https://www.espressif.com/en/support/documents/technical-documents](https://www.espressif.com/en/support/documents/technical-documents) *(searchable index of all current datasheets, technical reference manuals, and hardware design guidelines — the most reliable starting point when a direct PDF link goes stale, since Espressif periodically reorganizes document paths)*
+  [https://www.espressif.com/en/support/documents/technical-documents](https://www.espressif.com/en/support/documents/technical-documents) *(searchable index of all current datasheets, technical reference manuals, and hardware design guidelines - the most reliable starting point when a direct PDF link goes stale, since Espressif periodically reorganizes document paths)*
 
 * **ESP32 Module Reference (WROOM/WROVER/MINI series)** (accessed August 2026)  
-  [https://www.espressif.com/en/support/documents/technical-documents?field_type_tid%5B%5D=1211](https://www.espressif.com/en/support/documents/technical-documents?field_type_tid%5B%5D=1211) *(module datasheets are versioned independently per module, not as a single "Version 2.0" — the previous entry's version number did not correspond to a specific document)*
+  [https://www.espressif.com/en/support/documents/technical-documents?field_type_tid%5B%5D=1211](https://www.espressif.com/en/support/documents/technical-documents?field_type_tid%5B%5D=1211) *(module datasheets are versioned independently per module, not as a single "Version 2.0" - the previous entry's version number did not correspond to a specific document)*
 
 * **ESP‑IDF Programming Guide** – for development with all models (ESP‑IDF v6.0.1 is the current stable release with support for C5, C61, H4, E22, H21, and S31; earlier chips remain supported across a wider range of ESP‑IDF versions)  
   [https://docs.espressif.com/projects/esp-idf/en/latest/](https://docs.espressif.com/projects/esp-idf/en/latest/)
 
-> **Note on this revision:** All entries above were re‑verified against Espressif's documentation site in August 2026. Espressif's canonical documentation host is `documentation.espressif.com`; the older `www.espressif.com/sites/default/files/documentation/...` paths often still resolve but are being phased out and should not be assumed stable long‑term. For E22, H21, and S31 specifically, standalone series‑datasheet PDFs were not yet publicly indexed at the time of this check even though the chips themselves are announced (E22, H21) or already in mass production (S31) — the official product pages and press announcements linked above are currently the most authoritative public sources. If a full datasheet is published later, replace the corresponding product‑page link with the datasheet PDF.
+> **Note on this revision:** All entries above were re‑verified against Espressif's documentation site in August 2026. Espressif's canonical documentation host is `documentation.espressif.com`; the older `www.espressif.com/sites/default/files/documentation/...` paths often still resolve but are being phased out and should not be assumed stable long‑term. For E22, H21, and S31 specifically, standalone series‑datasheet PDFs were not yet publicly indexed at the time of this check even though the chips themselves are announced (E22, H21) or already in mass production (S31) - the official product pages and press announcements linked above are currently the most authoritative public sources. If a full datasheet is published later, replace the corresponding product‑page link with the datasheet PDF.
 
 
 ---
