@@ -1,0 +1,691 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "qudt": "http://qudt.org/schema/qudt/",
+    "unit": "http://qudt.org/vocab/unit/",
+    "dct": "http://purl.org/dc/terms/",
+    "@vocab": "urn:esp32features:vocab:",
+    "id": "@id",
+    "type": "@type",
+    "Product": "schema:Product",
+    "name": "schema:name",
+    "manufacturer": "schema:manufacturer",
+    "releaseStatus": "schema:releaseStatus",
+    "additionalProperty": "schema:additionalProperty",
+    "PropertyValue": "schema:PropertyValue",
+    "propertyID": "schema:propertyID",
+    "Entity": "prov:Entity",
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "generatedAtTime": {
+      "@id": "prov:generatedAtTime",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "value": "prov:value",
+    "QuantityValue": "qudt:QuantityValue",
+    "numericValue": "qudt:numericValue",
+    "qudtUnit": {
+      "@id": "qudt:unit",
+      "@type": "@id"
+    }
+  },
+  "@graph": [
+    {
+      "id": "urn:esp32features:chip:ESP32-C6",
+      "type": "Product",
+      "name": "ESP32-C6",
+      "manufacturer": {
+        "id": "https://www.wikidata.org/wiki/Q1109838",
+        "name": "Espressif Systems"
+      },
+      "releaseStatus": "mass_production",
+      "architecture": {
+        "cores": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": 2,
+          "dct:description": "1 HP + 1 LP RISC-V core"
+        },
+        "isa": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": "RISC-V"
+        },
+        "clock_max_mhz": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": {
+            "type": "QuantityValue",
+            "numericValue": 160,
+            "qudtUnit": "unit:MegaHZ"
+          }
+        },
+        "has_lp_core": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": true
+        }
+      },
+      "memory": {
+        "sram_kb": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": {
+            "type": "QuantityValue",
+            "numericValue": 512,
+            "qudtUnit": "unit:KibiBYTE"
+          },
+          "dct:description": "HP SRAM; +16 KB LP SRAM"
+        },
+        "embedded_flash_mb": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": {
+            "type": "QuantityValue",
+            "numericValue": 8,
+            "qudtUnit": "unit:MebiBYTE"
+          },
+          "dct:description": "variant-dependent, 0/4/8 MB"
+        },
+        "embedded_psram_mb": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": {
+            "type": "QuantityValue",
+            "numericValue": 0,
+            "qudtUnit": "unit:MebiBYTE"
+          },
+          "dct:description": "PSRAM external only"
+        }
+      },
+      "radios": {
+        "wifi": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": true,
+          "schema:description": "Wi-Fi 6, 2.4 GHz only (802.11ax/b/g/n)"
+        },
+        "bluetooth": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": true,
+          "schema:description": "Bluetooth 5.3 LE + Mesh"
+        },
+        "ieee802_15_4": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": true,
+          "schema:description": "802.15.4, Zigbee 3.0 / Thread 1.3"
+        }
+      },
+      "interfaces": {
+        "gpio_count": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": 30,
+          "dct:description": "30 (QFN40) / 22 (QFN32)"
+        },
+        "usb_otg": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": null,
+          "dct:description": "USB Serial/JTAG only, no OTG"
+        },
+        "camera": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": false
+        },
+        "ethernet_mac_mbps": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": null
+        },
+        "can_twai_count": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": 1
+        },
+        "adc_channels": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": 7,
+          "dct:description": "12-bit SAR ADC"
+        },
+        "pwm": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": true,
+          "dct:description": "LEDC + MCPWM (3 ch.)"
+        }
+      },
+      "power": {
+        "deep_sleep_ua": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32c6_ds",
+          "value": {
+            "type": "QuantityValue",
+            "numericValue": 7,
+            "qudtUnit": "unit:MicroA"
+          }
+        }
+      }
+    },
+    {
+      "id": "urn:esp32features:chip:ESP32-E22",
+      "type": "Product",
+      "name": "ESP32-E22",
+      "manufacturer": {
+        "id": "https://www.wikidata.org/wiki/Q1109838",
+        "name": "Espressif Systems"
+      },
+      "releaseStatus": "sampling",
+      "family_notes": "Radio Co-Processor (RCP) architecture — not a standalone MCU. Fields like gpio_count/adc_channels/pwm reflect the RCP's own die, not a system built around it; a host processor is always required. No standalone series datasheet PDF was publicly indexed at last check (2026-08-16) — facts below are sourced from Espressif's product page and press announcement, not a datasheet. Treat with the same \"status: no_public_pdf\" caution as the source registry entries.\n",
+      "architecture": {
+        "cores": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_announcement",
+          "value": 2,
+          "dct:description": "proprietary Espressif RISC-V cores"
+        },
+        "isa": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_announcement",
+          "value": "RISC-V"
+        },
+        "clock_max_mhz": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_announcement",
+          "value": {
+            "type": "QuantityValue",
+            "numericValue": 500,
+            "qudtUnit": "unit:MegaHZ"
+          }
+        },
+        "has_lp_core": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_product_page",
+          "value": false,
+          "dct:description": "low-power state managed by host, no dedicated LP core on-die"
+        }
+      },
+      "memory": {
+        "sram_kb": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_product_page",
+          "value": {
+            "type": "QuantityValue",
+            "numericValue": 1024,
+            "qudtUnit": "unit:KibiBYTE"
+          }
+        },
+        "embedded_flash_mb": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_product_page",
+          "value": {
+            "type": "QuantityValue",
+            "numericValue": 0,
+            "qudtUnit": "unit:MebiBYTE"
+          },
+          "dct:description": "RCP design, no embedded flash"
+        },
+        "embedded_psram_mb": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_product_page",
+          "value": {
+            "type": "QuantityValue",
+            "numericValue": 0,
+            "qudtUnit": "unit:MebiBYTE"
+          },
+          "dct:description": "memory via host"
+        }
+      },
+      "radios": {
+        "wifi": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_announcement",
+          "value": true,
+          "schema:description": "Tri-band Wi-Fi 6E, 2.4/5/6 GHz, 160 MHz BW, 2x2 MU-MIMO, up to 2.4 Gbps"
+        },
+        "bluetooth": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_announcement",
+          "value": true,
+          "schema:description": "Bluetooth Classic (BR/EDR) + BLE 5.4"
+        },
+        "ieee802_15_4": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_product_page",
+          "value": false
+        }
+      },
+      "interfaces": {
+        "gpio_count": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_product_page",
+          "value": 30,
+          "dct:description": "primarily reserved for host interface, not general-purpose in the usual sense"
+        },
+        "usb_otg": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_announcement",
+          "value": "2.0",
+          "dct:description": "host interface option, alongside PCIe 2.1 / SDIO 3.0"
+        },
+        "camera": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_product_page",
+          "value": false
+        },
+        "ethernet_mac_mbps": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_product_page",
+          "value": null
+        },
+        "can_twai_count": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_product_page",
+          "value": 0
+        },
+        "adc_channels": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_product_page",
+          "value": 0,
+          "dct:description": "no ADC peripheral listed; RCP not designed for standalone sensing"
+        },
+        "pwm": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_product_page",
+          "value": false,
+          "dct:description": "no PWM peripheral listed"
+        }
+      },
+      "power": {
+        "deep_sleep_ua": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32e22_product_page",
+          "value": null,
+          "dct:description": "not applicable in the usual sense — power state is host-controlled"
+        }
+      }
+    },
+    {
+      "id": "urn:esp32features:chip:ESP32-S31",
+      "type": "Product",
+      "name": "ESP32-S31",
+      "manufacturer": {
+        "id": "https://www.wikidata.org/wiki/Q1109838",
+        "name": "Espressif Systems"
+      },
+      "releaseStatus": "mass_production",
+      "family_notes": "Entered mass production 2026-07-27 per Espressif's press announcement. No standalone series datasheet PDF was publicly indexed at last check (2026-08-16); facts below are sourced from the product page and mass- production announcement. deep_sleep_ua is intentionally null — this is the PoC's worked example of \"we do not know yet\" being a first-class, explicit machine-readable state rather than a silently omitted table cell or a guessed number.\n",
+      "architecture": {
+        "cores": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_mass_production",
+          "value": 2,
+          "dct:description": "1 HP core w/ 128-bit SIMD + 1 LP core"
+        },
+        "isa": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_mass_production",
+          "value": "RISC-V"
+        },
+        "clock_max_mhz": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_mass_production",
+          "value": {
+            "type": "QuantityValue",
+            "numericValue": 320,
+            "qudtUnit": "unit:MegaHZ"
+          }
+        },
+        "has_lp_core": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_mass_production",
+          "value": true,
+          "dct:description": "40 MHz LP RISC-V core"
+        }
+      },
+      "memory": {
+        "sram_kb": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_mass_production",
+          "value": {
+            "type": "QuantityValue",
+            "numericValue": 512,
+            "qudtUnit": "unit:KibiBYTE"
+          }
+        },
+        "embedded_flash_mb": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_product_page",
+          "value": {
+            "type": "QuantityValue",
+            "numericValue": 0,
+            "qudtUnit": "unit:MebiBYTE"
+          },
+          "dct:description": "external Flash/PSRAM via Octal SPI only"
+        },
+        "embedded_psram_mb": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_product_page",
+          "value": {
+            "type": "QuantityValue",
+            "numericValue": 0,
+            "qudtUnit": "unit:MebiBYTE"
+          }
+        }
+      },
+      "radios": {
+        "wifi": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_mass_production",
+          "value": true,
+          "schema:description": "Wi-Fi 6, 2.4 GHz (802.11ax)"
+        },
+        "bluetooth": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_mass_production",
+          "value": true,
+          "schema:description": "Bluetooth 5.4, LE Audio + Classic BR/EDR, Mesh 1.1"
+        },
+        "ieee802_15_4": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_mass_production",
+          "value": true,
+          "schema:description": "802.15.4, Zigbee + Thread, Matter over Wi-Fi and Thread"
+        }
+      },
+      "interfaces": {
+        "gpio_count": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_mass_production",
+          "value": 60
+        },
+        "usb_otg": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_product_page",
+          "value": "2.0"
+        },
+        "camera": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_mass_production",
+          "value": true,
+          "dct:description": "DVP camera interface, 8-16 bit"
+        },
+        "ethernet_mac_mbps": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_mass_production",
+          "value": {
+            "type": "QuantityValue",
+            "numericValue": 1000,
+            "qudtUnit": "unit:MegaBIT-PER-SEC"
+          }
+        },
+        "can_twai_count": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_product_page",
+          "value": 1
+        },
+        "adc_channels": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_product_page",
+          "value": null,
+          "dct:description": "ADC present, channel count not yet published"
+        },
+        "pwm": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_product_page",
+          "value": true
+        }
+      },
+      "power": {
+        "deep_sleep_ua": {
+          "type": "Entity",
+          "generatedAtTime": "2026-08-16",
+          "wasDerivedFrom": "urn:esp32features:source:esp32s31_product_page",
+          "value": null,
+          "dct:description": "not yet published — deliberately left null, see family_notes"
+        }
+      }
+    },
+    {
+      "id": "urn:esp32features:source:esp32_ds",
+      "type": "Entity",
+      "schema:name": "ESP32 Series Datasheet",
+      "dct:description": "status=verified",
+      "schema:version": "5.3",
+      "schema:url": {
+        "id": "https://documentation.espressif.com/esp32_datasheet_en.pdf"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp32s2_ds",
+      "type": "Entity",
+      "schema:name": "ESP32-S2 Series Datasheet",
+      "dct:description": "status=verified",
+      "schema:version": "1.9",
+      "schema:url": {
+        "id": "https://documentation.espressif.com/esp32-s2_datasheet_en.pdf"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp32s3_ds",
+      "type": "Entity",
+      "schema:name": "ESP32-S3 Series Datasheet",
+      "dct:description": "status=verified",
+      "schema:version": "2.2",
+      "schema:url": {
+        "id": "https://documentation.espressif.com/esp32-s3_datasheet_en.pdf"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp32c3_ds",
+      "type": "Entity",
+      "schema:name": "ESP32-C3 Series Datasheet",
+      "dct:description": "status=verified",
+      "schema:version": "2.4",
+      "schema:url": {
+        "id": "https://documentation.espressif.com/esp32-c3_datasheet_en.pdf"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp8684_ds",
+      "type": "Entity",
+      "schema:name": "ESP8684 (ESP32-C2) Series Datasheet",
+      "dct:description": "status=verified",
+      "schema:version": "2.2",
+      "schema:url": {
+        "id": "https://www.espressif.com/sites/default/files/documentation/esp8684_datasheet_en.pdf"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp32c5_ds",
+      "type": "Entity",
+      "schema:name": "ESP32-C5 Series Datasheet",
+      "dct:description": "status=verified",
+      "schema:version": "1.4",
+      "schema:url": {
+        "id": "https://documentation.espressif.com/esp32-c5_datasheet_en.pdf"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp32c6_ds",
+      "type": "Entity",
+      "schema:name": "ESP32-C6 Series Datasheet",
+      "dct:description": "status=verified",
+      "schema:version": "1.5",
+      "schema:url": {
+        "id": "https://documentation.espressif.com/esp32-c6_datasheet_en.pdf"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp32c61_ds",
+      "type": "Entity",
+      "schema:name": "ESP32-C61 Series Datasheet",
+      "dct:description": "status=verified",
+      "schema:version": "1.1",
+      "schema:url": {
+        "id": "https://documentation.espressif.com/esp32-c61_datasheet_en.pdf"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp32h2_ds",
+      "type": "Entity",
+      "schema:name": "ESP32-H2 Series Datasheet",
+      "dct:description": "status=verified",
+      "schema:version": "1.3",
+      "schema:url": {
+        "id": "https://documentation.espressif.com/esp32-h2_datasheet_en.pdf"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp32h4_product_page",
+      "type": "Entity",
+      "schema:name": "ESP32-H4 Product Page",
+      "dct:description": "status=no_public_pdf",
+      "schema:url": {
+        "id": "https://www.espressif.com/en/products/socs/esp32-h4"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp32p4_ds",
+      "type": "Entity",
+      "schema:name": "ESP32-P4 Series Datasheet",
+      "dct:description": "status=verified",
+      "schema:version": "0.7",
+      "schema:url": {
+        "id": "https://documentation.espressif.com/esp32-p4_datasheet_en.pdf"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp32p4_r1_3_ds",
+      "type": "Entity",
+      "schema:name": "ESP32-P4 Chip Revision v1.3 Datasheet",
+      "dct:description": "status=verified",
+      "schema:version": "1.2",
+      "schema:url": {
+        "id": "https://documentation.espressif.com/esp32-p4-chip-revision-v1.3_datasheet_en.pdf"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp32e22_product_page",
+      "type": "Entity",
+      "schema:name": "ESP32-E22 Product Page",
+      "dct:description": "status=no_public_pdf",
+      "schema:url": {
+        "id": "https://www.espressif.com/en/products/socs/esp32-e22"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp32e22_announcement",
+      "type": "Entity",
+      "schema:name": "Espressif Introduces ESP32-E22 (press announcement)",
+      "dct:description": "status=no_public_pdf",
+      "schema:url": {
+        "id": "https://www.espressif.com/en/news/ESP32_E22_Announcement"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp32h21_product_page",
+      "type": "Entity",
+      "schema:name": "ESP32-H21 Product Page",
+      "dct:description": "status=no_public_pdf",
+      "schema:url": {
+        "id": "https://www.espressif.com/en/products/socs/esp32-h21"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp32s31_product_page",
+      "type": "Entity",
+      "schema:name": "ESP32-S31 Product Page",
+      "dct:description": "status=no_public_pdf",
+      "schema:url": {
+        "id": "https://www.espressif.com/en/products/socs/esp32-s31"
+      },
+      "generatedAtTime": "2026-08-16"
+    },
+    {
+      "id": "urn:esp32features:source:esp32s31_mass_production",
+      "type": "Entity",
+      "schema:name": "ESP32-S31 Now in Mass Production (press announcement)",
+      "dct:description": "status=no_public_pdf",
+      "schema:url": {
+        "id": "https://www.espressif.com/en/news/ESP32_S31_Mass_Production"
+      },
+      "generatedAtTime": "2026-08-16"
+    }
+  ]
+}

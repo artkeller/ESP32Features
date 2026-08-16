@@ -1,0 +1,97 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "chip.schema.json",
+  "title": "ESP32Features chip data record",
+  "description": "One structured, source-attributed data file per chip. Every leaf fact carries a source_ref (must exist in data/sources/*.yaml) and a last_verified date. This schema is intentionally strict: a fact without a source_ref fails validation rather than silently entering the README as unattributed prose.",
+  "type": "object",
+  "required": ["id", "name", "status", "architecture", "memory", "radios", "interfaces", "power"],
+  "properties": {
+    "id":     { "type": "string", "pattern": "^ESP32-[A-Z0-9]+$" },
+    "name":   { "type": "string" },
+    "status": { "type": "string", "enum": ["mass_production", "sampling", "announced", "nrnd", "eol"] },
+    "family_notes": { "type": "string" },
+
+    "architecture": {
+      "type": "object",
+      "required": ["cores", "isa", "clock_max_mhz", "has_lp_core"],
+      "properties": {
+        "cores":         { "$ref": "#/definitions/fact_integer" },
+        "isa":           { "$ref": "#/definitions/fact_string" },
+        "clock_max_mhz": { "$ref": "#/definitions/fact_number" },
+        "has_lp_core":   { "$ref": "#/definitions/fact_boolean" }
+      }
+    },
+
+    "memory": {
+      "type": "object",
+      "required": ["sram_kb"],
+      "properties": {
+        "sram_kb":              { "$ref": "#/definitions/fact_number" },
+        "embedded_flash_mb":    { "$ref": "#/definitions/fact_number_nullable" },
+        "embedded_psram_mb":    { "$ref": "#/definitions/fact_number_nullable" }
+      }
+    },
+
+    "radios": {
+      "type": "object",
+      "required": ["wifi", "bluetooth", "ieee802_15_4"],
+      "properties": {
+        "wifi":         { "$ref": "#/definitions/radio_fact" },
+        "bluetooth":    { "$ref": "#/definitions/radio_fact" },
+        "ieee802_15_4": { "$ref": "#/definitions/radio_fact" }
+      }
+    },
+
+    "interfaces": {
+      "type": "object",
+      "required": ["gpio_count"],
+      "properties": {
+        "gpio_count":  { "$ref": "#/definitions/fact_integer" },
+        "usb_otg":     { "$ref": "#/definitions/fact_string_nullable" },
+        "camera":      { "$ref": "#/definitions/fact_boolean" },
+        "ethernet_mac_mbps": { "$ref": "#/definitions/fact_number_nullable" },
+        "can_twai_count":    { "$ref": "#/definitions/fact_integer_nullable" },
+        "adc_channels":      { "$ref": "#/definitions/fact_integer_nullable" },
+        "pwm": { "$ref": "#/definitions/fact_boolean" }
+      }
+    },
+
+    "power": {
+      "type": "object",
+      "properties": {
+        "deep_sleep_ua": { "$ref": "#/definitions/fact_number_nullable" }
+      }
+    }
+  },
+
+  "definitions": {
+    "fact_base": {
+      "type": "object",
+      "required": ["value", "source_ref", "last_verified"],
+      "properties": {
+        "source_ref":    { "type": "string", "description": "Must match an id in data/sources/*.yaml" },
+        "last_verified": { "type": "string", "format": "date" },
+        "note":          { "type": "string" }
+      }
+    },
+    "fact_string":          { "allOf": [ {"$ref": "#/definitions/fact_base"}, { "properties": { "value": { "type": "string" } } } ] },
+    "fact_string_nullable": { "allOf": [ {"$ref": "#/definitions/fact_base"}, { "properties": { "value": { "type": ["string", "null"] } } } ] },
+    "fact_integer":         { "allOf": [ {"$ref": "#/definitions/fact_base"}, { "properties": { "value": { "type": "integer" } } } ] },
+    "fact_integer_nullable":{ "allOf": [ {"$ref": "#/definitions/fact_base"}, { "properties": { "value": { "type": ["integer", "null"] } } } ] },
+    "fact_number":          { "allOf": [ {"$ref": "#/definitions/fact_base"}, { "properties": { "value": { "type": "number" } } } ] },
+    "fact_number_nullable": { "allOf": [ {"$ref": "#/definitions/fact_base"}, { "properties": { "value": { "type": ["number", "null"] } } } ] },
+    "fact_boolean":         { "allOf": [ {"$ref": "#/definitions/fact_base"}, { "properties": { "value": { "type": "boolean" } } } ] },
+
+    "radio_fact": {
+      "allOf": [
+        { "$ref": "#/definitions/fact_base" },
+        {
+          "properties": {
+            "value": { "type": "boolean" },
+            "detail": { "type": "string", "description": "e.g. 'Wi-Fi 6E tri-band 2.4/5/6 GHz' — human-readable detail shown in generated tables" }
+          }
+        }
+      ]
+    }
+  }
+}
