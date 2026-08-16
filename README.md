@@ -405,19 +405,19 @@ Based on the official Espressif datasheets (as of July 2026) and the details col
 - **Focus**: All‑rounder for wireless networks and legacy applications; strong in Wi‑Fi + BT Classic/LE combinations with Ethernet/CAN.
 - **Advantages**: Dual‑core Xtensa for parallel tasks (e.g., Wi‑Fi + BT), established ecosystem (lots of code available), Ethernet MAC and TWAI (CAN) for industrial networks, inexpensive and robust, ULP co‑proc for simple low‑power tasks.
 - **Disadvantages**: Higher power consumption (deep sleep ~10 μA, active >100 mA), Xtensa architecture less forward‑looking (fewer open‑source tools), no Wi‑Fi 6/BT 5, limited memory options (max 4 MB embedded flash), outdated (NRND for some variants), no dedicated LP core.
-- **Overall rating**: Good for cost‑effective, established projects with mixed connectivity, but not ideal for ultra‑low‑power or modern protocols.
+- **Overall rating**: Good for cost‑effective, established projects with mixed connectivity, but not ideal for ultra‑low‑power or modern protocols. Also a solid choice for **#44 Large‑Scale GPIO Relay/Matrix Controller** (34 GPIOs + Ethernet MAC + TWAI enable bus‑integrated relay panels without an extra chip).
 
 #### ESP32‑S2
 - **Focus**: USB and multimedia‑focused (LCD/camera/touch), for Wi‑Fi‑only devices with low power.
 - **Advantages**: USB OTG (FS) for HID/storage, LCD/camera interfaces for displays, 14 touch sensors, ULP co‑pros (RISC‑V + FSM) for flexible deep sleep, large external memory support (up to 1 GB), compact and energy‑efficient for Wi‑Fi apps.
 - **Disadvantages**: No BT, mono‑core Xtensa (less performance), no Ethernet/CAN, touch not CS‑certified (restrictions in noisy environments), higher consumption than C series (deep sleep ~5‑7 μA), outdated compared to S3.
-- **Overall rating**: Strong for USB‑based or display/touch devices (e.g., smart panels), but limited without BT/multi‑core.
+- **Overall rating**: Strong for USB‑based or display/touch devices (e.g., smart panels), but limited without BT/multi‑core. Also a strong candidate for **#45 USB Video Class (UVC) Webcam/Capture Device** (USB OTG FS + DVP camera in one chip), though Full‑Speed USB limits resolution/frame rate compared to P4/S31.
 
 #### ESP32‑S3
 - **Focus**: AI and multimedia (vector/AI extensions, LCD/camera), for edge computing with Wi‑Fi/BT LE.
 - **Advantages**: Dual‑core Xtensa with AI/DSP extensions (e.g., 128‑bit vector), USB OTG/SD for storage, LCD/camera for video, ULP co‑pros for low power, large memory (up to 16 MB embedded PSRAM), BT 5 LE for modern apps.
 - **Disadvantages**: No Wi‑Fi 6, higher power consumption (deep sleep ~7 μA, active >100 mA), Xtensa instead of RISC‑V, ADC/Wi‑Fi conflicts, more expensive than C series, no 802.15.4.
-- **Overall rating**: Ideal for AI/multimedia (e.g., voice/image recognition), but not optimal for ultra‑low‑power or multi‑protocol IoT.
+- **Overall rating**: Ideal for AI/multimedia (e.g., voice/image recognition), but not optimal for ultra‑low‑power or multi‑protocol IoT. Also suited for **#45 UVC Capture Device** (USB OTG FS + camera + AI vector extensions for on‑chip pre‑processing before USB transfer) and for **#50 Predictive‑Maintenance Vibration Node** (20‑channel ADC + AI extensions for on‑chip FFT/anomaly detection).
 
 #### ESP32‑C3
 - **Focus**: Low‑cost, low‑power wireless (Wi‑Fi + BT LE) for simple sensors.
@@ -435,13 +435,13 @@ Based on the official Espressif datasheets (as of July 2026) and the details col
 - **Focus**: Modern multi‑protocol wireless (dual‑band Wi‑Fi 6 + BT LE 5 + 802.15.4), for low‑power IoT with LP core.
 - **Advantages**: Dual‑band Wi‑Fi 6 (2.4/5 GHz), BT LE 5 (incl. direction finding), 802.15.4 (Zigbee/Thread), dedicated LP core (RISC‑V, up to 48 MHz), CAN FD, low power (deep sleep ~12 μA), RISC‑V dual core.
 - **Disadvantages**: Fewer GPIOs (29), limited embedded memory (4 MB flash/8 MB PSRAM), higher price, new (less established).
-- **Overall rating**: Strong for smart home/IoT networks (Matter‑compatible), but not for high performance without wireless.
+- **Overall rating**: Strong for smart home/IoT networks (Matter‑compatible), but not for high performance without wireless. Also an energy‑efficient option for **#50 Predictive‑Maintenance Vibration Node**: LP core + dual‑band Wi‑Fi 6 enable battery‑powered condition monitoring with low quiescent current, though without the AI vector extensions of S3/P4 for complex on‑chip FFT.
 
 #### ESP32‑C6
 - **Focus**: Low‑power multi‑protocol (Wi‑Fi 6 2.4GHz + BT 5.3 + 802.15.4), for battery‑powered IoT with LP core.
 - **Advantages**: Wi‑Fi 6 (2.4 GHz), BT 5.3 (mesh), 802.15.4 (Zigbee/Thread), dedicated LP core (RISC‑V, 20 MHz), low power (deep sleep 7 μA), RISC‑V dual‑core, TWAI.
 - **Disadvantages**: No 5 GHz Wi‑Fi, limited embedded PSRAM (external only), 30/22 GPIOs, no USB OTG/Ethernet.
-- **Overall rating**: Ideal for energy‑efficient smart devices (e.g., sensor networks), better than C5 in terms of power, but without dual band.
+- **Overall rating**: Ideal for energy‑efficient smart devices (e.g., sensor networks), better than C5 in terms of power, but without dual band. Frequently paired with ESP32‑P4 for **#50 Predictive‑Maintenance Node** (see combination [#1](#1-esp32-p4--esp32-c6)), where C6 provides the wireless telemetry link for P4's on‑edge signal processing.
 
 #### ESP32‑H2
 - **Focus**: Ultra‑low‑power non‑Wi‑Fi wireless (BT LE 5.3 + 802.15.4), for Thread/Zigbee/Matter.
@@ -453,7 +453,7 @@ Based on the official Espressif datasheets (as of July 2026) and the details col
 - **Focus**: High‑performance MCU without radios, for AI/multimedia (JPEG/H.264/MIPI) with wired connectivity.
 - **Advantages**: Dual‑HP + mono‑LP RISC‑V (up to 360 MHz), AI/DSP extensions, multimedia (JPEG codec, H.264 encoder, MIPI CSI/DSI), USB HS/FS OTG, Ethernet, 55 GPIOs (16 LP), large memory (up to 32 MB embedded PSRAM), VAD/Touch.
 - **Disadvantages**: No integrated radios (external required), no embedded flash, higher power consumption (deep sleep 0.025 mA), more expensive, new (less support).
-- **Overall rating**: Perfect for high‑performance wired/AI devices (e.g., HMI panels), but not for wireless without add‑ons.
+- **Overall rating**: Perfect for high‑performance wired/AI devices (e.g., HMI panels), but not for wireless without add‑ons. P4 is also the best‑suited chip in the portfolio for **#44 Large‑Scale GPIO Relay/Matrix Controller** (55 GPIOs, 16 of them LP, 3× TWAI, Ethernet 10/100 – the highest pin and fieldbus density in the family) and for **#45 UVC Capture Device** (USB HS/FS OTG + MIPI camera + hardware JPEG/H.264/ISP – the highest achievable resolution/frame rate). Combined with a wireless companion chip (e.g., C6 or E22, see combinations [#1](#1-esp32-p4--esp32-c6) and [#11](#11-esp32-p4--esp32-e22)), P4 is also the most capable base for **#50 Predictive‑Maintenance Node** (AI/DSP extensions, up to 360 MHz for compute‑intensive on‑edge FFT/ML models).
 
 #### ESP32‑E22
 - **Focus**: High‑Performance Wireless Connectivity Co‑Processor (RCP) for Tri‑Band Wi‑Fi 6E + Dual‑Mode Bluetooth.
@@ -473,7 +473,7 @@ Based on the official Espressif datasheets (as of July 2026) and the details col
   - **No dedicated LP core** – low‑power controlled by host
   - **Higher price** – high‑end positioning
   - **New** – ecosystem less established (but Linux driver is open source)
-- **Overall rating**: Ideal for **high‑bandwidth applications** like 4K/8K video streaming, AR/VR accessories, industrial bridging solutions, and next‑gen smart‑home hubs. Not suitable for standalone, battery‑powered low‑power sensors.
+- **Overall rating**: Ideal for **high‑bandwidth applications** like 4K/8K video streaming, AR/VR accessories, industrial bridging solutions, and next‑gen smart‑home hubs. Not suitable for standalone, battery‑powered low‑power sensors. Also **unsuitable for #44, #45, and #50** – the RCP architecture provides neither PWM nor ADC peripherals nor a camera interface; E22's role remains limited to high‑bandwidth wireless connectivity (see #36/#37, where E22 acts as the wireless front‑end for a P4‑based video/AR node).
 
 #### ESP32‑H21
 - **Focus**: Ultra‑Low‑Power Wireless SoC for Thread, Matter, Zigbee and BLE‑based, battery‑powered IoT devices.
@@ -491,7 +491,7 @@ Based on the official Espressif datasheets (as of July 2026) and the details col
   - **Limited SRAM** (320 KB) – less than H4 (384 KB)
   - **No USB OTG** – only USB Serial/JTAG
   - **Incremental update to H2** – no radical changes
-- **Overall rating**: Ideal for **ultra‑low‑power, battery‑operated mesh networks** (smart‑home sensors, building automation, wearables). Better energy efficiency than H2 due to DC‑DC converter. Not suitable for Wi‑Fi applications.
+- **Overall rating**: Ideal for **ultra‑low‑power, battery‑operated mesh networks** (smart‑home sensors, building automation, wearables). Better energy efficiency than H2 due to DC‑DC converter. Not suitable for Wi‑Fi applications. Suitable for a simplified variant of **#50 Predictive‑Maintenance Node** (basic battery‑powered vibration/condition reporting over 802.15.4/BLE thanks to 5 µA deep sleep), though without a dedicated LP core for on‑device FFT – raw data must be forwarded to a more capable node (e.g., P4) for analysis.
 
 #### ESP32‑S31
 - **Focus**: High‑Performance Dual‑Core RISC‑V SoC with Wi‑Fi 6, BT 5.4, 802.15.4, Gigabit‑Ethernet and advanced HMI capabilities.
@@ -508,7 +508,7 @@ Based on the official Espressif datasheets (as of July 2026) and the details col
   - **No exact power consumption values** known yet
   - **Complexity** – many features increase development effort
   - **Positioning** – between S3 (AI/multimedia) and P4 (high‑performance) → possible overlaps
-- **Overall rating**: ESP32‑S31 is the **successor to S2/S3 with RISC‑V architecture** and an expanded feature set. It combines **Wi‑Fi 6, BT 5.4, 802.15.4 and Gigabit‑Ethernet** with **advanced HMI and security features**. Ideal for **demanding IoT applications** with high requirements for connectivity, multimedia and security.
+- **Overall rating**: ESP32‑S31 is the **successor to S2/S3 with RISC‑V architecture** and an expanded feature set. It combines **Wi‑Fi 6, BT 5.4, 802.15.4 and Gigabit‑Ethernet** with **advanced HMI and security features**. Ideal for **demanding IoT applications** with high requirements for connectivity, multimedia and security. S31 is, alongside P4, the only chip in the portfolio covering all three newest applications: **#44** (60 GPIOs – the highest count in the family), **#45** (USB OTG + DVP camera + JPEG codec) and **#50** (128‑bit SIMD for signal processing) – though several S31 specifications (including deep‑sleep values) remain unpublished per the disclaimer above.
 
 ---
 
@@ -559,13 +559,13 @@ Below is a list of **50** typical applications for ESP32 models, based on Espres
 41. **Matter‑over‑Thread sensor** (H21: ESP‑Matter‑SDK, 5 µA deep sleep).
 42. **Bluetooth‑Mesh lighting** (H21: ESP‑BLE‑MESH, 20 dBm).
 43. **Occupancy / environmental sensor** (H21: ultra‑low‑power, 5 µA).
-44. **Asset tracking tag** (H21: 5 µA deep sleep, 20 dBm range).
-45. **Wearable health monitor** (H21: ultra‑low‑power, compact GPIOs).
+44. **Large‑scale GPIO relay/matrix controller** (P4/S31: high GPIO count + PWM/CAN/Ethernet for building/industrial automation panels).
+45. **USB Video Class (UVC) webcam / capture device** (P4/S31: USB‑OTG + camera interface combination for PC‑camera or machine‑vision capture modules).
 46. **Smart speaker / Voice assistant** (S31: BT 5.4 LE Audio + I2S + AI acceleration).
 47. **Industrial HMI panel** (S31: LCD 24‑bit, Touch 14×, Ethernet).
 48. **Security camera with Edge‑AI** (S31: DVP camera + JPEG codec + AI acceleration).
 49. **Matter gateway (Wi‑Fi + Thread)** (S31: Wi‑Fi 6 + 802.15.4 + Ethernet).
-50. **POS terminal** (S31: USB OTG + SD/MMC + security features).
+50. **Predictive‑maintenance vibration/condition‑monitoring node** (P4/S3: ADC + AI/DSP for on‑edge FFT/anomaly detection, battery‑ or line‑powered).
 
 ### Evaluation table
 
@@ -616,13 +616,13 @@ The table evaluates the suitability of each model for the applications with ++ (
 |41. Matter‑over‑Thread Sensor|-- (kein 802.15.4‑Funk)|-- (kein 802.15.4‑Funk)|-- (kein 802.15.4‑Funk)|-- (kein 802.15.4‑Funk)|-- (kein 802.15.4‑Funk)|+ (802.15.4 Zigbee 3.0/Thread 1.4, aber Dual‑Band‑Wi‑Fi‑6 erhöht Kosten/Verbrauch für reinen Sensor)|+ (802.15.4 Thread 1.3 + LP‑Core, aber höherer Verbrauch als H2/H21 durch integrierten Wi‑Fi‑6‑Funk)|++ (802.15.4 Thread/Zigbee/Matter, 7 µA Deep Sleep, kein Wi‑Fi‑Overhead)|-- (keine integrierten Funkmodule)|- (kein 802.15.4, nur Wi‑Fi/BT als RCP)|++ (ESP‑Matter‑SDK, 5 µA)|++ (802.15.4 + Wi‑Fi 6, ESP‑Matter‑SDK erwartet – genaue Verbrauchswerte noch nicht final)|
 |42. Bluetooth‑Mesh Lighting|+ (BT LE vorhanden, aber kein natives BT5‑Mesh‑Feature)|-- (kein BT)|+ (BT5 LE Mesh)|+ (BT5 LE)|+ (BT5 LE)|+ (BT LE5)|++ (BT5.3 Mesh nativ)|++ (BT LE5.3 Mesh/Long‑Range)|-- (kein integriertes Funkmodul)|+ (BT Classic + BLE5.4, als RCP aber nicht für Mesh‑Leuchtenknoten optimiert)|++ (ESP‑BLE‑MESH, 20 dBm)|++ (BT 5.4 Mesh 1.1)|
 |43. Occupancy Sensor|+ (ADC 18 Kan. + Funk, aber \~10 µA Deep Sleep – höher als Sensor‑Klasse‑Chips)|+ (ADC 20 + Touch, aber kein BT/802.15.4)|+ (ADC 20 + Touch/BT LE, höherer Verbrauch als C‑Serie)|++ (Low‑Power RISC‑V, ADC 6, \~5 µA Deep Sleep)|++ (Ultra‑Low‑Cost/Power, ADC 6)|++ (LP‑Core + ADC 6, \~12 µA Deep Sleep)|++ (LP‑Core + ADC 7, 7 µA Deep Sleep)|++ (ADC 5, 7 µA Deep Sleep)|+ (ADC vorhanden, aber kein dediziertes Low‑Power‑Funkmodul, Deep Sleep \~0,025 mA)|- (kein ADC‑Kanal, RCP nicht für Standalone‑Sensorik konzipiert)|++ (5 µA)|++ (ADC vorhanden, LP‑Verhalten erwartet, exakte Deep‑Sleep‑Werte noch nicht publiziert)|
-|44. Asset Tracking Tag *(Duplikat von #28 – Bewertung konsistent gehalten)*|+ (BT LE)|- (kein BT)|+ (BT LE)|++ (BT LE Low‑Power)|++ (BT LE Low‑Power)|++ (BT LE5 Direction)|++ (BT 5.3)|++ (BT LE5.3 Long Range)|- (keine Funkmodule)|0 (kein BT LE, RCP für Wi‑Fi/BT‑Host‑Anbindung ungeeignet für Standalone‑Tag)|++ (5 µA + 20 dBm)|++ (BT 5.4 Direction Finding)|
-|45. Wearable Health Monitor *(Duplikat von #33 – Bewertung konsistent gehalten)*|+ (BT + ADC)|+ (ADC + Touch)|++ (BT LE + Touch/AI)|++ (BT LE + ADC)|++ (BT LE + ADC)|++ (BT LE5 + ADC)|++ (BT 5.3 + ADC)|++ (BT LE5.3 + ADC)|+ (ADC + Touch, aber kein dediziertes Low‑Power‑Funkmodul)|- (kein BT LE, RCP‑Design)|++ (BT LE5.3 + ADC + 5 µA)|++ (BT 5.4 + ADC + Touch)|
+|**44. Large‑Scale GPIO Relay/Matrix Controller** *(neu)*|+ (34 GPIO + PWM + Ethernet/TWAI – solider Allrounder mit Bus‑Anbindung)|+ (43 GPIO + LED PWM, aber kein CAN/Ethernet für Bus‑Integration)|++ (45 GPIO + MCPWM, gute Kanalzahl für größere Relais‑Matrizen)|0 (nur 22/16 GPIO, TWAI vorhanden, aber wenig Pins für Matrix‑Anwendungen)|- (nur 14 GPIO, zu wenig für Matrix‑Anwendungen)|+ (29 GPIO + MCPWM 6 ch. + 2× CAN FD, moderate Pin‑Zahl)|+ (30/22 GPIO + MCPWM 3 ch. + TWAI)|- (nur 19 GPIO, kein CAN/Ethernet)|++ (55 GPIO (16 LP) + MCPWM 2 + 3× TWAI + Ethernet – meiste Pins + Feldbus‑Anbindung im Portfolio)|-- (RCP‑Design, GPIOs primär für Host‑Interface reserviert, kein PWM‑Peripherie gelistet)|- (nur 19 GPIO, PWM vorhanden, aber kein CAN/Ethernet)|++ (60 GPIO – meiste im Portfolio – + MCPWM + TWAI + Gigabit Ethernet)|
+|**45. USB Video Class (UVC) Webcam / Capture Device** *(neu)*|-- (kein USB OTG, kein Kamera‑Interface)|++ (USB OTG FS + DVP‑Kamera vorhanden, Full‑Speed limitiert Auflösung/Framerate)|++ (USB OTG FS + Kamera + AI‑Vektorerweiterungen für On‑Chip‑Verarbeitung)|-- (kein USB OTG, nur USB Serial/JTAG; kein Kamera‑Interface)|-- (kein USB OTG, kein Kamera‑Interface)|-- (kein USB OTG, kein Kamera‑Interface)|-- (kein USB OTG, kein Kamera‑Interface)|-- (kein USB OTG, kein Kamera‑Interface)|++ (USB HS/FS OTG + MIPI‑Kamera + Hardware‑JPEG/H.264/ISP – höchste Auflösung/Framerate im Portfolio)|-- (USB 2.0 dient nur der Host‑Anbindung, kein Kamera‑Interface)|-- (kein USB OTG, kein Kamera‑Interface)|++ (USB OTG + DVP‑Kamera + JPEG‑Codec – vollwertige UVC‑Eignung)|
 |46. Smart Speaker / Voice Assistant|+ (Dual‑Core + I2S)|+ (I2S + USB)|++ (I2S + AI‑Vektorerweiterungen)|0 (I2S, aber Mono‑Core)|0 (I2S minimal)|+ (I2S + Dual‑Core)|+ (I2S + Dual‑Core)|+ (I2S)|++ (VAD + I2S/LP)|- (kein I2S/lokale AI‑Verarbeitung, RCP für Konnektivität, kein Audio‑Frontend)|- (I2S vorhanden, aber kein Wi‑Fi für Cloud‑Anbindung, Mono‑Core minimal)|++ (BT 5.4 LE Audio + I2S + AI/SIMD)|
 |47. Industrial HMI|+ (I2S/SPI, aber kein LCD‑Interface)|++ (LCD‑Interface + 14× Touch)|++ (LCD/Camera + 14× Touch)|0 (kein LCD/Touch)|- (minimal, kein LCD/Touch/Ethernet)|0 (kein LCD/Touch)|0 (kein LCD/Touch)|0 (kein LCD/Touch, kein Ethernet)|++ (MIPI DSI + LCD + 14× Touch + Ethernet)|- (kein LCD/Touch/Kamera‑Interface, reine RCP)|- (kein LCD/Touch)|++ (LCD 24‑bit + 14× Touch + Ethernet)|
 |48. Security Camera with Edge‑AI|+ (Wi‑Fi/BT, aber kein Kamera‑Interface)|++ (DVP‑Kamera + Wi‑Fi, aber keine AI‑Erweiterungen)|++ (Kamera + AI‑Vektorerweiterungen)|0 (kein Kamera‑Interface)|- (kein Kamera‑Interface, minimal)|0 (kein Kamera‑Interface)|0 (kein Kamera‑Interface)|- (kein Wi‑Fi/Kamera)|++ (MIPI CSI/ISP/JPEG/H.264 + AI/DSP)|- (kein Kamera‑Interface, reine RCP für Konnektivität)|- (kein Kamera‑Interface, kein Wi‑Fi)|++ (DVP + JPEG + AI/SIMD)|
 |49. Matter Gateway|+ (Wi‑Fi/BT, aber kein 802.15.4 – externer Thread‑Funk nötig)|+ (nur Wi‑Fi, kein 802.15.4/BT)|+ (Wi‑Fi/BT LE, kein 802.15.4)|+ (Wi‑Fi/BT LE, kein 802.15.4)|+ (Wi‑Fi/BT LE minimal, kein 802.15.4)|++ (Multi‑Protokoll Wi‑Fi 6 + 802.15.4)|++ (Wi‑Fi 6 + 802.15.4)|++ (802.15.4 Thread nativ, aber kein eigenes Wi‑Fi – i. d. R. mit Wi‑Fi‑SoC kombiniert)|- (keine Funkmodule)|+ (Tri‑Band Wi‑Fi 6E, aber kein 802.15.4 – Companion‑Chip z. B. H21 nötig)|++ (802.15.4/BT, ESP‑Matter‑SDK – kein Wi‑Fi, ideal als Thread‑Seite eines Dual‑Chip‑Gateways)|++ (Wi‑Fi 6 + 802.15.4 + Ethernet – All‑in‑One)|
-|50. POS Terminal *(Duplikat von #30 – Bewertung konsistent gehalten)*|+ (Ethernet + Display)|++ (USB + LCD)|++ (SD + LCD)|0 (kein USB OTG)|- (minimal)|0 (kein USB OTG)|0 (kein USB OTG)|0 (kein USB)|++ (USB HS + SD/MMC)|0 (USB 2.0 Host‑Interface vorhanden, aber kein LCD/SD/Touch, RCP nicht standalone‑fähig)|- (kein USB OTG, kein LCD/SD)|++ (USB OTG + SD/MMC + Security)|
+|**50. Predictive‑Maintenance Vibration/Condition‑Monitoring Node** *(neu)*|+ (ADC 18 ch. + Dual‑Core + Wi‑Fi/BT, aber kein LP‑Core – höherer Verbrauch für Batteriebetrieb)|0 (ADC 20 ch., aber Mono‑Core und kein BT für redundante Telemetrie)|++ (ADC 20 ch. + AI/Vektorerweiterungen für FFT/Anomalieerkennung on‑chip + Wi‑Fi/BT)|0 (ADC 6 ch., Mono‑Core RISC‑V, begrenzte Rechenleistung für FFT)|- (ADC 6 ch., minimal, kein LP‑Core für Dauerüberwachung)|+ (ADC 6 ch. + Dual‑Core + LP‑Core + Dual‑Band Wi‑Fi 6 – energieeffizient für Batteriesensorik)|+ (ADC 7 ch. + Dual‑Core + LP‑Core + Wi‑Fi 6)|0 (ADC 5 ch., Mono‑Core, kein Wi‑Fi – nur Mesh‑Telemetrie ohne direkte Cloud‑Anbindung)|++ (2× ADC + AI/DSP‑Erweiterungen + bis 360 MHz für komplexe FFT/ML‑Modelle, aber kein integriertes Funkmodul – Companion‑Chip nötig, z. B. P4+C6 siehe Kombinationen)|-- (kein ADC‑Kanal, RCP‑Design nicht für Sensordatenerfassung konzipiert)|+ (ADC vorhanden [Kanalzahl nicht spezifiziert] + 5 µA Deep Sleep – geeignet für einfache Batterie‑Vibrationssensorik, aber kein LP‑Core für komplexe FFT vor Ort)|+ (ADC vorhanden [Kanalzahl nicht spezifiziert] + 128‑bit SIMD für Signalverarbeitung, Deep‑Sleep‑Werte noch nicht publiziert)|
 
 
 ---
@@ -637,7 +637,7 @@ Based on the previous analyses (architecture, radios, interfaces, advantages/dis
 - **Applications**:
   - Simple: Smart home gateway (P4 for display/USB processing, C6 for Wi‑Fi/Thread connectivity).
   - Medium: AR glasses for training (P4 for H.264 encoding/MIPI camera, C6 for BT mesh to sensors).
-  - Sophisticated (Industry 4.0): Predictive maintenance system in factories (P4 for edge AI analysis of vibrations/images, C6 for secure wireless transmission to the cloud; enables real‑time fault detection in machine networks).
+  - Sophisticated (Industry 4.0): Predictive maintenance system in factories (P4 for edge AI analysis of vibrations/images, C6 for secure wireless transmission to the cloud; enables real‑time fault detection in machine networks). *(Corresponds to application [#50 Predictive‑Maintenance Vibration/Condition‑Monitoring Node](#list-of-typical-applications): P4 handles on‑edge FFT/anomaly detection of vibration data via ADC + AI/DSP, C6 the wireless uplink to the cloud.)*
 
 #### 2. ESP32-P4 + ESP32-C5
 - **Description**: P4 (high‑performance MCU with AI, Ethernet, USB HS/FS, large memory) + C5 (dual‑band Wi‑Fi 6 2.4/5 GHz, BT LE 5, 802.15.4, LP‑Core, CAN FD).
@@ -717,7 +717,7 @@ Based on the previous analyses (architecture, radios, interfaces, advantages/dis
 - **Applications**:
   - Simple: High‑end smart home hub with 4K streaming.
   - Medium: AR/VR headset with edge AI.
-  - Sophisticated (Industry 4.0): Real‑time video analytics in factories (P4 for AI processing, E22 for low‑latency wireless video uplink).
+  - Sophisticated (Industry 4.0): Real‑time video analytics in factories (P4 for AI processing, E22 for low‑latency wireless video uplink). *(Covers applications [#36 4K/8K Video Streaming](#list-of-typical-applications) and [#37 AR/VR Accessory](#list-of-typical-applications): P4 provides MIPI camera/H.264 encoding, E22 the tri‑band Wi‑Fi 6E link at up to 2.4 Gbps.)*
 
 #### 12. ESP32-C6 + ESP32-H21
 - **Description**: C6 (Wi‑Fi 6, BT 5.3, 802.15.4, LP core) + H21 (ultra‑low‑power BLE 5 + 802.15.4 with 5 µA deep sleep, 20 dBm TX).
@@ -726,6 +726,16 @@ Based on the previous analyses (architecture, radios, interfaces, advantages/dis
   - Simple: Ultra‑low‑power smart lighting mesh.
   - Medium: Long‑range asset tracking with 20 dBm tags.
   - Sophisticated (Industry 4.0): Battery‑powered sensor networks in harsh industrial environments with extended range.
+
+#### 13. ESP32-P4 + ESP32-H2
+- **Description**: P4 (55 GPIOs, 16 of them LP, MCPWM, 3× TWAI, Ethernet 10/100 – high pin and fieldbus density) combined with H2 (BT LE 5.3 + 802.15.4 for Thread/Zigbee/Matter, 7 µA deep sleep).
+- **Why it makes sense**: P4 provides the GPIO density needed for large‑scale relay/switching matrices plus fieldbus connectivity (TWAI/Ethernet) for the wired side of a building or plant, but has no integrated radio of its own. H2 adds an energy‑efficient, Matter‑compatible wireless link to integrate the panel into an existing Zigbee/Thread building‑automation system, without increasing the controller's power draw the way a Wi‑Fi‑capable companion chip would.
+- **Applications**:
+  - Simple: Local relay panel with Thread remote control (P4 switches, H2 receives Matter commands).
+  - Medium: Distributed building‑automation system (P4 drives a large number of actuators over TWAI/GPIO, H2 synchronizes status across panels via a Thread mesh).
+  - Sophisticated (Industry 4.0): Central switching cabinet in a factory hall (P4 manages hundreds of relay/PWM channels via GPIO expanders and fieldbus, H2 integrates the panel into a plant‑wide Zigbee/Thread network for remote monitoring without requiring a battery‑hungry Wi‑Fi radio; corresponds to application [#44 Large‑Scale GPIO Relay/Matrix Controller](#list-of-typical-applications)).
+
+> **Note on #45 (UVC Capture Device):** No dedicated chip combination is listed for this application. ESP32‑S2, ‑S3, ‑P4 and ‑S31 already combine USB‑OTG and a camera interface standalone in a single chip; a two‑chip combination would add no technical value here, since UVC devices communicate with a host purely over the USB connection and require no additional wireless link.
 
 These combinations extend individual strengths to robust systems, especially in Industry 4.0, where security, scalability, and real‑time processing are critical. For implementation: Connect via SPI/UART/I2C/PCIe/SDIO; ESP‑IDF supports multi‑device setups.
 
@@ -1231,3 +1241,4 @@ Leaving a ⭐ star and sharing your feedback is greatly appreciated!
 ## License
 
 [CC-BY-4.0](LICENSE)
+
