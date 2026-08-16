@@ -93,8 +93,8 @@ python3 -c "from pyld import jsonld; import json; jsonld.expand(json.load(open('
   `deep_sleep_ua` is explicitly `null` with a `note` explaining why —
   Espressif hasn't published it. A generator consuming this file can
   render "not yet published" instead of a guessed number or a silently
-  blank table cell. This directly addresses the "SCHREIBE NICHTS, WENN
-  ES NICHTS ZU VERMELDEN GIBT" principle from earlier in this project —
+  blank table cell. This directly addresses the "DON'T WRITE ANYTHING
+  IF THERE'S NOTHING TO REPORT" principle from earlier in this project —
   now it's enforced structurally instead of relying on manual discipline
   in every future edit.
 
