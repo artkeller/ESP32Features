@@ -299,7 +299,7 @@ Across the ESP32 family, HP-UART controllers share a uniform maximum baud rate o
 * **High-Speed Mode (3.4 Mbit/s):** Not supported natively on standard ESP32 I2C controllers.
 * **I3C Support:** Exclusive to **ESP32-P4** (supports I3C SDR/SDR-only Master/SDR-Slave modes up to 12.5 MHz).
 * **LP-I2C:** Present on ESP32-C6, ESP32-C5, and ESP32-P4 for sensor polling in low-power modes.
-* **Master / Slave Modes:** All general-purpose HP-I2C controllers support both Master and Slave roles.
+* **Master / Slave Modes:** All general-purpose HP-I2C controllers support both Master and Slave roles, **except ESP32-C2**, which is Master-only (`SOC_I2C_SUPPORT_SLAVE` is not defined for this target in ESP-IDF's `soc_caps.h`; confirmed via [tanakamasayuki/ESP-IDF-SoC-Check](https://github.com/tanakamasayuki/ESP-IDF-SoC-Check)). This is consistent with ESP32-C2's minimalist, cost-reduced feature set noted elsewhere in this document (no RMT, no MCPWM, no PARLIO).
 
 ### SPI
 
@@ -381,7 +381,7 @@ primary sources at time of writing - flagged as TBD rather than estimated.*
 | **ESP32 (original)** | None | 5 MBaud | Standard, Fast | 80 MHz (Master) / Single, Dual, Quad | 40 MHz / 2x I2S, PDM, Camera Parallel |
 | **ESP32-S2** | Full Speed (12 Mbit/s) | 5 MBaud | Standard, Fast | 80 MHz / Single, Dual, Quad | 40 MHz / 1x I2S, PDM |
 | **ESP32-S3** | Full Speed (12 Mbit/s) | 5 MBaud | Standard, Fast, Fast+ | 80 MHz / Octal (OPI), Quad, Dual | 40 MHz / 2x I2S, PDM RX/TX |
-| **ESP32-C2** | Serial/JTAG (12 Mbit/s) | 5 MBaud | Standard, Fast | 60 MHz / Single, Dual, Quad | 40 MHz / 1x I2S |
+| **ESP32-C2** | Serial/JTAG (12 Mbit/s) | 5 MBaud | Standard, Fast (Master‑only, no slave) | 60 MHz / Single, Dual, Quad | 40 MHz / 1x I2S |
 | **ESP32-C3** | Serial/JTAG (12 Mbit/s) | 5 MBaud | Standard, Fast, Fast+ | 60 MHz / Single, Dual, Quad | 40 MHz / 1x I2S, PDM |
 | **ESP32-C5** | Serial/JTAG (12 Mbit/s) | 5 MBaud | Standard, Fast, Fast+, LP-I2C | 80 MHz / Single, Dual, Quad | 40 MHz / 1x I2S, PDM |
 | **ESP32-C6** | Serial/JTAG (12 Mbit/s) | 5 MBaud | Standard, Fast, Fast+, LP-I2C | 80 MHz / Single, Dual, Quad, LP-SPI | 40 MHz / 1x I2S, PDM |
